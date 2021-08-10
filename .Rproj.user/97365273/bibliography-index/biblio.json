@@ -1,0 +1,507 @@
+{
+    "sources": [
+        {
+            "DOI": "10.1111/2041-210X.13091",
+            "URL": "http://doi.wiley.com/10.1111/2041-210X.13091",
+            "author": [
+                {
+                    "family": "Duthie",
+                    "given": "A. Bradley"
+                },
+                {
+                    "family": "Cusack",
+                    "given": "Jeremy J."
+                },
+                {
+                    "family": "Jones",
+                    "given": "Isabel L."
+                },
+                {
+                    "family": "Minderman",
+                    "given": "Jeroen"
+                },
+                {
+                    "family": "Nilsen",
+                    "given": "Erlend B."
+                },
+                {
+                    "family": "Pozo",
+                    "given": "Rocío A."
+                },
+                {
+                    "family": "Rakotonarivo",
+                    "given": "O. Sarobidy"
+                },
+                {
+                    "family": "Van Moorter",
+                    "given": "Bram"
+                },
+                {
+                    "family": "Bunnefeld",
+                    "given": "Nils"
+                }
+            ],
+            "container-title": "Methods in Ecology and Evolution",
+            "editor": [
+                {
+                    "family": "Price",
+                    "given": "Samantha"
+                }
+            ],
+            "id": "duthie2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        10,
+                        16
+                    ]
+                ]
+            },
+            "language": "en",
+            "title": "GMSE: An R package for generalised management strategy evaluation",
+            "title-short": "GMSE",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.1038/s41467-020-17785-2",
+            "URL": "http://www.nature.com/articles/s41467-020-17785-2",
+            "author": [
+                {
+                    "family": "Grimm",
+                    "given": "Volker"
+                },
+                {
+                    "family": "Johnston",
+                    "given": "Alice S. A."
+                },
+                {
+                    "family": "Thulke",
+                    "given": "H.-H."
+                },
+                {
+                    "family": "Forbes",
+                    "given": "V. E."
+                },
+                {
+                    "family": "Thorbek",
+                    "given": "P."
+                }
+            ],
+            "container-title": "Nature Communications",
+            "id": "grimm2020",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        12
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "4959",
+            "title": "Three questions to ask before using model outputs for decision support",
+            "type": "article-journal",
+            "volume": "11"
+        },
+        {
+            "DOI": "10.1038/536143a",
+            "URL": "http://www.nature.com/articles/536143a",
+            "author": [
+                {
+                    "family": "Maxwell",
+                    "given": "Sean L."
+                },
+                {
+                    "family": "Fuller",
+                    "given": "Richard A."
+                },
+                {
+                    "family": "Brooks",
+                    "given": "Thomas M."
+                },
+                {
+                    "family": "Watson",
+                    "given": "James E. M."
+                }
+            ],
+            "container-title": "Nature",
+            "id": "maxwell2016",
+            "issue": "7615",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016,
+                        8
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Bandiera_abtest: a Cg_type: Nature Research Journals Number: 7615 Primary_atype: Comments & Opinion Publisher: Nature Publishing Group Subject_term: Conservation biology;Environmental sciences Subject_term_id: conservation;environmental-sciences",
+            "page": "143-145",
+            "title": "Biodiversity: The ravages of guns, nets and bulldozers",
+            "title-short": "Biodiversity",
+            "type": "article-journal",
+            "volume": "536"
+        },
+        {
+            "DOI": "10.1038/nature14324",
+            "URL": "http://www.nature.com/articles/nature14324",
+            "author": [
+                {
+                    "family": "Newbold",
+                    "given": "Tim"
+                },
+                {
+                    "family": "Hudson",
+                    "given": "Lawrence N."
+                },
+                {
+                    "family": "Hill",
+                    "given": "Samantha L. L."
+                },
+                {
+                    "family": "Contu",
+                    "given": "Sara"
+                },
+                {
+                    "family": "Lysenko",
+                    "given": "Igor"
+                },
+                {
+                    "family": "Senior",
+                    "given": "Rebecca A."
+                },
+                {
+                    "family": "Börger",
+                    "given": "Luca"
+                },
+                {
+                    "family": "Bennett",
+                    "given": "Dominic J."
+                },
+                {
+                    "family": "Choimes",
+                    "given": "Argyrios"
+                },
+                {
+                    "family": "Collen",
+                    "given": "Ben"
+                },
+                {
+                    "family": "Day",
+                    "given": "Julie"
+                },
+                {
+                    "family": "De Palma",
+                    "given": "Adriana"
+                },
+                {
+                    "family": "Díaz",
+                    "given": "Sandra"
+                },
+                {
+                    "family": "Echeverria-Londoño",
+                    "given": "Susy"
+                },
+                {
+                    "family": "Edgar",
+                    "given": "Melanie J."
+                },
+                {
+                    "family": "Feldman",
+                    "given": "Anat"
+                },
+                {
+                    "family": "Garon",
+                    "given": "Morgan"
+                },
+                {
+                    "family": "Harrison",
+                    "given": "Michelle L. K."
+                },
+                {
+                    "family": "Alhusseini",
+                    "given": "Tamera"
+                },
+                {
+                    "family": "Ingram",
+                    "given": "Daniel J."
+                },
+                {
+                    "family": "Itescu",
+                    "given": "Yuval"
+                },
+                {
+                    "family": "Kattge",
+                    "given": "Jens"
+                },
+                {
+                    "family": "Kemp",
+                    "given": "Victoria"
+                },
+                {
+                    "family": "Kirkpatrick",
+                    "given": "Lucinda"
+                },
+                {
+                    "family": "Kleyer",
+                    "given": "Michael"
+                },
+                {
+                    "family": "Correia",
+                    "given": "David Laginha Pinto"
+                },
+                {
+                    "family": "Martin",
+                    "given": "Callum D."
+                },
+                {
+                    "family": "Meiri",
+                    "given": "Shai"
+                },
+                {
+                    "family": "Novosolov",
+                    "given": "Maria"
+                },
+                {
+                    "family": "Pan",
+                    "given": "Yuan"
+                },
+                {
+                    "family": "Phillips",
+                    "given": "Helen R. P."
+                },
+                {
+                    "family": "Purves",
+                    "given": "Drew W."
+                },
+                {
+                    "family": "Robinson",
+                    "given": "Alexandra"
+                },
+                {
+                    "family": "Simpson",
+                    "given": "Jake"
+                },
+                {
+                    "family": "Tuck",
+                    "given": "Sean L."
+                },
+                {
+                    "family": "Weiher",
+                    "given": "Evan"
+                },
+                {
+                    "family": "White",
+                    "given": "Hannah J."
+                },
+                {
+                    "family": "Ewers",
+                    "given": "Robert M."
+                },
+                {
+                    "family": "Mace",
+                    "given": "Georgina M."
+                },
+                {
+                    "family": "Scharlemann",
+                    "given": "Jörn P. W."
+                },
+                {
+                    "family": "Purvis",
+                    "given": "Andy"
+                }
+            ],
+            "container-title": "Nature",
+            "id": "newbold2015",
+            "issue": "7545",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015,
+                        4
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Bandiera_abtest: a Cg_type: Nature Research Journals Number: 7545 Primary_atype: Research Publisher: Nature Publishing Group Subject_term: Biodiversity;Community ecology;Conservation biology Subject_term_id: biodiversity;community-ecology;conservation",
+            "page": "45-50",
+            "title": "Global effects of land use on local terrestrial biodiversity",
+            "type": "article-journal",
+            "volume": "520"
+        },
+        {
+            "DOI": "10.1038/536143a",
+            "URL": "http://www.nature.com/articles/536143a",
+            "author": [
+                {
+                    "family": "Maxwell",
+                    "given": "Sean L."
+                },
+                {
+                    "family": "Fuller",
+                    "given": "Richard A."
+                },
+                {
+                    "family": "Brooks",
+                    "given": "Thomas M."
+                },
+                {
+                    "family": "Watson",
+                    "given": "James E. M."
+                }
+            ],
+            "container-title": "Nature",
+            "id": "maxwell2016a",
+            "issue": "7615",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016,
+                        8
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Bandiera_abtest: a Cg_type: Nature Research Journals Number: 7615 Primary_atype: Comments & Opinion Publisher: Nature Publishing Group Subject_term: Conservation biology;Environmental sciences Subject_term_id: conservation;environmental-sciences",
+            "page": "143-145",
+            "title": "Biodiversity: The ravages of guns, nets and bulldozers",
+            "title-short": "Biodiversity",
+            "type": "article-journal",
+            "volume": "536"
+        },
+        {
+            "DOI": "10.1021/acs.est.6b05296",
+            "URL": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=DOISource&SrcApp=WOS&KeyAID=10.1021%2Facs.est.6b05296&DestApp=DOI&SrcAppSID=D5AHbRjmszJTywaVr5k&SrcJTitle=ENVIRONMENTAL+SCIENCE+%26+TECHNOLOGY&DestDOIRegistrantName=American+Chemical+Society",
+            "author": [
+                {
+                    "family": "Wilting",
+                    "given": "Harry C."
+                },
+                {
+                    "family": "Schipper",
+                    "given": "Aafke M."
+                },
+                {
+                    "family": "Bakkenes",
+                    "given": "Michel"
+                },
+                {
+                    "family": "Meijer",
+                    "given": "Johan R."
+                },
+                {
+                    "family": "Huijbregts",
+                    "given": "Mark A. J."
+                }
+            ],
+            "container-title": "Environmental Science & Technology",
+            "id": "wilting2017",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        3,
+                        21
+                    ]
+                ]
+            },
+            "language": "en-US",
+            "note": "Place: Washington Publisher: Amer Chemical Soc WOS:000397477900021",
+            "page": "3298-3306",
+            "title": "Quantifying biodiversity losses due to human consumption: A global-scale footprint analysis",
+            "title-short": "Quantifying biodiversity losses due to human consumption",
+            "type": "article-journal",
+            "volume": "51"
+        },
+        {
+            "DOI": "10.1126/sciadv.1400253",
+            "URL": "http://advances.sciencemag.org/content/1/5/e1400253",
+            "author": [
+                {
+                    "family": "Ceballos",
+                    "given": "Gerardo"
+                },
+                {
+                    "family": "Ehrlich",
+                    "given": "Paul R."
+                },
+                {
+                    "family": "Barnosky",
+                    "given": "Anthony D."
+                },
+                {
+                    "family": "García",
+                    "given": "Andrés"
+                },
+                {
+                    "family": "Pringle",
+                    "given": "Robert M."
+                },
+                {
+                    "family": "Palmer",
+                    "given": "Todd M."
+                }
+            ],
+            "container-title": "Science Advances",
+            "id": "ceballos2015",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015,
+                        6,
+                        1
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Publisher: American Association for the Advancement of Science Section: Research Article",
+            "page": "e1400253",
+            "title": "Accelerated modern humaninduced species losses: Entering the sixth mass extinction",
+            "title-short": "Accelerated modern humaninduced species losses",
+            "type": "article-journal",
+            "volume": "1"
+        },
+        {
+            "DOI": "10.1073/pnas.1704949114",
+            "URL": "http://www.pnas.org/content/114/30/E6089",
+            "author": [
+                {
+                    "family": "Ceballos",
+                    "given": "Gerardo"
+                },
+                {
+                    "family": "Ehrlich",
+                    "given": "Paul R."
+                },
+                {
+                    "family": "Dirzo",
+                    "given": "Rodolfo"
+                }
+            ],
+            "container-title": "Proceedings of the National Academy of Sciences",
+            "id": "ceballos2017",
+            "issue": "30",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        7,
+                        25
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "ISBN: 9781704949116 Publisher: National Academy of Sciences Section: PNAS Plus PMID: 28696295",
+            "page": "E6089-E6096",
+            "title": "Biological annihilation via the ongoing sixth mass extinction signaled by vertebrate population losses and declines",
+            "type": "article-journal",
+            "volume": "114"
+        }
+    ],
+    "project_biblios": []
+}

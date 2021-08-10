@@ -1,0 +1,55 @@
+---
+title: "MS notes etc"
+author: "Jeroen Minderman"
+date: "10/08/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Thus, particularly for cases involving complex socio-ecological interactions involving both natural resource dynamics as well as human behaviour, models can quickly become highly complex and technically challenging to communicate to non-specialist audiences.
+
+It is clear that to produce models that are better able to represent complex real-world socio-ecological settings, we need a better means to both parameterise the human decision-making components in them, as well as improved means to communicate such models.
+
+-   Models general intro
+
+    -   Need for SE models
+
+    -   Issues with understandability/communication/application
+
+    -   Issues with data for parameterisation
+
+-   Introduce GMSE [@duthie2018], basics, application, issues?
+    Illustrates above issues.
+    Here or later?
+
+-   Games as novel means to link models, parameterisation, application; "games as models"
+
+    -   General use of games in science
+
+    -   Lack of use in terms of collecting "big data" for parameterisation.
+
+    -   (Need to weave in idea of "big data" sourcing of data in highly variable/multidimensional settings, as opposed to "single problem", highly contained/controlled settings. "Open" games ideal for this)
+
+    -   Parallel opportunity to improve understandability/communication.
+        "Double whammy" of communication and gathering data for parameterisation.
+
+\*General point by @grimm2020 - models often misunderstood/misused by decision makers but unclear "what is in them" - highligting need for clear description/communication.
+Interactivity/game approach allows for effective way to highlight what model is, and what it does/does not do?
+Also, interactivity means @grimm2020 Q3 ("is there evidence the model works") can be addressed - directly showing match of model output with empirical observations.
+\*
+
+-   Overall aim, etc.
+
+Games (specifically, video games) have been used extensively in research settings [as a communication tool and to collect data], including for socio-ecological research and modelling, but both practical implementations and proposals for such "serious games"[^1] are often primarily or exclusively focused on educational or promotional angles.
+
+For example XXX, XXX, XXX. Where games have been used to collect data, as far as we are aware this has been solely focused on empirical data collection for a specific purpose/research question as opposed to allowing player-users to interact with a model in a more open setting.
+*[INCLUDE NOTE ON 'VIRTUAL LABORATORIES']*
+
+Thus, casting models as games, and games as interactive models, not only has the potential to improve the communication and use of complex models in applied settings, it can further provide a platform for collecting data on human decision-making in complex socio-ecological settings, potentially allowing for a "big data" way of improving model parameterisation.
+
+[^1]: We dislike and would discourage the use of this phrase.
+    What is "serious"?
+    It implies a bias against playability and "fun", which arguably is a key reason for using games in science in the first place - if it is not fun, it is arguably simply an interactive survey with participants.
