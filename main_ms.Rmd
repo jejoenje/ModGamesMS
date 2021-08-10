@@ -3,7 +3,8 @@ title: '''Gamesourcing'' data for socio-ecological models'
 author: "Jeroen Minderman"
 date: "05/08/2021"
 output:
-  word_document: default
+  word_document:
+    reference_docx: "template.docx"
   html_document:
     css: main_ms.css
 bibliography: references.bib
