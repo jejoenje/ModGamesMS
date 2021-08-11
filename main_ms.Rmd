@@ -1,7 +1,5 @@
 ---
-title: '''Gamesourcing'' data for socio-ecological models'
-author: "Jeroen Minderman"
-date: "05/08/2021"
+title: "Models as games: a novel approach for 'gamesourcing' parameter data and communicating complex models"
 output:
   word_document:
     reference_docx: "template.docx"
@@ -14,6 +12,10 @@ bibliography: references.bib
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+*Jeroen Minderman^1^, A. Bradley Duthie^1^, Nils Bunnefeld^1^*
+
+^1^ConFooBio, Biological & Environmental Sciences, University of Stirling, Stirling, FK10 3BA
+
 # Summary
 
 # Introduction
@@ -22,27 +24,21 @@ In recent years, the use and application of models has become widespread and ind
 Thus, the development of socio-ecological models in which natural resource dynamics and human decision making interact is becoming increasingly urgent.
 
 Cutting-edge modelling approaches have made significant progress towards this goal.
-For example, XXX XXX. Although such modelling efforts represent significant progress in modelling complex socio-ecological systems, their increased complexity poses to two, interlinked, challenges.
-First, models are often difficult to communicate clearly to non-specialist audiences in the first place, and this challenge increases with model complexity.
-This is particularly important for models for resource use in socio-ecological systems, as they are often specifically intended for use by managers or stakeholders who may lack technical expertise.
-Much has been said about improving the uptake of models in such settings, and detailed documentation of the purpose, organisation and predictions has been highlighted as particularly important [@grimm2020]. Even so, often the evidence for practical uptake of many models is limited [**REF**]. Second, their complexity implies the need for extensive data to parameterise them effectively. In terms of socio-ecological systems, while data to parameterise the ecological component are often relatively easily available, empirical data on which to base modelled human decision-making is much rarer, and often highly context-specific [**general ref?**].
+For example, @orach2020 used an agent-based model to show how coalitions of interest groups can stabilise natural resource dynamics, whereas @cusack2020 used a novel agent-based modelling framework [@duthie2018] to assess the effect of lobbying on species extinction risk. Although such modelling efforts represent significant progress in modelling complex socio-ecological systems, their increased complexity poses to two, interlinked, challenges. First, models are often difficult to communicate clearly to non-specialist audiences in the first place [**REF?**], and this challenge increases with model complexity. This is particularly important for models for resource use in socio-ecological systems, as they are often specifically intended for use by managers or stakeholders who may lack technical expertise. Much has been said about improving the uptake of models in such settings [e.g. @addison2013; @schuwirth2019; @will2021], and detailed documentation of the purpose, organisation and predictions has been highlighted as particularly important [@grimm2020]. Even so, often the evidence for practical uptake of many models is limited [@addison2013; @zasada2017]. Second, their complexity implies the need for extensive data to parameterise them effectively. In terms of socio-ecological systems, while data to parameterise the ecological component are often relatively easily available, the human decision-making components are often based on limited theory and lack a general empirical basis [@groeneveld2017]. Not only may this lead to limited predictive power, a perceived lack of empirical basis may negatively affect their acceptance by stakeholders [cf. model "quality" as in @kolkman2016].
+To maximise the adoption of complex socio-ecological models as management tools, both appropriate representation of human decision-making and effective communication are therefore key.
 
-In short, it is clear that successful applications of such models rely not only on effective and accurate parameterisation, but also on effective communication of both the model itself as well as its inputs and outputs, particularly to non-specialist audiences.
-
-Games have a long history of being used as educational tools, and in research settings as tools to communicate complex ideas and processes to non-specialists, including in socio-ecological studies.
-[EXAMPLES OF EDUCATIONAL/PROMOTIONAL GAMES] [NOTE ON CONCEPTUAL VALUE OF USING GAMES IN THESE SETTINGS].
-
+Games have a long history of being used as research tools, particularly for aiding the communication of complex ideas and processes to non-specialists, and increasing stakeholder engagement.
+[**For example, XXX , XXX, XXX**].
 Given this long history, it is striking that the parallels between games (particularly videogames) and models are not discussed more widely.
 All models are abstract representations of environments, actors and relationships, with inputs (parameters) and outputs (predictions or inferences).
 Similarly, all games present a player with an environment in a given state (parameters), including one or more actors, which can take actions (inputs) to affect the environment for a given effect (outputs).
 It is worth stressing that every game has an underlying model that defines the state of the environment, relationships between objects in this environment, and inputs and outputs available to the player.
-However, while games are by definition designed with player (user) interaction in mind, models rarely have user-facing or even user-friendly interfaces, and running or adapting them to specific circumstances often relies on technical expertise.
-Casting models as games therefore provides an opportunity to effectively improve the communication and understandability of even relatively complex models.
+However, while games are by definition designed with player (user) interaction in mind, models rarely have user-facing or even user-friendly interfaces, and running or adapting them to specific circumstances usually relies on technical expertise.
+Casting models as games provides an opportunity to effectively improve the communication and understandability of even relatively complex models.
 Inputs and outputs may be presented in a visual way and tweaked depending on the type of audience, and both potential applications and limitations of the model can be demonstrated effectively.
 
-In addition, presenting a model as a game provides an opportunity to empirically collect data on how stakeholders make decisions in the modelled environment
-
-Thus, model-games can be considered "virtual laboratories" to not only test specific hypotheses or predictions, but potentially also as an effective method to source data to parameterise the underlying models, based on in-game decisions by real humans.
+In addition, presenting a model as a game provides an opportunity to empirically collect data on how stakeholders make decisions in the modelled environment.
+Games have already been widely used for data collection to answer specific questions [e.g. @meinzen-dick2016; @villamor2016; @rakotonarivo2021; @rakotonarivo2021a] on what affects decision-making in socio-ecological systems. A less well-explored potential of using this approach is using in-game decisions directly as a "big data" source to improve the parameterisation of the underlying model itself. Many existing models represent human decision-making by relatively crude algorithms (e.g. fully rational utility maximisation) despite widespread recognition that this does not reflects real-world decision-making [@groeneveld2017]. By presenting real-world stakeholders with in-game decisions that would otherwise be taken by a predefined algorithm, large data sets of actions and outcomes may be collected. Given a large enough sample of players and in-game conditions, such data might then be used to train decision-making algorithms that better reflect human decision-making in natural resource management. It is notable that this "gamesourcing" or "Gamorithm" [@sipper2020] approach has already been used in a number of other fields (e.g. crowdsourcing accurate protein-structure models [@khatib2011] and classification of fluorescence microscopy images [@sullivan2018]), but not yet in conservation science. Thus, model-games can be considered "virtual laboratories" [@duthie2021] to not only test specific hypotheses or predictions, but potentially also as an effective method to source data to parameterise the underlying models, based on in-game decisions by real humans.
 
 We here aim to illustrate the potential for this model-game approach, both in terms of aiding model communication as well data collection for improved parameterisation, by introducing Animal&Farm (A&F).
 We developed A&F as a simple interactive game front-end for a complex socio-ecological modelling framework (GMSE), in which the player acts as the manager of a virtual environment in which a population of wild grazing animals (the natural resource) may adversely affect farming yield, with farmers acting to maximise their yield and potentially hunting the animals.
@@ -50,7 +46,7 @@ We argue that that by acting as an interface between users (i.e. players) and a 
 We first briefly summarise the underlying modelling framework, its potential and limitations.
 Second, we describe both the structure of A&F itself as well as its database back-end.
 Third, we outline how this approach may be used to collect data on player decision-making in simulated *in silico* experiments, and present some example results of doing so; noting that these findings are intended as illustrative only.
-Finally, we discuss both the limitations of this approach, using test player feedback as a basis for this, as well as its wider potential.
+Finally, using test player feedback as a basis, we discuss both the limitations of this approach as well as its wider potential.
 
 # Outline of approach
 

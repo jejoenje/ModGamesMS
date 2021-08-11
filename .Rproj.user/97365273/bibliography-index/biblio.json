@@ -501,6 +501,1016 @@
             "title": "Biological annihilation via the ongoing sixth mass extinction signaled by vertebrate population losses and declines",
             "type": "article-journal",
             "volume": "114"
+        },
+        {
+            "DOI": "10.5751/ES-11552-250213",
+            "URL": "https://www.ecologyandsociety.org/vol25/iss2/art13/",
+            "author": [
+                {
+                    "family": "Cusack",
+                    "given": "Jeremy"
+                },
+                {
+                    "family": "Duthie",
+                    "given": "A."
+                },
+                {
+                    "family": "Minderman",
+                    "given": "Jeroen"
+                },
+                {
+                    "family": "Jones",
+                    "given": "Isabel"
+                },
+                {
+                    "family": "Pozo",
+                    "given": "Rocío"
+                },
+                {
+                    "family": "Rakotonarivo",
+                    "given": "O."
+                },
+                {
+                    "family": "Redpath",
+                    "given": "Steve"
+                },
+                {
+                    "family": "Bunnefeld",
+                    "given": "Nils"
+                }
+            ],
+            "container-title": "Ecology and Society",
+            "id": "cusack2020",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        5,
+                        7
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Publisher: The Resilience Alliance",
+            "title": "Integrating conflict, lobbying, and compliance to predict the sustainability of natural resource use",
+            "type": "article-journal",
+            "volume": "25"
+        },
+        {
+            "DOI": "10.1126/science.1185802",
+            "URL": "http://www.sciencemag.org/cgi/doi/10.1126/science.1185802",
+            "author": [
+                {
+                    "family": "Fryxell",
+                    "given": "J. M."
+                },
+                {
+                    "family": "Packer",
+                    "given": "C."
+                },
+                {
+                    "family": "McCann",
+                    "given": "K."
+                },
+                {
+                    "family": "Solberg",
+                    "given": "E. J."
+                },
+                {
+                    "family": "Saether",
+                    "given": "B.-E."
+                }
+            ],
+            "container-title": "Science",
+            "id": "fryxell2010",
+            "issue": "5980",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010,
+                        5,
+                        14
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "903-906",
+            "title": "Resource Management Cycles and the Sustainability of Harvested Wildlife Populations",
+            "type": "article-journal",
+            "volume": "328"
+        },
+        {
+            "URL": "https://www.ipcc.ch/report/ar6/wg1/",
+            "author": [
+                {
+                    "family": "IPCC"
+                }
+            ],
+            "id": "ipcc2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "title": "Climate change 2021: The physical science basis. Contribution of working group i to the sixth assessment report of the intergovernmental panel on climate change",
+            "title-short": "Climate change 2021",
+            "type": "report"
+        },
+        {
+            "DOI": "10.1098/rstb.2011.0175",
+            "URL": "https://royalsocietypublishing.org/doi/full/10.1098/rstb.2011.0175",
+            "author": [
+                {
+                    "family": "Milner-Gulland",
+                    "given": "E. J."
+                }
+            ],
+            "container-title": "Philosophical Transactions of the Royal Society B: Biological Sciences",
+            "id": "milner-gulland2012",
+            "issue": "1586",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012,
+                        1,
+                        19
+                    ]
+                ]
+            },
+            "note": "Publisher: Royal Society",
+            "page": "270-278",
+            "title": "Interactions between human behaviour and ecological systems",
+            "type": "article-journal",
+            "volume": "367"
+        },
+        {
+            "DOI": "10.1111/j.1939-7445.2011.00108.x",
+            "URL": "https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1939-7445.2011.00108.x",
+            "author": [
+                {
+                    "family": "Schlüter",
+                    "given": "M."
+                },
+                {
+                    "family": "Mcallister",
+                    "given": "R. R. J."
+                },
+                {
+                    "family": "Arlinghaus",
+                    "given": "R."
+                },
+                {
+                    "family": "Bunnefeld",
+                    "given": "N."
+                },
+                {
+                    "family": "Eisenack",
+                    "given": "K."
+                },
+                {
+                    "family": "Hölker",
+                    "given": "F."
+                },
+                {
+                    "family": "Milner-Gulland",
+                    "given": "E. J."
+                },
+                {
+                    "family": "Müller",
+                    "given": "B."
+                },
+                {
+                    "family": "Nicholson",
+                    "given": "E."
+                },
+                {
+                    "family": "Quaas",
+                    "given": "M."
+                },
+                {
+                    "family": "Stöven",
+                    "given": "M."
+                }
+            ],
+            "container-title": "Natural Resource Modeling",
+            "id": "schlüter2012",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1939-7445.2011.00108.x",
+            "page": "219-272",
+            "title": "New Horizons for Managing the Environment: A Review of Coupled Social-Ecological Systems Modeling",
+            "title-short": "New Horizons for Managing the Environment",
+            "type": "article-journal",
+            "volume": "25"
+        },
+        {
+            "DOI": "10.1038/s41562-020-0885-y",
+            "URL": "http://www.nature.com/articles/s41562-020-0885-y",
+            "author": [
+                {
+                    "family": "Orach",
+                    "given": "Kirill"
+                },
+                {
+                    "family": "Duit",
+                    "given": "Andreas"
+                },
+                {
+                    "family": "Schlüter",
+                    "given": "Maja"
+                }
+            ],
+            "container-title": "Nature Human Behaviour",
+            "id": "orach2020",
+            "issue": "9",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        9
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Number: 9 Publisher: Nature Publishing Group",
+            "page": "898-909",
+            "title": "Sustainable natural resource governance under interest group competition in policy-making",
+            "type": "article-journal",
+            "volume": "4"
+        },
+        {
+            "DOI": "10.1111/ddi.12054",
+            "URL": "http://onlinelibrary.wiley.com/doi/10.1111/ddi.12054",
+            "author": [
+                {
+                    "family": "Addison",
+                    "given": "Prue F. E."
+                },
+                {
+                    "family": "Rumpff",
+                    "given": "Libby"
+                },
+                {
+                    "family": "Bau",
+                    "given": "S. Sana"
+                },
+                {
+                    "family": "Carey",
+                    "given": "Janet M."
+                },
+                {
+                    "family": "Chee",
+                    "given": "Yung En"
+                },
+                {
+                    "family": "Jarrad",
+                    "given": "Frith C."
+                },
+                {
+                    "family": "McBride",
+                    "given": "Marissa F."
+                },
+                {
+                    "family": "Burgman",
+                    "given": "Mark A."
+                }
+            ],
+            "container-title": "Diversity and Distributions",
+            "id": "addison2013",
+            "issue": "5-6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013,
+                        5,
+                        1
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Publisher: John Wiley & Sons, Ltd",
+            "page": "490-502",
+            "title": "Practical solutions for making models indispensable in conservation decision-making",
+            "type": "article-journal",
+            "volume": "19"
+        },
+        {
+            "DOI": "10.1016/j.ecolmodel.2019.108784",
+            "URL": "https://www.sciencedirect.com/science/article/pii/S0304380019302923",
+            "author": [
+                {
+                    "family": "Schuwirth",
+                    "given": "Nele"
+                },
+                {
+                    "family": "Borgwardt",
+                    "given": "Florian"
+                },
+                {
+                    "family": "Domisch",
+                    "given": "Sami"
+                },
+                {
+                    "family": "Friedrichs",
+                    "given": "Martin"
+                },
+                {
+                    "family": "Kattwinkel",
+                    "given": "Mira"
+                },
+                {
+                    "family": "Kneis",
+                    "given": "David"
+                },
+                {
+                    "family": "Kuemmerlen",
+                    "given": "Mathias"
+                },
+                {
+                    "family": "Langhans",
+                    "given": "Simone D."
+                },
+                {
+                    "family": "Martínez-López",
+                    "given": "Javier"
+                },
+                {
+                    "family": "Vermeiren",
+                    "given": "Peter"
+                }
+            ],
+            "container-title": "Ecological Modelling",
+            "id": "schuwirth2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        11,
+                        1
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "108784",
+            "title": "How to make ecological models useful for environmental management",
+            "type": "article-journal",
+            "volume": "411"
+        },
+        {
+            "DOI": "10.1002/pan3.10207",
+            "URL": "http://besjournals.onlinelibrary.wiley.com/doi/abs/10.1002/pan3.10207",
+            "author": [
+                {
+                    "family": "Will",
+                    "given": "Meike"
+                },
+                {
+                    "family": "Dressler",
+                    "given": "Gunnar"
+                },
+                {
+                    "family": "Kreuer",
+                    "given": "David"
+                },
+                {
+                    "family": "Thulke",
+                    "given": "Hans-Hermann"
+                },
+                {
+                    "family": "Grêt-Regamey",
+                    "given": "Adrienne"
+                },
+                {
+                    "family": "Müller",
+                    "given": "Birgit"
+                }
+            ],
+            "container-title": "People and Nature",
+            "id": "will2021",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/pan3.10207",
+            "page": "560-572",
+            "title": "How to make socio-environmental modelling more useful to support policy and management?",
+            "type": "article-journal",
+            "volume": "3"
+        },
+        {
+            "DOI": "10.1016/j.envsoft.2016.10.008",
+            "URL": "https://www.sciencedirect.com/science/article/pii/S1364815216308684",
+            "author": [
+                {
+                    "family": "Groeneveld",
+                    "given": "J."
+                },
+                {
+                    "family": "Müller",
+                    "given": "B."
+                },
+                {
+                    "family": "Buchmann",
+                    "given": "C. M."
+                },
+                {
+                    "family": "Dressler",
+                    "given": "G."
+                },
+                {
+                    "family": "Guo",
+                    "given": "C."
+                },
+                {
+                    "family": "Hase",
+                    "given": "N."
+                },
+                {
+                    "family": "Hoffmann",
+                    "given": "F."
+                },
+                {
+                    "family": "John",
+                    "given": "F."
+                },
+                {
+                    "family": "Klassert",
+                    "given": "C."
+                },
+                {
+                    "family": "Lauf",
+                    "given": "T."
+                },
+                {
+                    "family": "Liebelt",
+                    "given": "V."
+                },
+                {
+                    "family": "Nolzen",
+                    "given": "H."
+                },
+                {
+                    "family": "Pannicke",
+                    "given": "N."
+                },
+                {
+                    "family": "Schulze",
+                    "given": "J."
+                },
+                {
+                    "family": "Weise",
+                    "given": "H."
+                },
+                {
+                    "family": "Schwarz",
+                    "given": "N."
+                }
+            ],
+            "container-title": "Environmental Modelling & Software",
+            "id": "groeneveld2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        1,
+                        1
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "39-48",
+            "title": "Theoretical foundations of human decision-making in agent-based land use models  A review",
+            "type": "article-journal",
+            "volume": "87"
+        },
+        {
+            "DOI": "10.1016/j.envsoft.2017.09.012",
+            "URL": "https://www.sciencedirect.com/science/article/pii/S1364815216308283",
+            "author": [
+                {
+                    "family": "Zasada",
+                    "given": "Ingo"
+                },
+                {
+                    "family": "Piorr",
+                    "given": "Annette"
+                },
+                {
+                    "family": "Novo",
+                    "given": "Paula"
+                },
+                {
+                    "family": "Villanueva",
+                    "given": "Anastasio J."
+                },
+                {
+                    "family": "Valánszki",
+                    "given": "István"
+                }
+            ],
+            "container-title": "Environmental Modelling & Software",
+            "id": "zasada2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        12,
+                        1
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "63-74",
+            "title": "What do we know about decision support systems for landscape and environmental management? A review and expert survey within EU research projects",
+            "type": "article-journal",
+            "volume": "98"
+        },
+        {
+            "DOI": "10.1007/s11077-016-9250-4",
+            "URL": "https://doi.org/10.1007/s11077-016-9250-4",
+            "author": [
+                {
+                    "family": "Kolkman",
+                    "given": "Daniel Antony"
+                },
+                {
+                    "family": "Campo",
+                    "given": "Paolo"
+                },
+                {
+                    "family": "Balke-Visser",
+                    "given": "Tina"
+                },
+                {
+                    "family": "Gilbert",
+                    "given": "Nigel"
+                }
+            ],
+            "container-title": "Policy Sciences",
+            "id": "kolkman2016",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016,
+                        12,
+                        1
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "489-504",
+            "title": "How to build models for government: criteria driving model acceptance in policymaking",
+            "title-short": "How to build models for government",
+            "type": "article-journal",
+            "volume": "49"
+        },
+        {
+            "DOI": "10.5751/ES-08416-210338",
+            "URL": "http://www.ecologyandsociety.org/vol21/iss3/art38/",
+            "author": [
+                {
+                    "family": "Meinzen-Dick",
+                    "given": "Ruth"
+                },
+                {
+                    "family": "Chaturvedi",
+                    "given": "Rahul"
+                },
+                {
+                    "family": "Domènech",
+                    "given": "Laia"
+                },
+                {
+                    "family": "Ghate",
+                    "given": "Rucha"
+                },
+                {
+                    "family": "Janssen",
+                    "given": "Marco"
+                },
+                {
+                    "family": "Rollins",
+                    "given": "Nathan"
+                },
+                {
+                    "family": "Sandeep",
+                    "given": "K."
+                }
+            ],
+            "container-title": "Ecology and Society",
+            "id": "meinzen-dick2016",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016,
+                        9,
+                        21
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Publisher: The Resilience Alliance",
+            "title": "Games for groundwater governance: field experiments in Andhra Pradesh, India",
+            "title-short": "Games for groundwater governance",
+            "type": "article-journal",
+            "volume": "21"
+        },
+        {
+            "DOI": "10.5751/ES-12306-260208",
+            "URL": "https://www.ecologyandsociety.org/vol26/iss2/art8/",
+            "author": [
+                {
+                    "family": "Rakotonarivo",
+                    "given": "Sarobidy"
+                },
+                {
+                    "family": "Bell",
+                    "given": "Andrew"
+                },
+                {
+                    "family": "Abernethy",
+                    "given": "Katharine"
+                },
+                {
+                    "family": "Minderman",
+                    "given": "Jeroen"
+                },
+                {
+                    "family": "Duthie",
+                    "given": "A."
+                },
+                {
+                    "family": "Redpath",
+                    "given": "Steve"
+                },
+                {
+                    "family": "Keane",
+                    "given": "Aidan"
+                },
+                {
+                    "family": "Travers",
+                    "given": "Henry"
+                },
+                {
+                    "family": "Bourgeois",
+                    "given": "Stephanie"
+                },
+                {
+                    "family": "Moukagni",
+                    "given": "Lea-Larissa"
+                },
+                {
+                    "family": "Cusack",
+                    "given": "Jeremy"
+                },
+                {
+                    "family": "Jones",
+                    "given": "Isabel"
+                },
+                {
+                    "family": "Pozo",
+                    "given": "Rocío"
+                },
+                {
+                    "family": "Bunnefeld",
+                    "given": "Nils"
+                }
+            ],
+            "container-title": "Ecology and Society",
+            "id": "rakotonarivo2021",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021,
+                        4,
+                        26
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Publisher: The Resilience Alliance",
+            "title": "The role of incentive-based instruments and social equity in conservation conflict interventions",
+            "type": "article-journal",
+            "volume": "26"
+        },
+        {
+            "DOI": "10.5751/ES-08139-210139",
+            "URL": "http://www.ecologyandsociety.org/vol21/iss1/art39/#grazconcept",
+            "author": [
+                {
+                    "family": "Villamor",
+                    "given": "Grace"
+                },
+                {
+                    "family": "Badmos",
+                    "given": "Biola"
+                }
+            ],
+            "container-title": "Ecology and Society",
+            "id": "villamor2016",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016,
+                        3,
+                        28
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Publisher: The Resilience Alliance",
+            "title": "Grazing game: a learning tool for adaptive management in response to climate variability in semiarid areas of Ghana",
+            "title-short": "Grazing game",
+            "type": "article-journal",
+            "volume": "21"
+        },
+        {
+            "DOI": "10.1002/pan3.10155",
+            "URL": "http://besjournals.onlinelibrary.wiley.com/doi/abs/10.1002/pan3.10155",
+            "author": [
+                {
+                    "family": "Rakotonarivo",
+                    "given": "Onjamirindra S."
+                },
+                {
+                    "family": "Jones",
+                    "given": "Isabel L."
+                },
+                {
+                    "family": "Bell",
+                    "given": "Andrew"
+                },
+                {
+                    "family": "Duthie",
+                    "given": "Alexander B."
+                },
+                {
+                    "family": "Cusack",
+                    "given": "Jeremy"
+                },
+                {
+                    "family": "Minderman",
+                    "given": "Jeroen"
+                },
+                {
+                    "family": "Hogan",
+                    "given": "Jessica"
+                },
+                {
+                    "family": "Hodgson",
+                    "given": "Isla"
+                },
+                {
+                    "family": "Bunnefeld",
+                    "given": "Nils"
+                }
+            ],
+            "container-title": "People and Nature",
+            "id": "rakotonarivo2021a",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/pan3.10155",
+            "page": "162-175",
+            "title": "Experimental evidence for conservation conflict interventions: The importance of financial payments, community trust and equity attitudes",
+            "title-short": "Experimental evidence for conservation conflict interventions",
+            "type": "article-journal",
+            "volume": "3"
+        },
+        {
+            "DOI": "10.1073/pnas.1115898108",
+            "URL": "http://www.pnas.org/content/108/47/18949",
+            "author": [
+                {
+                    "family": "Khatib",
+                    "given": "Firas"
+                },
+                {
+                    "family": "Cooper",
+                    "given": "Seth"
+                },
+                {
+                    "family": "Tyka",
+                    "given": "Michael D."
+                },
+                {
+                    "family": "Xu",
+                    "given": "Kefan"
+                },
+                {
+                    "family": "Makedon",
+                    "given": "Ilya"
+                },
+                {
+                    "family": "Popović",
+                    "given": "Zoran"
+                },
+                {
+                    "family": "Baker",
+                    "given": "David"
+                },
+                {
+                    "family": "Players",
+                    "given": "Foldit"
+                }
+            ],
+            "container-title": "Proceedings of the National Academy of Sciences",
+            "id": "khatib2011",
+            "issue": "47",
+            "issued": {
+                "date-parts": [
+                    [
+                        2011,
+                        11,
+                        22
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "ISBN: 9781115898102 Publisher: National Academy of Sciences Section: Biological Sciences PMID: 22065763",
+            "page": "18949-18953",
+            "title": "Algorithm discovery by protein folding game players",
+            "type": "article-journal",
+            "volume": "108"
+        },
+        {
+            "DOI": "10.1038/nbt.4225",
+            "URL": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=DOISource&SrcApp=WOS&KeyAID=10.1038%2Fnbt.4225&DestApp=DOI&SrcAppSID=C5vy4ip7FYWSnkZj9Zg&SrcJTitle=NATURE+BIOTECHNOLOGY&DestDOIRegistrantName=Springer+Science+and+Business+Media+LLC",
+            "author": [
+                {
+                    "family": "Sullivan",
+                    "given": "Devin P."
+                },
+                {
+                    "family": "Winsnes",
+                    "given": "Casper F."
+                },
+                {
+                    "family": "Akesson",
+                    "given": "Lovisa"
+                },
+                {
+                    "family": "Hjelmare",
+                    "given": "Martin"
+                },
+                {
+                    "family": "Wiking",
+                    "given": "Mikaela"
+                },
+                {
+                    "family": "Schutten",
+                    "given": "Rutger"
+                },
+                {
+                    "family": "Campbell",
+                    "given": "Linzi"
+                },
+                {
+                    "family": "Leifsson",
+                    "given": "Hjalti"
+                },
+                {
+                    "family": "Rhodes",
+                    "given": "Scott"
+                },
+                {
+                    "family": "Nordgren",
+                    "given": "Andie"
+                },
+                {
+                    "family": "Smith",
+                    "given": "Kevin"
+                },
+                {
+                    "family": "Revaz",
+                    "given": "Bernard"
+                },
+                {
+                    "family": "Finnbogason",
+                    "given": "Bergur"
+                },
+                {
+                    "family": "Szantner",
+                    "given": "Attila"
+                },
+                {
+                    "family": "Lundberg",
+                    "given": "Emma"
+                }
+            ],
+            "container-title": "Nature Biotechnology",
+            "id": "sullivan2018",
+            "issue": "9",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        9
+                    ]
+                ]
+            },
+            "language": "en-US",
+            "note": "Place: New York Publisher: Nature Publishing Group WOS:000443986000023",
+            "page": "820-+",
+            "title": "Deep learning is combined with massive-scale citizen science to improve large-scale image classification",
+            "type": "article-journal",
+            "volume": "36"
+        },
+        {
+            "DOI": "10.1109/TG.2018.2867743",
+            "author": [
+                {
+                    "family": "Sipper",
+                    "given": "Moshe"
+                },
+                {
+                    "family": "Moore",
+                    "given": "Jason H."
+                }
+            ],
+            "container-title": "IEEE Transactions on Games",
+            "id": "sipper2020",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        3
+                    ]
+                ]
+            },
+            "note": "Conference Name: IEEE Transactions on Games",
+            "page": "115-118",
+            "title": "Gamorithm",
+            "type": "article-journal",
+            "volume": "12"
+        },
+        {
+            "DOI": "10.1111/cobi.13633",
+            "URL": "http://conbio.onlinelibrary.wiley.com/doi/abs/10.1111/cobi.13633",
+            "author": [
+                {
+                    "family": "Duthie",
+                    "given": "A. Bradley"
+                },
+                {
+                    "family": "Minderman",
+                    "given": "Jeroen"
+                },
+                {
+                    "family": "Rakotonarivo",
+                    "given": "O. Sarobidy"
+                },
+                {
+                    "family": "Ochoa",
+                    "given": "Gabriela"
+                },
+                {
+                    "family": "Bunnefeld",
+                    "given": "Nils"
+                }
+            ],
+            "container-title": "Conservation Biology",
+            "id": "duthie2021",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1111/cobi.13633",
+            "page": "1051-1053",
+            "title": "Online multiplayer games as virtual laboratories for collecting data on social-ecological decision making",
+            "type": "article-journal",
+            "volume": "35"
         }
     ],
     "project_biblios": []
