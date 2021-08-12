@@ -9,6 +9,11 @@ bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
+library(GMSE)
+library(shiny)
+library(shinyBS)
+library(shinyjs)
+library(waiter)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -20,14 +25,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction
 
-In recent years, the use and application of models has become widespread and indispensable in conservation science, ranging from demonstrating the likely effects of climate change [@ipcc2021] to supporting the understanding of fundamental processes in natural resource management [e.g. @fryxell2010; @cusack2020].
-Given the continued rapid global loss of biodiversity [@ceballos2015; @ceballos2017], understanding the mechanisms and consequences of such loss is vital.
-Although a number of drivers of biodiversity loss have been identified [e.g. @maxwell2016a], one of the most prevalent and widespread ones is human exploitation of habitats and natural resources, both directly (e.g. through hunting or habitat loss to agriculture) or indirectly (e.g. through international trade in natural resources) [e.g. @wilting2017].
-Because resource use is fundamentally driven by economic and social processes, it has long been recognised that accurate predictions thereof is reliant as much on understanding resource dynamics as it is on understanding human behaviour and decision-making [@milner-gulland2012; @schlüter2012].
+In recent years, the use and application of models has become widespread and indispensable in conservation science, ranging from demonstrating the likely effects of climate change [@ipcc2021] to supporting the understanding of fundamental processes in natural resource management [e.g. @fryxell2010; @cusack2020]. Given the continued rapid global loss of biodiversity [@ceballos2015; @ceballos2017], understanding the mechanisms and consequences of such loss is vital. Although a number of drivers of biodiversity loss have been identified [e.g. @maxwell2016a], one of the most prevalent and widespread ones is human exploitation of habitats and natural resources, both directly (e.g. through hunting or habitat loss to agriculture) or indirectly (e.g. through international trade in natural resources) [e.g. @wilting2017]. Because resource use is fundamentally driven by economic and social processes, it has long been recognised that accurate predictions thereof is reliant as much on understanding resource dynamics as it is on understanding human behaviour and decision-making [@milner-gulland2012; @schlüter2012].
 Thus, the development of socio-ecological models in which natural resource dynamics and human decision making interact is becoming increasingly urgent.
 
 Cutting-edge modelling approaches have made significant progress towards this goal.
-For example, @orach2020 used an agent-based model to show how coalitions of interest groups can stabilise natural resource dynamics, whereas @cusack2020 used a novel agent-based modelling framework [@duthie2018] to assess the effect of lobbying on species extinction risk. Although such modelling efforts represent significant progress in modelling complex socio-ecological systems, their increased complexity poses to two, interlinked, challenges. First, models are often difficult to communicate clearly to non-specialist audiences in the first place, and this challenge increases with model complexity . This is particularly important for models for resource use in socio-ecological systems, as they are often specifically intended for use by managers or stakeholders who may lack technical expertise. Much has been said about improving the uptake of models in such settings [e.g. @addison2013; @schuwirth2019; @will2021], and detailed documentation of the purpose, organisation and predictions has been highlighted as particularly important [@grimm2020]. Even so, often the evidence for practical uptake of many models is limited [@addison2013; @zasada2017]. Second, their complexity implies the need for extensive data to parameterise them effectively. In terms of socio-ecological systems, while data to parameterise the ecological component are often relatively easily available, the human decision-making components are often based on limited theory and lack a general empirical basis [@groeneveld2017]. Not only may this lead to limited predictive power, a perceived lack of empirical basis may negatively affect their acceptance by stakeholders [cf. model "quality" as in @kolkman2016].
+For example, @orach2020 used an agent-based model to show how coalitions of interest groups can stabilise natural resource dynamics, whereas @cusack2020 used a novel agent-based modelling framework [@duthie2018] to assess the effect of lobbying on species extinction risk. Although such modelling efforts represent significant progress in modelling complex socio-ecological systems, their increased complexity poses to two, interlinked, challenges. First, models are often difficult to communicate clearly to non-specialist audiences in the first place, and this challenge increases with model complexity [@grimm2006]. This is particularly important for models for resource use in socio-ecological systems, as they are often specifically intended for use by managers or stakeholders who may lack technical expertise. Much has been said about improving the uptake of models in such settings [e.g. @addison2013; @schuwirth2019; @will2021], and detailed documentation of the purpose, organisation and predictions has been highlighted as particularly important [@grimm2020]. Even so, often the evidence for practical uptake of many models is limited [@addison2013; @zasada2017]. Second, their complexity implies the need for extensive data to parameterise them effectively. In terms of socio-ecological systems, while data to parameterise the ecological component are often relatively easily available, the human decision-making components are often based on limited theory and lack a general empirical basis [@groeneveld2017]. Not only may this lead to limited predictive power, a perceived lack of empirical basis may negatively affect their acceptance by stakeholders [cf. model "quality" as in @kolkman2016].
 To maximise the adoption of complex socio-ecological models as management tools, both appropriate representation of human decision-making and effective communication are therefore key.
 
 Games have a long history of being in research [@sandbrook2015; @chabris2017; @redpath2018], including as tools to aid the communication of complex ideas and processes to non-specialists [@garcia2016; @tan2018; @fjaellingsdal2019].
@@ -55,6 +57,10 @@ Finally, using test player feedback as a basis, we discuss both the limitations 
 
 # Outline of approach
 
+[A&F is available to play online](https://ochil-ds.co.uk/animalnfarm/).
+
+Overall, it consists of two main components; (1) the underlying model(s) describing the wild grazing animal ("resource") population dynamics, the observation of this population, and farmer ("user" or stakeholder) actions, all implemented using the GMSE framework as described below; and (2) the game interface for the underlying model, which allows the player to set management actions (specifically, costs for user actions) that would otherwise be determined by the management model in the "vanilla" GMSE set up.
+
 ## Underlying model: GMSE
 
 ### Basic introduction of GMSE principles and structures
@@ -64,6 +70,25 @@ Finally, using test player feedback as a basis, we discuss both the limitations 
 ## Animal&Farm
 
 ### Structure as relating to GMSE
+
+In the default implementation of GMSE `r packageVersion("GMSE")`, a single time $t$ step consists of a series of calls to the resource model, observation model, management model and user model, in that specific order; in other words, a time step ends after user actions have been chosen (by the GA) and implemented [**FIG Xa**].
+To allow players to assess the environment and interactively choose management actions, A&F uses a modified version of GMSE.
+
+A&F uses a development version of GMSE (v. `r packageVersion("GMSE")`, implemented in `r sessionInfo()$R.version$version.string`, code available [here](<https://github.com/ConFooBio/gmse/tree/man_control>) in which the management model is replaced by user (player) inputs, and the order of operations is altered to accommodate this.
+To initialise each game session, four time steps are run using the default GMSE implementation; i.e. in these time steps the management decisions are chosen by the default GA, and the resource, observation and user models are run using the parameters as defined for the given the scenario (**see below**).
+These time steps are followed by a "partial" time step where only the resource and observation models are run, skipping the management and user models.
+As a result, at the end of these initial time steps ([`init_man_control()`]([`https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L368`](https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L368))), the simulated system has five population and observation time steps and is ready for the next choice of management action at $t = 5$, pending the first player input.
+This is done both to set up all the required GMSE data structures using existing code, as well as to provide the player with a short time series on which to base management decisions going forward.
+
+Each following A&F time step then consists of (1) user input, taking the place of the default management model, in which the player can assess the environment using outputs provided (see below) and choose management actions (costs for user actions), and, (2) and once the player confirms their choice, a modified GMSE time step including sequential calls to the default user, resource and observation models ([`gmse_apply_UROM()`](<https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L146>)) [**FIG Xb**].
+<!--# Does this need to be here or in the next section? -->The current implementation of A&F continues for a maximum of 20 time steps, following the initial five, at which point the game session is ended and the player is presented with a scoreboard.
+If the resource population reaches extinction, the game session is also terminated.
+
+### User interface
+
+The user interface for A&F is a web application is coded in R, using [`Shiny`](<https://CRAN.R-project.org/package=shiny>) (`r packageVersion("shiny")`), and packages [`shinyjs`](<https://CRAN.R-project.org/package=shinyjs>) (`r packageVersion("shinyjs")`), [`shinyBS`](<https://CRAN.R-project.org/package=shinyBS>) (`r packageVersion("shinyBS")`), and [`waiter`](<https://CRAN.R-project.org/package=waiter>) (`r packageVersion("waiter")`).
+
+#### Scoreboard
 
 ### Database "back end"
 
