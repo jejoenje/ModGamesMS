@@ -1511,6 +1511,299 @@
             "title": "Online multiplayer games as virtual laboratories for collecting data on social-ecological decision making",
             "type": "article-journal",
             "volume": "35"
+        },
+        {
+            "DOI": "10.1016/j.tree.2018.03.005",
+            "URL": "http://www.sciencedirect.com/science/article/pii/S0169534718300594",
+            "author": [
+                {
+                    "family": "Redpath",
+                    "given": "Steve M."
+                },
+                {
+                    "family": "Keane",
+                    "given": "Aidan"
+                },
+                {
+                    "family": "Andrén",
+                    "given": "Henrik"
+                },
+                {
+                    "family": "Baynham-Herd",
+                    "given": "Zachary"
+                },
+                {
+                    "family": "Bunnefeld",
+                    "given": "Nils"
+                },
+                {
+                    "family": "Duthie",
+                    "given": "A. Bradley"
+                },
+                {
+                    "family": "Frank",
+                    "given": "Jens"
+                },
+                {
+                    "family": "Garcia",
+                    "given": "Claude A."
+                },
+                {
+                    "family": "Månsson",
+                    "given": "Johan"
+                },
+                {
+                    "family": "Nilsson",
+                    "given": "Lovisa"
+                },
+                {
+                    "family": "Pollard",
+                    "given": "Chris R. J."
+                },
+                {
+                    "family": "Rakotonarivo",
+                    "given": "O. Sarobidy"
+                },
+                {
+                    "family": "Salk",
+                    "given": "Carl F."
+                },
+                {
+                    "family": "Travers",
+                    "given": "Henry"
+                }
+            ],
+            "container-title": "Trends in Ecology & Evolution",
+            "id": "redpath2018",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        6,
+                        1
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "415-426",
+            "title": "Games as Tools to Address Conservation Conflicts",
+            "type": "article-journal",
+            "volume": "33"
+        },
+        {
+            "DOI": "10.1111/conl.12113",
+            "URL": "http://conbio.onlinelibrary.wiley.com/doi/abs/10.1111/conl.12113",
+            "author": [
+                {
+                    "family": "Sandbrook",
+                    "given": "Chris"
+                },
+                {
+                    "family": "Adams",
+                    "given": "William M."
+                },
+                {
+                    "family": "Monteferri",
+                    "given": "Bruno"
+                }
+            ],
+            "container-title": "Conservation Letters",
+            "id": "sandbrook2015",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1111/conl.12113",
+            "page": "118-124",
+            "title": "Digital Games and Biodiversity Conservation",
+            "type": "article-journal",
+            "volume": "8"
+        },
+        {
+            "DOI": "10.7717/peerj.4509",
+            "URL": "https://peerj.com/articles/4509",
+            "author": [
+                {
+                    "family": "Tan",
+                    "given": "Cedric Kai Wei"
+                },
+                {
+                    "family": "Lee",
+                    "given": "Jiin Woei"
+                },
+                {
+                    "family": "Hii",
+                    "given": "Adeline"
+                },
+                {
+                    "family": "Loo",
+                    "given": "Yen Yi"
+                },
+                {
+                    "family": "Campos-Arceiz",
+                    "given": "Ahimsa"
+                },
+                {
+                    "family": "Macdonald",
+                    "given": "David W."
+                }
+            ],
+            "container-title": "PeerJ",
+            "id": "tan2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018,
+                        4,
+                        30
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Publisher: PeerJ Inc.",
+            "page": "e4509",
+            "title": "The effect of using games in teaching conservation",
+            "type": "article-journal",
+            "volume": "6"
+        },
+        {
+            "DOI": "10.1111/tops.12267",
+            "URL": "http://onlinelibrary.wiley.com/doi/abs/10.1111/tops.12267",
+            "author": [
+                {
+                    "family": "Chabris",
+                    "given": "Christopher F."
+                }
+            ],
+            "container-title": "Topics in Cognitive Science",
+            "id": "chabris2017",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1111/tops.12267",
+            "page": "497-509",
+            "title": "Six Suggestions for Research on Games in Cognitive Science",
+            "type": "article-journal",
+            "volume": "9"
+        },
+        {
+            "DOI": "10.14512/gaia.25.4.13",
+            "author": [
+                {
+                    "family": "Garcia",
+                    "given": "Claude"
+                },
+                {
+                    "family": "Dray",
+                    "given": "Anne"
+                },
+                {
+                    "family": "Waeber",
+                    "given": "Patrick"
+                }
+            ],
+            "container-title": "GAIA - Ecological Perspectives for Science and Society",
+            "id": "garcia2016",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016,
+                        1,
+                        1
+                    ]
+                ]
+            },
+            "page": "289-291",
+            "title": "Learning begins when the game is over: Using games to embrace complexity in natural resources management",
+            "title-short": "Learning begins when the game is over",
+            "type": "article-journal",
+            "volume": "25"
+        },
+        {
+            "DOI": "10.3389/fpsyg.2019.02846",
+            "URL": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=DynamicDOIArticle&SrcApp=WOS&KeyAID=10.3389%2Ffpsyg.2019.02846&DestApp=DOI&SrcAppSID=D59hk8KOxxlwUPpUfhC&SrcJTitle=FRONTIERS+IN+PSYCHOLOGY&DestDOIRegistrantName=Frontiers+Media+SA",
+            "author": [
+                {
+                    "family": "Fjaellingsdal",
+                    "given": "Kristoffer S."
+                },
+                {
+                    "family": "Kloeckner",
+                    "given": "Christian A."
+                }
+            ],
+            "container-title": "Frontiers in Psychology",
+            "id": "fjaellingsdal2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        12,
+                        19
+                    ]
+                ]
+            },
+            "language": "en-US",
+            "note": "Place: Lausanne Publisher: Frontiers Media Sa WOS:000505174400001",
+            "page": "2846",
+            "title": "Gaming green: The educational potential of eco - a digital simulated ecosystem",
+            "title-short": "Gaming green",
+            "type": "article-journal",
+            "volume": "10"
+        },
+        {
+            "DOI": "10.3389/fmars.2021.645408",
+            "URL": "http://www.frontiersin.org/articles/10.3389/fmars.2021.645408/full",
+            "author": [
+                {
+                    "family": "Bergh",
+                    "given": "Jarrett",
+                    "non-dropping-particle": "van den"
+                },
+                {
+                    "family": "Chirayath",
+                    "given": "Ved"
+                },
+                {
+                    "family": "Li",
+                    "given": "Alan"
+                },
+                {
+                    "family": "Torres-Pérez",
+                    "given": "Juan L."
+                },
+                {
+                    "family": "Segal-Rozenhaimer",
+                    "given": "Michal"
+                }
+            ],
+            "container-title": "Frontiers in Marine Science",
+            "id": "vandenbergh2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "language": "en-US",
+            "note": "Publisher: Frontiers",
+            "title": "NeMO-net  gamifying 3D labeling of multi-modal reference datasets to support automated marine habitat mapping",
+            "type": "article-journal",
+            "volume": "0"
         }
     ],
     "project_biblios": []
