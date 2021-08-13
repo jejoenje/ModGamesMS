@@ -1804,6 +1804,141 @@
             "title": "NeMO-net  gamifying 3D labeling of multi-modal reference datasets to support automated marine habitat mapping",
             "type": "article-journal",
             "volume": "0"
+        },
+        {
+            "DOI": "10.1016/j.ecolmodel.2006.04.023",
+            "URL": "https://www.sciencedirect.com/science/article/pii/S0304380006002043",
+            "author": [
+                {
+                    "family": "Grimm",
+                    "given": "Volker"
+                },
+                {
+                    "family": "Berger",
+                    "given": "Uta"
+                },
+                {
+                    "family": "Bastiansen",
+                    "given": "Finn"
+                },
+                {
+                    "family": "Eliassen",
+                    "given": "Sigrunn"
+                },
+                {
+                    "family": "Ginot",
+                    "given": "Vincent"
+                },
+                {
+                    "family": "Giske",
+                    "given": "Jarl"
+                },
+                {
+                    "family": "Goss-Custard",
+                    "given": "John"
+                },
+                {
+                    "family": "Grand",
+                    "given": "Tamara"
+                },
+                {
+                    "family": "Heinz",
+                    "given": "Simone K."
+                },
+                {
+                    "family": "Huse",
+                    "given": "Geir"
+                },
+                {
+                    "family": "Huth",
+                    "given": "Andreas"
+                },
+                {
+                    "family": "Jepsen",
+                    "given": "Jane U."
+                },
+                {
+                    "family": "Jørgensen",
+                    "given": "Christian"
+                },
+                {
+                    "family": "Mooij",
+                    "given": "Wolf M."
+                },
+                {
+                    "family": "Müller",
+                    "given": "Birgit"
+                },
+                {
+                    "family": "Pe’er",
+                    "given": "Guy"
+                },
+                {
+                    "family": "Piou",
+                    "given": "Cyril"
+                },
+                {
+                    "family": "Railsback",
+                    "given": "Steven F."
+                },
+                {
+                    "family": "Robbins",
+                    "given": "Andrew M."
+                },
+                {
+                    "family": "Robbins",
+                    "given": "Martha M."
+                },
+                {
+                    "family": "Rossmanith",
+                    "given": "Eva"
+                },
+                {
+                    "family": "Rüger",
+                    "given": "Nadja"
+                },
+                {
+                    "family": "Strand",
+                    "given": "Espen"
+                },
+                {
+                    "family": "Souissi",
+                    "given": "Sami"
+                },
+                {
+                    "family": "Stillman",
+                    "given": "Richard A."
+                },
+                {
+                    "family": "Vabø",
+                    "given": "Rune"
+                },
+                {
+                    "family": "Visser",
+                    "given": "Ute"
+                },
+                {
+                    "family": "DeAngelis",
+                    "given": "Donald L."
+                }
+            ],
+            "container-title": "Ecological Modelling",
+            "id": "grimm2006",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2006,
+                        9,
+                        15
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "115-126",
+            "title": "A standard protocol for describing individual-based and agent-based models",
+            "type": "article-journal",
+            "volume": "198"
         }
     ],
     "project_biblios": []
