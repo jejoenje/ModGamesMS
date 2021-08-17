@@ -97,7 +97,6 @@ Farmers can take three possible actions; tending crops, hunting (culling) animal
 All submodels used in A&F are currently the default GMSE models (with the exception of the management model in time steps $t>5$, where the player assumes control over the management decisions (see below).
 Thus, we only give brief details here, for full details and descriptions of all models, see **XXX** and **XXX**.
 The **animal population** model uses the logistic growth form with $N_o = 1000$, $\lambda = 0.3$ and $K=5000$, meaning that in the absence of any management the population is likely to increase from the initial population size (1000) to carrying capacity (5000).
-To ensure a level of unpredictability in game play, a random death probability ($0.05 \leq r_d \leq 0.2$) per individual animal per time step is implemented.
 The **observation model** uses the default GMSE model (density-based sampling of a subset of the environment); only *observed* numbers of animals are available to the manager to base decisions on (and thus population trajectory plots in the game interface reflect observations only, which are subject to an unknown level of uncertainty).
 Both the **management model** (in the initialisation steps) and **user model** use the GA algorithms with default parameter settings.
 User (farmer) budgets are set to 1500 units per time step, manager budgets to 1000 units (both for the initial 5 time steps and the subsequent game play).
@@ -148,7 +147,7 @@ The scoreboard is a top 10 "leaderboard" of scores over all sessions played by a
 ### Data collection & database
 
 Game play data (e.g. session variables, player inputs, environment state variables) are stored in a MySQL relational database.
-Database structure is summarised in Fig X and a full list of parameter values stored and their description is listed in Table X. The current version of A&F stores only a subset of GMSE parameters; this may be easily extended in the future by adding additional fields to the relevant database table and ensuring the database interface functions append the extra parameters.
+Database structure is summarised in **Fig X** and a full list of parameter values stored and their description is listed in **Table X**. The current version of A&F stores only a subset of GMSE parameters (**Table X**); this may be easily extended in the future by adding additional fields to the relevant database table and ensuring the database interface functions append the extra parameters.
 For any GMSE parameters that are not stored currently, the default GMSE parameter values are used.
 
 In summary, six main tables are used to store data (see **XXX** for a full description).
@@ -160,7 +159,8 @@ Tables are linked by the unique session ID present in each table.
 
 -   `run_par`
 
-    Holding all game parameters for the GMSE simulation for a session. As per section **XXX**, in the example application presented here, the majority of these will be constants, with only `ownership_var` and `remove_pr` varying per session.
+    Holding all game parameters for the GMSE simulation for a session.
+    As per section **XXX**, in the example application presented here, the majority of these will be constants, with only `ownership_var` and `remove_pr` varying per session.
 
 -   `scores`
 
@@ -191,12 +191,31 @@ Parameterising an alternative algorithm directly based on empirical decision-mak
 
 ### Example scenario & method
 
-#### Methods & rationale
+#### Rationale & methods
 
 We here illustrate one aspect of this potential by collecting decision-making data from a small sample of test players, during a short period.
-We chose to focus on a scenario that varies one focal parameter (farmer land ownership distribution).
+We chose to focus on a scenario that systematically varies one focal parameter, farmer land ownership distribution.
+While inequity in land ownership is commonplace and of interest to conservation strategies (**REF**), the current manager decision-making algorithm implemented in GMSE cannot explicitly take the extent of such variation in account.
+Thus, collecting empirical data on how decisions and resultant population trajectories may be affected by variable land distribution is important.
+
+On starting a new session, the player is presented with one of three possible scenarios: equal land ownership, moderate variability, or high variability (`ownership_var` = 0, 0.25 or 0.5, respectively, resulting landscape patterns illustrated in **Fig X**).
+In addition to this variability, each session also has a small amount of random population mortality ($0.05 \leq r_d \leq 0.2$), sampled from a uniform distribution.
+Although the landscape ownership distribution is clearly shown to the player throughout the game (**see XX above**), the player is not told explicitly that ownership will vary before a session starts, or what the extent of this variability will be.
+This was done to ensure that a player would not selectively abort sessions.
+Other than this scenario-based parameter variation, game play progresses as described above, with the player able to make management decisions (setting costs for farmer actions) over 20 time steps following the initial five.
+
+We circulated a link to the game with scenarios configured as above to a sample of XXX collegues working in conservation science and practical conservation and management, covering a range of academic institutions, research institutes, NGO's and government.
+The main aim was to (1) obtain feedback on the model-game set up, and (2) collect example data to illustrate the potential of the approach, with specific emphasis on how communication of it may be improved in the future.
+An accompanying covering letter explained this aim, the background to the work, and a request to respond with any feedback.
+Note that the data collected here should not be interpreted as comprehensive research on a specific question, and is intended as illustrative only.
 
 #### Ethics
+
+The work described here was approved by the University of Stirling's General University Ethics Panel (GUEP), project no.
+**X**.
+While the game link is publicly accessible, it was not publicised beyond the direct contacts described above.
+On accessing the link, players are presented with a series of introductory screens explaining the background and purpose of the game, followed by a digital constent form, which has to be agreed to by ticking a confirmation tick box, before a new session can be started.
+No personally identifiable data are collected or stored, other than a player name - the latter is only requested so that scores can be shown in context and compared to other players; however this can be left as a default placeholder, and players explicitly told that this is not expected to be their real name.
 
 ### Illustrative results
 
