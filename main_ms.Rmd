@@ -136,7 +136,8 @@ Other than preventing extinction of the animal population, A&F does not have a p
 The scores are arbitrarily defined to reflect performance in terms of the animal population ("animal score", $A_t$) on the one hand, and overall agricultural yield ("yield score", $Y_t$) on the other.
 Both scores can be interpreted as the mean % of the initial (i.e. at time $t=5$) true size of the animal population $N_t$ and landscape yield $y_t$, with $y_t$ calculated as the mean yield over all landscape cells at time $t$ <!--# probably need to include a reference to cells/cell values on landscape here -->.
 
-$A_{t} = \frac{\sum_{t=5}^T{\frac{N_t}{N_{t=5}}}}{t}$ and $S_{t}=\frac{\sum_{t=5}^T{y_t}}{t}$ where $t\geq5$ and $T$ the total number of time steps for the game session.
+$A_t =  \left( \sum\frac{N_t}{N_{t=5}\cdot t}\right)\cdot 100$ and $S_{t}=\left(\frac{\sum_{t=5}^T{y_t}}{t}\right)\cdot 100$ where $t\geq5$ and $T$ the total number of time steps for the game session.
+
 Both scores are intitialised as $A_t = S_t = 100$ when the game is first initialised, to ensure score development over a session can be interpreted as a change from that baseline.
 
 Players can choose to either balance both scores, or score highly on one or the other.
@@ -194,17 +195,17 @@ Parameterising an alternative algorithm directly based on empirical decision-mak
 #### Rationale & methods
 
 We here illustrate one aspect of this potential by collecting decision-making data from a small sample of test players, during a short period.
-We chose to focus on a scenario that systematically varies one focal parameter, farmer land ownership distribution.
+We chose to focus on a scenario that systematically varies two parameters, farmer land ownership distribution $o_v$ and the number of farmers (stakeholders, $s$).
 While inequity in land ownership is commonplace and of interest to conservation strategies (**REF**), the current manager decision-making algorithm implemented in GMSE cannot explicitly take the extent of such variation in account.
 Thus, collecting empirical data on how decisions and resultant population trajectories may be affected by variable land distribution is important.
 
-On starting a new session, the player is presented with one of three possible scenarios: equal land ownership, moderate variability, or high variability (`ownership_var` = 0, 0.25 or 0.5, respectively, resulting landscape patterns illustrated in **Fig X**).
+Each new game session is initialised with a random draw of one of three possible values of $o_v$, representing low, moderate and high variability in land ownership (resulting landscape patterns illustrated in **Fig X**) and one of nine possible values of $s$, i.e. 4-12 farmers.
 In addition to this variability, each session also has a small amount of random population mortality ($0.05 \leq r_d \leq 0.2$), sampled from a uniform distribution.
 Although the landscape ownership distribution is clearly shown to the player throughout the game (**see XX above**), the player is not told explicitly that ownership will vary before a session starts, or what the extent of this variability will be.
 This was done to ensure that a player would not selectively abort sessions.
 Other than this scenario-based parameter variation, game play progresses as described above, with the player able to make management decisions (setting costs for farmer actions) over 20 time steps following the initial five.
 
-We circulated a link to the game with scenarios configured as above to a sample of XXX collegues working in conservation science and practical conservation and management, covering a range of academic institutions, research institutes, NGO's and government.
+We circulated a link to the game with scenarios configured as above to a **sample of XXX** contacts working in conservation science and practical conservation and management, covering a range of academic institutions, research institutes, NGO's and government.
 The main aim was to (1) obtain feedback on the model-game set up, and (2) collect example data to illustrate the potential of the approach, with specific emphasis on how communication of it may be improved in the future.
 An accompanying covering letter explained this aim, the background to the work, and a request to respond with any feedback.
 Note that the data collected here should not be interpreted as comprehensive research on a specific question, and is intended as illustrative only.
