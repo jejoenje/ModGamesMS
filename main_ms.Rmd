@@ -219,7 +219,158 @@ No personally identifiable data are collected or stored, other than a player nam
 
 ### Illustrative results
 
-### 
+```{r, echo = FALSE}
+source("analysis.R")
+```
+
+Between `r start_date` and `r end_date`, we collated data on `r n_sessions` play session by `r n_players` unique players[^4].
+Sessions lasted minutes on average `r mean_duration` minutes (`r min_duration` - `r max_duration` minutes).
+As per the scenario set up, these sessions were roughly equally distributed between land ownership variability $o_v$ (0, 0.25 or 0.5, N = `r n_ov0` [`r round(p_ov0*100,1)`%], `r n_ov025` [`r round(p_ov025*100,1)`%], and `r n_ov050` [`r round(p_ov050*100,1)`%], respectively) and number of stakeholders $s$ (4-12).
+
+The animal population reached extinction in `r sum(run$extinct==1)` out of the `r n_sessions` sessions (`r round((sum(run$extinct==1)/nrow(run))*100,1)`%).
+Extinction probability appeared to be higher at both higher levels of land ownership variability ($o_v=0.25$ and $o_v=0.5$), particularly so at intermediate ($o_v=0.25$) levels (**Figure Xa**).
+Differences in extinction probability with variability in farmer (stakeholder) number was less pronounced (**Figure Xb**).
+
+These extinction probabilities were reflected in the animal population trajectories in each parameter scenario.
+**Figure X** show trajectories per level of landownership variability, with cases where the population reached extinction highlighted in red.
+Both higher levels of variablility ($o_v=0.25$ and $o_v=0.5$) show fewer cases with rapid increasing trends.
+
+Management actions taken by the players (over time, $t>5$) are summarised in Figure X. It is notable that when land ownership variability was higher ($o_v=0.5$), chosen costs for hunting licences appeared to be more stable (i.e. less variable), particularly toward the end of playing sessions (Figures Xc vs. Xa-b).
+It should be noted that this may in part be an artifact of somewhat lower sample size at higher time steps (because in some sessions the population would have gone extinct part way through a session).
+On average, hunting licence costs also appeared to be set lower overall at higher land ownership variability.
+By comparison, costs set for scaring licences appeared to more stable over time (Figures Xd-f).
+
+```{r, echo = FALSE, fig.width=10, fig.height=5, fig.fullwidth=TRUE, fig.cap="Figure X. Proportion of game sessions where animal population reached extinction, as a function of (a) land ownership variability and (b) the number of farmers (stakeholders) in the game session."}
+#jpeg("fig1.jpeg",width = 800, height = 400)
+extinct_ov = table(run$extinct, run$ownership_var)
+extinct_ov_p = prop.table(extinct_ov, 2)
+extinct_ov_p = as.matrix(rbind(extinct_ov_p[2,],extinct_ov_p[1,]))
+
+run_stk = table(run$extinct, run$stakeholders)
+extinct_s = cbind(rowSums(matrix(run_stk,2,9)[,1:3]), rowSums(matrix(run_stk,2,9)[,4:6]), rowSums(matrix(run_stk,2,9)[,7:9]))
+extinct_s_p = prop.table(extinct_s, 2)
+extinct_s_p = as.matrix(rbind(extinct_s_p[2,],extinct_s_p[1,]))
+
+par(mfrow=c(1,2))
+par(oma = c(5,5,1,1))
+par(mar = c(1,1,1,1))
+bp = barplot(extinct_ov_p[1,], col = c("#d73027"), space = 0.1, cex.names = 1.5, cex.lab = 1.5, cex.axis = 1.5, ylim = c(0,0.5),
+             xlab = "Land ownership variability",
+             ylab = "Proportion extinct")
+text(bp[1],y = 0.05, paste("n =",as.numeric(table(run$ownership_var)[1])), cex = 1.5)
+text(bp[2],y = 0.05, paste("n =",as.numeric(table(run$ownership_var)[2])), cex = 1.5)
+text(bp[3],y = 0.05, paste("n =",as.numeric(table(run$ownership_var)[3])), cex = 1.5)
+text("(a)",x=bp[1],y=0.475,cex=1.5)
+mtext("Land ownership variability", 1, line = 3, cex = 1.5)
+
+bp2 = barplot(extinct_s_p[1,], col = c("#d73027"), space = 0.1, cex.names = 1.5, cex.lab = 1.5, cex.axis = 1.5, ylim = c(0,0.5), yaxt="n",
+              names = c("4-6","7-9","10-12"),
+              xlab = "Number of farmers",
+              ylab = "Proportion extinct")
+axis(2,labels=FALSE)
+text(bp2[1],y = 0.05, paste("n =",sum(as.matrix(table(run$stakeholders))[1:3])), cex = 1.5)
+text(bp2[2],y = 0.05, paste("n =",sum(as.matrix(table(run$stakeholders))[4:6])), cex = 1.5)
+text(bp2[3],y = 0.05, paste("n =",sum(as.matrix(table(run$stakeholders))[7:9])), cex = 1.5)
+text("(b)",x=bp2[1],y=0.475,cex=1.5)
+mtext("No. of farmers", 1, line = 3, cex = 1.5)
+mtext("Proportion extinct", 2, line = 2.5, cex = 1.5, outer = T)
+#dev.off()
+```
+
+```{r, echo = FALSE, fig.width = 10, fig.height=5, fig.fullwidth=TRUE, fig.cap="Figure X. Animal population trajectories per game session, split by levels of land ownership variability. Trajectories highlighted in red are sessions where the population reached extinction."}
+par(mfrow =c(1,3))
+XLAB = "Time step"
+CEX.AXIS = 1.5
+CEX.LAB = 1.5
+CEX.MAIN = 1.5
+CEX.MTEXT = 1.75
+LCOL1 = "#525252"
+LCOL2 = "red"   #d73027
+LWD1 = 1.2
+LWD2 = 1.5
+par(oma= c(5,5,5,0))
+par(mar= c(1,1,1,1))
+otype = c(0,0.25,0.5)
+for(i in 1:3) {
+  plot(gdata_run$t, gdata_run$res, type = "n", ylab = "True population size", 
+       xlab = XLAB, cex.axis = CEX.AXIS, cex.lab = CEX.LAB, cex.main = CEX.MAIN, yaxt = "n")
+  mtext(bquote(o[v] ~ "=" ~ .(otype[i])), side=3, line =1.5, cex = CEX.MTEXT)
+  if(i==1) { axis(2, cex.axis = CEX.AXIS) } else {axis(2, labels = FALSE)}
+  tapply(gdata_run$res[gdata_run$ownership_var==otype[i] & gdata_run$extinct==0], 
+         gdata_run$id[gdata_run$ownership_var==otype[i] & gdata_run$extinct==0],
+         function(x) lines(x, col = LCOL1, lwd = LWD1))
+  tapply(gdata_run$res[gdata_run$ownership_var==otype[i] & gdata_run$extinct==1], 
+         gdata_run$id[gdata_run$ownership_var==otype[i] & gdata_run$extinct==1],
+         function(x) lines(x, col = LCOL2, lwd = LWD2))
+}
+mtext("Time step", side = 1, outer = T, line = 2.5, cex = CEX.MTEXT)
+mtext("True population size", side = 2, outer = T, line = 2.5, cex =CEX.MTEXT)
+```
+
+```{r, echo = FALSE,fig.width = 10, fig.height=7, fig.fullwidth=TRUE, fig.cap="Figure X. Summary of player management actions (costs set for hunting- and scaring licences) over time, per ownership variability scenario. Solid black line is the mean cost per time step, with lighter and darker polygons representing the 25-75% and 2.5% and 97.5% quantiles of the cost distribution per time step."}
+### Calculate summary statistic for given cost type over time steps:
+cost_summary = function(dat, ov, cost, type) {
+  
+  if(!(cost %in% names(dat))) stop("'cost' specified not present in 'dat'.")
+  if(!(type %in% c("mean","median","q25","q75","q025","q975"))) stop("invalid 'type' specified .")
+  
+  d = dat[(dat$ownership_var==ov & dat$t>5),c("t",cost)]
+  d[,cost] = (d[,cost]-10)*10
+  d$t = factor(d$t)
+  
+  if(type == "mean") return(tapply(d[,cost],d$t,function(x) mean(x, na.rm=T)))
+  if(type == "median") return(tapply(d[,cost],d$t,function(x) median(x, na.rm=T)))
+  if(type == "q25") return(tapply(d[,cost],d$t,function(x) quantile(x, probs = 0.25, na.rm=T)))
+  if(type == "q75") return(tapply(d[,cost],d$t,function(x) quantile(x, probs = 0.75, na.rm=T)))
+  if(type == "q025") return(tapply(d[,cost],d$t,function(x) quantile(x, probs = 0.025, na.rm=T)))
+  if(type == "q975") return(tapply(d[,cost],d$t,function(x) quantile(x, probs = 0.975, na.rm=T)))
+  
+}
+
+par(mfrow =c(2,3))
+XLAB = "Time step"
+CEX.AXIS = 1.5
+CEX.LAB = 1.5
+CEX.MAIN = 1.5
+CEX.MTEXT = 1.75
+LCOL1 = "#525252"
+LCOL2 = "red"   #d73027
+LWD1 = 1.2
+LWD2 = 1.5
+par(oma= c(5,5,5,0))
+par(mar= c(1,1,1,1))
+
+ptype = c(rep("cull_cost",3), rep("scare_cost",3))
+otype = rep(c(0,0.25,0.5),2)
+aytype = rep(c(TRUE,FALSE,FALSE),2)
+axtype = c(rep(FALSE,3),rep(TRUE,3))
+polycols = rbind(cbind(rep("#e6550d",3),rep("#fdae6b",3)),cbind(rep("#a6bddb",3),rep("#2b8cbe",3)))
+
+for(i in 1:6) {
+  plot(c(1,1), xlim = c(1,25), ylim = c(0,1000), 
+       type = "n", ylab = "", xlab = XLAB, cex.axis = CEX.AXIS, cex.lab = CEX.LAB, cex.main = CEX.MAIN, yaxt = "n", xaxt = "n")
+  if(aytype[i]) { axis(2, labels = TRUE, cex.axis = CEX.AXIS) } else { axis(2, labels = FALSE) }
+  if(axtype[i]) { axis(1, labels = TRUE, cex.axis = CEX.AXIS) } else { axis(1, labels = FALSE) }
+  if(i==1) mtext("Hunting cost", side = 2, line = 3, cex = CEX.MTEXT)
+  if(i==4) mtext("Scaring cost", side = 2, line = 3, cex = CEX.MTEXT)
+  
+  if(i<4) { mtext(bquote(o[v] ~ "=" ~ .(otype[i])), side=3, line =1.5, cex = CEX.MTEXT) }
+  polygon(c(rev(6:24),6:24), 
+          c(rev(cost_summary(gdata_run, ov=otype[i], cost=ptype[i], type="q025")[1:19]),
+            cost_summary(gdata_run, ov=otype[i], cost=ptype[i],type="q975")[1:19]), col = polycols[i,1], border = NA)
+  polygon(c(rev(6:24),6:24), 
+          c(rev(cost_summary(gdata_run, ov = otype[i], cost=ptype[i],type="q25")[1:19]),
+            cost_summary(gdata_run, ov = otype[i], cost=ptype[i],type="q75")[1:19]), col = polycols[i,2], border = NA)
+  
+  lines(6:24, cost_summary(gdata_run, ov = otype[i], cost=ptype[i],type="median")[1:19], lwd = 2)
+  lines(6:24, cost_summary(gdata_run, ov = otype[i], cost=ptype[i],type="q25")[1:19], lwd = 1)
+  lines(6:24, cost_summary(gdata_run, ov = otype[i], cost=ptype[i],type="q75")[1:19], lwd = 1)
+  lines(6:24, cost_summary(gdata_run, ov = otype[i], cost=ptype[i],type="q025")[1:19], lwd = 0.75)
+  lines(6:24, cost_summary(gdata_run, ov = otype[i], cost=ptype[i],type="q975")[1:19], lwd = 0.75)
+  
+}
+mtext("Time step", side = 1, outer = T, line = 2.5, cex = CEX.MTEXT)
+```
 
 # Discussion
 
@@ -250,3 +401,7 @@ No personally identifiable data are collected or stored, other than a player nam
 
 [^3]: It can be affected *indirectly* by setting the cost for the two actions prohibitively high, so that tending crops becomes more likely to be most beneficial to maximising yield (the farmer's goal).
     See **XXX**.
+
+[^4]: Strictly speaking, unique player *names*.
+    It is possible for the same player to play under multiple different player names.
+    See Discussion for further details.
