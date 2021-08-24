@@ -180,7 +180,7 @@ End times are recorded for each session where the player either reaches $t=25$, 
 
 # Example application
 
-### "Sandbox" for *in silico* experiments
+## "Sandbox" for *in silico* experiments
 
 The combination between the underlying modelling framework, game interface and the database back-end, provides a platform to collect data on player interaction with the models in a range of simulated environments.
 This might include *in silico* tests of the effect of specific variability in the environment on simulation animal population extinction, or collecting "big data" on player decision-making given a set of (more or less) variable parameters in terms of population, observation or user (farmer) models.
@@ -190,9 +190,9 @@ Alternatively, by collating large amounts of decision-making data under varying 
 While the genetic algorithm for manager decision-making currently implemented in GMSE is effective, it does not currently balance multiple objectives, nor does it necessarily accurately reflect variability in real-life decision-making processes.
 Parameterising an alternative algorithm directly based on empirical decision-making data has the potential to address these shortcomings.
 
-### Example scenario & method
+## Example scenario & method
 
-#### Rationale & methods
+### Rationale & methods
 
 We here illustrate one aspect of this potential by collecting decision-making data from a small sample of test players, during a short period.
 We chose to focus on a scenario that systematically varies two parameters, farmer land ownership distribution $o_v$ and the number of farmers (stakeholders, $s$).
@@ -210,7 +210,7 @@ The main aim was to (1) obtain feedback on the model-game set up, and (2) collec
 An accompanying covering letter explained this aim, the background to the work, and a request to respond with any feedback.
 Note that the data collected here should not be interpreted as comprehensive research on a specific question, and is intended as illustrative only.
 
-#### Ethics
+### Ethics
 
 The work described here was approved by the University of Stirling's General University Ethics Panel (GUEP), project no.
 **X**.
@@ -219,7 +219,7 @@ On accessing the link, players are presented with a series of introductory scree
 No personally identifiable data are collected or stored, other than a player nickname - the latter is only requested so that scores can be shown in context and compared to other players; however this can be left as a default placeholder, and players explicitly told that this is not expected to be their real name.
 Player nicknames are replaced by random identifiers prior to further data processing.
 
-### Illustrative results
+## Illustrative results
 
 ```{r, echo = FALSE}
 source("analysis.R")
@@ -405,21 +405,22 @@ Further limitation - limited audience, recruiting etc.
 
 End on positive "sandboxing" note?
 
-## Brief summary of aims, process and outcome of example scenarios
+Brief summary of aims, process and outcome of example scenarios
 
-## Revisit player feedback
+Revisit player feedback
 
-## Discussion of limitations of overall approach, with reference to player feedback
+Discussion of limitations of overall approach, with reference to player feedback
 
-## (Potentially general discussion of issues with games approach?)
+(Potentially general discussion of issues with games approach?)
 
-## Discussion of potential
+Discussion of potential
 
-### Communication/education: highlight player feedback as very point of approach: game may be abstract, restrictive and not representative of reality, but this is case for any model, yet latter point often "hidden". By taking game approach, shortcomings more obvious to non-specialists.
+Communication/education: highlight player feedback as very point of approach: game may be abstract, restrictive and not representative of reality, but this is case for any model, yet latter point often "hidden".
+By taking game approach, shortcomings more obvious to non-specialists.
 
-### Yes, problematic when expecting direct application to real life, but again this is/should be clear for all models.
+Yes, problematic when expecting direct application to real life, but again this is/should be clear for all models.
 
-### Highlight expandability of approach, sandboxing ideas in flexible simulated environment
+Highlight expandability of approach, sandboxing ideas in flexible simulated environment
 
 ## 
 
