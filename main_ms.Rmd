@@ -75,7 +75,30 @@ Overall, it consists of two main components; (1) the underlying model(s) describ
 
 ## Underlying model: GMSE
 
+We used the Generalised Management Strategy Evaluation (GMSE) modelling framework to model the socio-ecological system underlying A&F.
+The GMSE R package (**ref**) was designed as a flexible solution for parameterising systems that model the management, observation, exploitation and population dynamics of a natural resource (e.g. a population of hunted wildlife).
+In this section, we summarise the basic functionality of GMSE as relevant to the present manuscript; for a full description see XXX and XXX (the latter containing an appendix with the full ODD model description).
+
 ### Basic introduction of GMSE principles and structures
+
+GMSE consists of four submodels: (1) the **resource model**, an individual-based model for an animal population situated on a landscape modelled as 100x100 square cells; (2) the **observation model** which represents the process of observations (including a degree of uncertainty) of the animal population, feeding into (3) the **manager model** which uses the observation of the animal population to make management decisions, involving costs set for agents in (4) the **user model**, representing a number of agents (farmers) that each own a part of the landscape.
+In each time step, both manager and user agents are allocated a (fixed) budget.
+The users (farmers) may allocate their budget to taking one of several potential actions (here: hunting animals, scaring animals of their land, or tending crops - they may only take these actions on their own land).
+
+The goal for the manager is to maintain the animal population to a desired level (the management target, normally set externally as a model parameter).
+It does so by controlling the cost for user (farmer) actions in the following time step: e.g. higher costs for hunting is likely to decrease the number of animals hunted, limiting negative effects on the population and thus making population increases more likely, decreasing scaring cost may increase the number of users choosing scaring.
+Users (farmers) aim to maximise agricultural yield from their land; yield equals 1 per cell owned per time step, but yield is decreased by the presence of animals on a cell (e.g. through grazing) and may be increased by tending crops (one of the possible three actions).
+Through this, users have an incentive to control the number of animals of their land, either through allocating budget to hunting or through scaring.
+The former permanently reduces the number of animals present, the latter has a certain probability of moving an animal away from the user's land, for the duration of the time step.
+Users can only take actions on land that they own.
+
+Costs for actions (by the manager) or actions taken (by the users) are chosen using a genetic algorithm (GA), a heuristic optimisation algorithm which mimics the choice of decision as evolution by natural selection; a large number of possible decisions are iteratively compared by assessing their outcome, with the decision that maximises a given utility function (yield for users, and minimising distance to population target for the manager) identified as the "fittest".
+The GA is run separately for each agent (manager and all users) in each time step.
+Note that the users and manager have only a single goal each; by default agents in GMSE cannot balance multiple objectives.
+
+In the default resource (animal) model in GMSE, the animal population is modelled as a form of logistic growth, with a small amount of added random mortality per time step and death caused by hunting; for more detail see below and in **XXX**.
+In each time step, each animal moves a given distance in a random direction, and feeds from the cell it is present in.
+In the current model, neither movement nor population growth rate is affected by agricultural yield.
 
 ### Brief discussion of limitations of GMSE
 
