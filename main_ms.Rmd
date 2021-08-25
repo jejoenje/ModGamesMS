@@ -143,7 +143,6 @@ Both scores are intitialised as $A_t = S_t = 100$ when the game is first initial
 Players can choose to either balance both scores, or score highly on one or the other.
 They are updated and displayed on each time step, and the final scores are displayed on a score board after the final time step ($t=25$, so after 20 time steps played) is complete, or once the animal population goes extinct.
 The scoreboard is a top 10 "leaderboard" of scores over all sessions played by all players to date; if the current player's score is not included in the top 10, it is displayed at the bottom of the board with the correct rank relative to other players.
-<!--# Need to include a note on the arbitrary nature of the scores, and how we intend to use them. Either here or in discussion? -->
 
 ### Data collection & database
 
@@ -379,48 +378,62 @@ mtext("Time step", side = 1, outer = T, line = 2.5, cex = CEX.MTEXT)
 We have here outlined a framework for using an interactive game (A&F) as an interface to a socio-ecological model for natural resource management.
 The game interface allows players that are not familiar with the underlying model to interact directly and easily with it, with game play decisions directly reflecting parameter settings in the models.
 We argue that not only does this provide a convenient communication/education tool with respect to both the specific model and models in general, it also provides a tool to both perform *in silico* experiments on human decision-making in given natural resource management scenarios, as well as collect large amounts of data that may be used to improve the model parameterisation.
+It is worth stressing that we are here specifically referrring to model-games as data-collection tools, as opposed to exclusively as communication- or educational tools.
 
-We illustrated this approach by showing the data from a small number of trial game play sessions: we showed that subtle variation in farmer land ownership can lead to noticeably different resource population trajectories and manager (player) decision-making patterns.
+## Potential
+
+We illustrated the potential of this approach by presenting data from a small number of trial game play sessions: we showed that subtle variation in farmer land ownership can lead to noticeably different resource population trajectories and manager (player) decision-making patterns.
 While the data shown here should be taken as illustrative only, it highlights the potential to easily run a range of *in silico* experiments with direct relevance to real-world questions.
-For example, observation uncertainty and its consequences on decision-making is a perennial question in conservation management (**REF**).
-While real-world experiments on this would be extremely challenging and costly, GMSE provides a suitable modelling framework in which observation uncertainty can be manipulated, and A&F the platform to run controlled experiments with real-world stakeholders.
+For example, observation uncertainty and its consequences on decision-making is a perennial topic in conservation management (**REF**).
+While real-world experiments on this would be extremely challenging and costly, GMSE provides a suitable modelling framework in which observation uncertainty can be manipulated, with A&F providing the platform to run controlled experiments with real-world stakeholders.
 This approach could extend to many if not all of the **XXX** parameters currently available in GMSE, ranging from variability in demography or behaviour of the natural resource, to user (farmer) behaviour or variability, and wider environmental change or stochasticity.
 The game interface and player interaction would remain the same, with only the underlying architecture and database back end requiring minor tweaks to accommodate the extra parameter variation.
 
-[**some sentences on "gamesourceing" potential**]
+In addition to use as an experimental tool, this approach also has great potential for use as a way to source large amounts of decision-making data which may then be used to re-parameterise the underlying models, to better reflect real-world decision making.
+Given a large enough sample of play sessions with a range of parameter combinations and outcomes, it may be possible to train machine learning algorithms on data collected from this approach, to represent human decision-making under a wide range of conditions.
+Such algorithms would potentially reflect a range of subtleties of the decision-making process, e.g. balancing multiple objectives in the presences of e.g. social, financial, and organisational constraints.
+Algorithms implemented in existing modelling approaches (without reference to empirical data) including GMSE, are very limited in how they can represent such "non-rational" decision-making.
+
+## Some limitations and potential solutions
+
+### "The game is unrealistic"
 
 There are clearly a number of limitations to the model-game approach, particularly in terms of directly using "game-sourced" data to (re)parameterise underlying models.
 One concern was raised by several trial players, and can be summarised as the game or game play lacking "realism", or crucially, lacking aspects or features or real life, or the player's experience of the conservation problem (**INSERT QUOTES?**).
-Essentially, this point relates to external validity of the game, i.e. to what extent the representations in the game, and/or any conclusions derived from data collected in it, can be extrapolated to real-world settings.
+Essentially, this point relates to external validity (**REF?**) of the game, i.e. to what extent the representations in the game, and/or any conclusions derived from data collected in it, can be extrapolated to real-world settings.
 This may be seen as particularly important if such data collected is subsequently used to adjust model parameterisation; i.e. if the game world is not seen as sufficiently realistic, it may be argued that player behaviour cannot be taken as realistic, and therefore any reparameterisation would be (at best) biased.
 While a very important point, it is interesting to note that strictly speaking, this point relates to the *underlying* *model* as opposed to the game or the game interface itself.
-That is, concerns about the lack of "features" or assumptions made are as true of any model as they are of the game representation of it, and indeed they are applicable to all models ("all models are wrong").
-Indeed, this in itself highlights the value of the model-game approach, in that it helps the user (i.e. player) to fully understand the model's structure, assumptions, and consequent limitations: particularly given complex socio-ecological models, it can be challenging to effectively communicate the full scope of features and limitations.
+That is, concerns about the lack of "features" or assumptions made are as true of any model as they are of the game representation of it, and indeed they are applicable to all models ("*all models are wrong*" **REF**).
+Indeed, this in itself highlights the value of the model-game approach, in that it helps the user (i.e. player) to fully understand the model's structure, assumptions, and consequent limitations: particularly given complex socio-ecological models, it can be challenging to effectively communicate the full scope of features and limitations (**REF**).
 By casting the model as a game, users are put in the center of the modelling process, and any limitations are likely more apparent, more quickly.
-Recognition of this, particularly by those lacking technical modelling expertise is vital when such models are put to applied use; all models are abstractions of reality and some make sweeping assumptions, their utility ("some models are useful") depends on careful application and recognition of this.
+Recognition of this, particularly by those lacking technical modelling expertise is vital when such models are put to applied use: all models are abstractions of reality and their utility ("*some models are useful*", **REF**) depends on careful application and recognition of this.
 
-Further limitation - framing
+### "Humans are biased"
 
-Further limitation - limited audience, recruiting etc.
+An additional limitation of "gamesourcing" data either in experimental settings or for parameterising models, is the potential for the sampled decision-making data to be biased, e.g. in terms of players or their motivations.
+For example, either intentionally or unintentionally, it may be that players are sampled from a limited subset; e.g. all players may have a single professional background such as conservation science, or the nature of the game (framing) may selectively attract a subset of the public.
+As a consequence, decision-making may not be representative of a wider population of potential players (e.g. more biased towards conservation rather than social objectives).
+While this is an important potential issue, we argue that such issues can be avoided by carefully controlling player recruitment, and subsampling of data collected in different sampling regimes, depending on the research question.
+This may be achieved, for example, by using game play session codes, separating game sessions for a specific experiment from "open" play sessions (**REF Izzy's game**).
 
-End on positive "sandboxing" note?
+Similar bias may occur if some players play the game with widely different motivations (**REF?**): e.g. playing to "win", simply maximise a single score, or deliberately attempt to achieve undesirable outcomes.
+Indeed, it should be stressed that the scores used in the example implementation presented here are to some extent entirely arbitrary, and the choice of scoring system (including algorithms to calculate them) may inherently bias the decision-making data collected, depending on player motivations.
+There are a number of ways in which this issue can be addressed.
+First, in fully implementing this model-game approach, it will be vital to collect player data through pre- or post-game questionnaires, including on e.g. professional background, social- and ecological atttitudes, which can be used to control for any potential motivational biases in decision-making data (**REF?**).
+It should be noted that the current example implementation of A&F allows for anonymous play, and that collection of player personal data would require both further ethical approval as well as additional infrastructure (i.e. unique player names through codes or accounts).
+Second, it should be stressed that in setting up A&F, we were careful not to steer players to play to maximise any specific objective (**INCLUDE PHRASE ON GAME GOAL IN INTRO SCREENS**).
+Careful framing of the game (either in open play or in more limited experimental settings) in terms of game objectives, and ensuring that this matches the objective of the particular application, is vital to avoid goal bias.
 
-Brief summary of aims, process and outcome of example scenarios
+## Concluding remarks
 
-Revisit player feedback
+Provided that the limitations outlined above are taken into account, and the given application is carefully considered, we believe that the approach outlined here has great potential to advance both the understanding and capability of complex socio-ecological models for natural resource management.
+As previous work has already shown, games and in particular videogames provide a great tool to increase public engagement with quantitative models, and we here highlight how this could be extended to provide effective, flexible and powerful tools for data collection.
 
-Discussion of limitations of overall approach, with reference to player feedback
+# Acknowledgements
 
-(Potentially general discussion of issues with games approach?)
-
-Discussion of potential
-
-Communication/education: highlight player feedback as very point of approach: game may be abstract, restrictive and not representative of reality, but this is case for any model, yet latter point often "hidden".
-By taking game approach, shortcomings more obvious to non-specialists.
-
-Yes, problematic when expecting direct application to real life, but again this is/should be clear for all models.
-
-Highlight expandability of approach, sandboxing ideas in flexible simulated environment
+We thank all the trial players for their time and effort in testing A&F.
+Special thanks to five of the trial players for providing specific feedback on which much of the Discussion for this paper was based, and which will form a starting point for future improvements of the model-game approach.
+<!--# JM and NB were funded by EU Horizon 2020 grant agreement no. 679651 ("ConFooBio", to NB); ABD was funded by a Leverhulme Trust ECF fellowship grant.  -->
 
 ## 
 
