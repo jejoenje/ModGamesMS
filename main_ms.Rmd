@@ -21,6 +21,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Summary
 
+1.  Models have become indispensable tools in conservation science in the face of increasingly rapid loss of biodiversity through anthropogenic habitat loss and natural resource exploitation. In addition to their ecological components, accurately representing human decision-making processes in such models is vital to maximise their utility. This can be problematic, as models such socio-ecological models because increasingly complex, and thus both challenging to communicate and parameterise.
+2.  Games have a long history of being used as science communication tools, but are less widely used as data collection tools, particularly in videogame form. This is surprising, given many parallels between models and videogames. We here propose a novel approach to both aiding communication of complex socio-ecological models as well as "gamesourcing" human decision-making data, by explicitly casting an existing modelling framework as an interactive videogame.
+3.  We present players with a natural resource management game, in which they make management decisions about a population of wild animals, which graze on crops and can thus lower agricultural yield. A number of (non-player) farmers respond to the player's management decisions, taking actions that may affect their yield as well as the animal population. Players are asked to set their own management goal (e.g. maintain the animal population at a certain level or improving yield), and make decisions accordingly. Trail players were also asked to provide any feedback on both gameplay and purpose.
+4.  We demonstrate the utility of this approach by collecting and analysing game play data from a small sample of trial plays, in which we systematically vary two model parameters, and allowing trial players to interact with the model through the game interface. As an illustration, we show how variations in land ownership and the number of farmers in the system affects decision-making patterns as well as population trajectories (extinction probabilities).
+5.  We discuss the potential and limitations of this model-game approach in the light of trial player feedback received, focusing in particular on (1) concerns about external validity of the game, i.e. lacking features or relevance to real life, and (2) potential issues with audience bias and player sampling. Player feedback further highlights the parallels between games and models, and in particular the need for clear communication of model limitations and assumptions. We conclude that videogames provide an effective means to do so, and that although they provide a promising means to collect data on human decision-making, it is vital to carefully consider both external validity and potential biases when doing so.
+
 # Introduction
 
 In recent years, the use and application of models has become widespread and indispensable in conservation science, ranging from demonstrating the likely effects of climate change [@ipcc2021] to supporting the understanding of fundamental processes in natural resource management [e.g. @fryxell2010; @cusack2020].
@@ -71,19 +77,23 @@ Finally, using test player feedback as a basis, we discuss both the limitations 
 
 [A&F is available to play online](https://ochil-ds.co.uk/animalnfarm/).
 
-Overall, it consists of two main components; (1) the underlying model(s) describing the wild grazing animal ("resource") population dynamics, the observation of this population, and farmer ("user" or stakeholder) actions, all implemented using the GMSE framework as described below; and (2) the game interface for the underlying model, which allows the player to set management actions (specifically, costs for user actions) that would otherwise be determined by the management model in the "vanilla" GMSE set up.
+Overall, it consists of two main components; (1) the underlying model(s) describing the wild grazing animal ("resource") population dynamics, the observation of this population, and farmer ("user" or stakeholder) actions, all implemented using the GMSE framework as described below; and (2) the game interface for the underlying model, which allows the player to set management actions (specifically, costs for user actions) that would otherwise be determined by the management model in the default GMSE set up.
 
 ## Underlying model: GMSE
 
 We used the Generalised Management Strategy Evaluation (GMSE) modelling framework to model the socio-ecological system underlying A&F.
-The GMSE R package (**ref**) was designed as a flexible solution for parameterising systems that model the management, observation, exploitation and population dynamics of a natural resource (e.g. a population of hunted wildlife).
-In this section, we summarise the basic functionality of GMSE as relevant to the present manuscript; for a full description see XXX and XXX (the latter containing an appendix with the full ODD model description).
+The GMSE R package (**REF**) was designed as a flexible solution for parameterising systems that model the management, observation, exploitation and population dynamics of a natural resource (e.g. a population of hunted wildlife).
+In this section, we summarise the basic functionality of GMSE as relevant to the present manuscript; for a full description see @duthie2018 and @nilsson2021 (the latter containing an appendix with the full ODD model description).
 
 ### Basic introduction of GMSE principles and structures
 
-GMSE consists of four submodels: (1) the **resource model**, an individual-based model for an animal population situated on a landscape modelled as 100x100 square cells; (2) the **observation model** which represents the process of observations (including a degree of uncertainty) of the animal population, feeding into (3) the **manager model** which uses the observation of the animal population to make management decisions, involving costs set for agents in (4) the **user model**, representing a number of agents (farmers) that each own a part of the landscape.
+GMSE consists of four submodels (Figure 1a): (1) the **resource model**, an individual-based model for an animal population situated on a landscape modelled as 100x100 square cells; (2) the **observation model** which represents the process of observations (including a degree of uncertainty) of the animal population, feeding into (3) the **manager model** which uses the observation of the animal population to make management decisions, involving costs set for agents in (4) the **user model**, representing a number of agents (farmers) that each own a part of the landscape.
 In each time step, both manager and user agents are allocated a (fixed) budget.
 The users (farmers) may allocate their budget to taking one of several potential actions (here: hunting animals, scaring animals of their land, or tending crops - they may only take these actions on their own land).
+
+```{r, echo = FALSE, out.width="600px", fig.cap = "Figure 1. The basic structure of (a) the GMSE modelling framework and its default order of operations with the genetic algorithm (GA) modelling the decision-making process of both users and manager, and (b) the adaptation of the GMSE framework to accomodate the model-game approach presented here. The grey boxes represent the various GMSE submodels, with the arrows representing the process links between them. The yellow boxes and circles are the adapted components in the model-game adaptation, with player interaction replacing the manager model in GMSE, and the underlying GA for the manager - the GA is still used to make user decisions. Grey circles indicate the order of operations in each."}
+knitr::include_graphics("GMSE_AnF_structure.jpg")
+```
 
 The goal for the manager is to maintain the animal population to a desired level (the management target, normally set externally as a model parameter).
 It does so by controlling the cost for user (farmer) actions in the following time step: e.g. higher costs for hunting is likely to decrease the number of animals hunted, limiting negative effects on the population and thus making population increases more likely, decreasing scaring cost may increase the number of users choosing scaring.
@@ -94,40 +104,43 @@ Users can only take actions on land that they own.
 
 Costs for actions (by the manager) or actions taken (by the users) are chosen using a genetic algorithm (GA), a heuristic optimisation algorithm which mimics the choice of decision as evolution by natural selection; a large number of possible decisions are iteratively compared by assessing their outcome, with the decision that maximises a given utility function (yield for users, and minimising distance to population target for the manager) identified as the "fittest".
 The GA is run separately for each agent (manager and all users) in each time step.
-Note that the users and manager have only a single goal each; by default agents in GMSE cannot balance multiple objectives.
 
-In the default resource (animal) model in GMSE, the animal population is modelled as a form of logistic growth, with a small amount of added random mortality per time step and death caused by hunting; for more detail see below and in **XXX**.
+In the default resource (animal) model in GMSE, the animal population is modelled as a form of logistic growth, with a small amount of added random mortality per time step and death caused by hunting; for more detail see below and in @duthie2018.
 In each time step, each animal moves a given distance in a random direction, and feeds from the cell it is present in.
 In the current model, neither movement nor population growth rate is affected by agricultural yield.
 
-### Brief discussion of limitations of GMSE
+It is worthwhile stressing that in the current GMSE implementation, using the GA, both agent types (users and the manager) essentially have only a single goal they each aim for.
+Users (farmers) aim to maximise their yield, whereas the manager aims to minimise deviation from a given population target - neither can balance multiple competing objectives.
+This is unlikely to be reflective of real conservation scenarios, where it is common for conservation managers to at least recognise other aims if not take these explicitly into account when setting policy , and other stakeholders in the system (e.g. farmers) commonly having some interest in conservation objectives (**REF?**).
+Human decision-making in such scenarios in inevitably about balancing these different objectives, but parameterising algorithms that mimic such processes without reference to long-term data is very challenging (**REF?**).
+Addressing this issue was a key motivation for the development of the model-game approach presented here.
 
 ## Animal&Farm
 
 ### Structure as relating to GMSE
 
-In the default implementation of GMSE `r packageVersion("GMSE")`, a single time $t$ step consists of a series of calls to the resource model, observation model, management model and user model, in that specific order; in other words, a time step ends after user actions have been chosen (by the GA) and implemented [**FIG Xa**].
+In the default implementation of GMSE `r packageVersion("GMSE")`, a single time $t$ step consists of a series of calls to the resource model, observation model, management model and user model, in that specific order; in other words, a time step ends after user actions have been chosen (by the GA) and implemented (Figure 1b).
 To allow players to assess the environment and interactively choose management actions, A&F uses a modified version of GMSE.
 
 A&F uses a development version of GMSE (v. `r packageVersion("GMSE")`, implemented in `r sessionInfo()$R.version$version.string`, code available [here](https://github.com/ConFooBio/gmse/tree/man_control) in which the management model is replaced by user (player) inputs, and the order of operations is altered to accommodate this.
-To initialise each game session, four time steps are run using the default GMSE implementation; i.e. in these time steps the management decisions are chosen by the default GA, and the resource, observation and user models are run using the parameters as defined for the given the scenario (**see below**).
+To initialise each game session, four time steps are run using the default GMSE implementation; i.e. in these time steps the management decisions are chosen by the default GA, and the resource, observation and user models are run using the parameters as defined for the given the scenario (see 4.2 below).
 These time steps are followed by a "partial" time step where only the resource and observation models are run, skipping the management and user models.
 As a result, at the end of these initial time steps ([`init_man_control()`](%5B%60https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L368%60%5D(https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L368))), the simulated system has five population and observation time steps and is ready for the next choice of management action at $t = 5$, pending the first player input.
 This is done both to set up all the required GMSE data structures using existing code, as well as to provide the player with a short time series on which to base management decisions going forward.
 
-The current GMSE simulations used by A&F simulates a landscape of 100x100 cells, divided into farms owned by 4-12 farmers (stakeholders; the precise number and land distribution is randomly varied per session, see **section XXX** below).
+The current GMSE simulations used by A&F simulates a landscape of 100x100 cells, divided into farms owned by 4-12 farmers (stakeholders; the precise number and land distribution is randomly varied per session, see 4.2 below).
 Farmers can take three possible actions; tending crops, hunting (culling) animals, or scaring animals off their land.
 All submodels used in A&F are currently the default GMSE models (with the exception of the management model in time steps $t>5$, where the player assumes control over the management decisions (see below).
-Thus, we only give brief details here, for full details and descriptions of all models, see **XXX** and **XXX**.
+Thus, we only give brief details here, for full details and descriptions of all models, see @duthie2018 and @nilsson2021 for further details).
 The **animal population** model uses the logistic growth form with $N_o = 1000$, $\lambda = 0.3$ and $K=5000$, meaning that in the absence of any management the population is likely to increase from the initial population size (1000) to carrying capacity (5000).
 The **observation model** uses the default GMSE model (density-based sampling of a subset of the environment); only *observed* numbers of animals are available to the manager to base decisions on (and thus population trajectory plots in the game interface reflect observations only, which are subject to an unknown level of uncertainty).
 Both the **management model** (in the initialisation steps) and **user model** use the GA algorithms with default parameter settings.
 User (farmer) budgets are set to 1500 units per time step, manager budgets to 1000 units (both for the initial 5 time steps and the subsequent game play).
 The users (farmers) aim to maximise yield from their land, their annual budget is reset each year and is unaffected by yield.
 Yield is positively affected by tending crops, and may be negatively affected by the presence of grazing wild animals - thus hunting or scaring may offset any potentially negative effects on yield.
-Note that the choice of models and parameter values here serve as an example only; it is expected that future implementations and development of A&F will focus on specific research questions / case studies, and will adjust models and parameter settings accordingly (**see XXX below**).
+Note that the choice of models and parameter values here serve as an example only; it is expected that future implementations and development of A&F will focus on specific research questions / case studies, and will adjust models and parameter settings accordingly (see Discussion).
 
-Each following A&F time step then consists of (1) user input, taking the place of the default management model, in which the player can assess the environment using outputs provided (see below) and choose management actions (costs for user actions), and, (2) and once the player confirms their choice, a modified GMSE time step including sequential calls to the default user, resource and observation models ([`gmse_apply_UROM()`](https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L146)) [**FIG Xb**].
+Each following A&F time step then consists of (1) user input, taking the place of the default management model, in which the player can assess the environment using outputs provided (see below) and choose management actions (costs for user actions), and, (2) and once the player confirms their choice, a modified GMSE time step including sequential calls to the default user, resource and observation models ([`gmse_apply_UROM()`](https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L146)) (Figure 1b).
 
 ### User interface
 
@@ -135,19 +148,23 @@ The user interface for A&F is a web application is coded in R, using [`Shiny`](h
 
 On starting a new game session, the player is presented with a series of introductory screens explaining the background, flow and objective of the game <!--# Maybe add a note on generic idea to maximise score? -->, after which they are asked to enter a player name, which is stored and used to show player scores as the end of a session, compared to previous sessions by other players.
 
-The main game screen consists of four components (**FIG X**).
-First, a trajectory plot (**Fig Xa**) showing (1) observed animal population numbers and (2) agricultural yield for each farmer in each time step, up to time $t$ (at the start of the game this will show five observations from the initialisation steps described above).
+```{r, echo = FALSE, out.width="600px", fig.cap = "Figure 2. The Animal & Farm main game interface, showing (a) animal (resource) population trajectory and yield per farmer, (b) the farming landscape with animal positions as red dots and farm ownwership indicated by the grey shades, (c) actions taken by farmers in the previous game round, and (d) user inputs inluding a budget report and costs set for actions."}
+knitr::include_graphics("anf_interface.jpg")
+```
+
+The main game screen consists of four components (Figure 2).
+First, a trajectory plot (Figure 2a) showing (1) observed animal population numbers and (2) agricultural yield for each farmer in each time step, up to time $t$ (at the start of the game this will show five observations from the initialisation steps described above).
 Agricultural yield is expressed as a % of "maximum unaffected yield", i.e. yield in the absence of damage from wildlife or investment in tending crops.
-Second, a plot of the landscape (**Fig Xb**) showing the distribution of farm ownership as well as the position of animals at time $t$.
-Third, a bar plot of the number of actions taken by each farmer at time $t$ (**Fig Xc**).
-Fourth, a report of the current management budget available (not allocated), player scores (**see below**), and player inputs (**Fig Xd**).
+Second, a plot of the landscape (Figure 2b) showing the distribution of farm ownership as well as the position of animals at time $t$.
+Third, a bar plot of the number of actions taken by each farmer at time $t$ (Figure 2c).
+Fourth, a report of the current management budget available (not allocated), player scores (see 3.2.3 below), and player inputs (Figure 2d).
 The player (manager) inputs consist of two sliders, setting the cost for two out of the three actions available[^2] to farmers in time $t+1$: killing animals (presented as the cost of a hunting licence) and scaring animals off their land (presented as the cost of a scaring licence).
 Management budget allocated to one of these cannot be allocated to another, and any budget not allocated is not rolled over to the next time step.
 The third action available to farmers (tending crops) cannot be directly[^3] affected by the manager (player), so no input is available for this
 .
 
 The game progresses to the next time step $t+1$ once the player confirms their choice of cost inputs.
-At this point (1) the user, resource and observation models are run using the updated action costs set by the player, (2) selected environment state data are stored in the database (**see below**), and (3) trajectory, landscape and action plots are updated and budget allocation is reset.
+At this point (1) the user, resource and observation models are run using the updated action costs set by the player, (2) selected environment state data are stored in the database (See 3.2.3 below), and (3) trajectory, landscape and action plots are updated and budget allocation is reset.
 The current implementation of A&F continues for a maximum of 20 time steps (following the initial five) at which point the game session is ended and the player is presented with a scoreboard.
 If the resource population reaches extinction, the game session is also terminated.
 
@@ -227,15 +244,15 @@ Although the landscape ownership distribution is clearly shown to the player thr
 This was done to ensure that a player would not selectively abort sessions.
 Other than this scenario-based parameter variation, game play progresses as described above, with the player able to make management decisions (setting costs for farmer actions) over 20 time steps following the initial five.
 
-We circulated a link to the game with scenarios configured as above to a **sample of XXX** contacts working in conservation science and practical conservation and management, covering a range of academic institutions, research institutes, NGO's and government.
+We circulated a link to the game with scenarios configured as above to a sample of 45 contacts working in conservation science and practical conservation and management, covering a range of academic institutions, research institutes, NGO's and government.
+Contacts were also asked to share the link with any potentially interested contacts.
 The main aim was to (1) obtain feedback on the model-game set up, and (2) collect example data to illustrate the potential of the approach, with specific emphasis on how communication of it may be improved in the future.
 An accompanying covering letter explained this aim, the background to the work, and a request to respond with any feedback.
 Note that the data collected here should not be interpreted as comprehensive research on a specific question, and is intended as illustrative only.
 
 ### Ethics
 
-The work described here was approved by the University of Stirling's General University Ethics Panel (GUEP), project no.
-**X**.
+The work described here was approved by the University of Stirling's General University Ethics Panel (GUEP), project no. 2519.
 While the game link is publicly accessible, it was not publicised beyond the direct contacts described above.
 On accessing the link, players are presented with a series of introductory screens explaining the background and purpose of the game, followed by a digital consent form, which has to be agreed to by ticking a confirmation tick box, before a new session can be started.
 No personally identifiable data are collected or stored, other than a player nickname - the latter is only requested so that scores can be shown in context and compared to other players; however this can be left as a default placeholder, and players explicitly told that this is not expected to be their real name.
@@ -252,19 +269,20 @@ Sessions lasted `r mean_duration` on average (`r min_duration` - `r max_duration
 As per the scenario set up, these sessions were roughly equally distributed between land ownership variability $o_v$ (0, 0.25 or 0.5, N = `r n_ov0` [`r round(p_ov0*100,1)`%], `r n_ov025` [`r round(p_ov025*100,1)`%], and `r n_ov050` [`r round(p_ov050*100,1)`%], respectively) and number of stakeholders $s$ (4-12).
 
 The animal population reached extinction in `r sum(run$extinct==1)` out of the `r n_sessions` sessions (`r round((sum(run$extinct==1)/nrow(run))*100,1)`%).
-Extinction probability appeared to be higher at both higher levels of land ownership variability ($o_v=0.25$ and $o_v=0.5$), particularly so at intermediate ($o_v=0.25$) levels (**Figure Xa**).
-Differences in extinction probability with variability in farmer (stakeholder) number was less pronounced (**Figure Xb**).
+Extinction probability appeared to be higher at both higher levels of land ownership variability ($o_v=0.25$ and $o_v=0.5$), particularly so at intermediate ($o_v=0.25$) levels (Figure 3a).
+Differences in extinction probability with variability in farmer (stakeholder) number was less pronounced (Figure 3b).
 
 These extinction probabilities were reflected in the animal population trajectories in each parameter scenario.
-**Figure X** show trajectories per level of landownership variability, with cases where the population reached extinction highlighted in red.
+Figure 4 shows trajectories per level of landownership variability, with cases where the population reached extinction highlighted in red.
 Both higher levels of variablility ($o_v=0.25$ and $o_v=0.5$) show fewer cases with rapid increasing trends.
 
-Management actions taken by the players (over time, $t>5$) are summarised in Figure X. It is notable that when land ownership variability was higher ($o_v=0.5$), chosen costs for hunting licences appeared to be more stable (i.e. less variable), particularly toward the end of playing sessions (Figures Xc vs. Xa-b).
+Management actions taken by the players (over time, $t>5$) are summarised in Figure 5.
+It is notable that when land ownership variability was higher ($o_v=0.5$), chosen costs for hunting licences appeared to be more stable (i.e. less variable), particularly toward the end of playing sessions (Figures 5c vs. 5a-b).
 It should be noted that this may in part be an artifact of somewhat lower sample size at higher time steps (because in some sessions the population would have gone extinct part way through a session).
 On average, hunting licence costs also appeared to be set lower overall at higher land ownership variability.
-By comparison, costs set for scaring licences appeared to more stable over time (Figures Xd-f).
+By comparison, costs set for scaring licences appeared to more stable over time (Figures 5d-f).
 
-```{r, echo = FALSE, fig.width=10, fig.height=5, fig.fullwidth=TRUE, fig.cap="Figure X. Proportion of game sessions where animal population reached extinction, as a function of (a) land ownership variability and (b) the number of farmers (stakeholders) in the game session."}
+```{r, echo = FALSE, fig.width=10, fig.height=5, fig.fullwidth=TRUE, fig.cap="Figure 3. Proportion of game sessions where animal population reached extinction, as a function of (a) land ownership variability and (b) the number of farmers (stakeholders) in the game session."}
 #jpeg("fig1.jpeg",width = 800, height = 400)
 extinct_ov = table(run$extinct, run$ownership_var)
 extinct_ov_p = prop.table(extinct_ov, 2)
@@ -301,7 +319,7 @@ mtext("Proportion extinct", 2, line = 2.5, cex = 1.5, outer = T)
 #dev.off()
 ```
 
-```{r, echo = FALSE, fig.width = 10, fig.height=5, fig.fullwidth=TRUE, fig.cap="Figure X. Animal population trajectories per game session, split by levels of land ownership variability. Trajectories highlighted in red are sessions where the population reached extinction."}
+```{r, echo = FALSE, fig.width = 10, fig.height=5, fig.fullwidth=TRUE, fig.cap="Figure 4. Animal population trajectories per game session, split by levels of land ownership variability. Trajectories highlighted in red are sessions where the population reached extinction."}
 par(mfrow =c(1,3))
 XLAB = "Time step"
 CEX.AXIS = 1.5
@@ -331,7 +349,7 @@ mtext("Time step", side = 1, outer = T, line = 2.5, cex = CEX.MTEXT)
 mtext("True population size", side = 2, outer = T, line = 2.5, cex =CEX.MTEXT)
 ```
 
-```{r, echo = FALSE,fig.width = 10, fig.height=7, fig.fullwidth=TRUE, fig.cap="Figure X. Summary of player management actions (costs set for hunting- and scaring licences) over time, per ownership variability scenario. Solid black line is the mean cost per time step, with lighter and darker polygons representing the 25-75% and 2.5% and 97.5% quantiles of the cost distribution per time step."}
+```{r, echo = FALSE,fig.width = 10, fig.height=7, fig.fullwidth=TRUE, fig.cap="Figure 5. Summary of player management actions (costs set for hunting- and scaring licences) over time, per ownership variability scenario. Solid black line is the mean cost per time step, with lighter and darker polygons representing the 25-75% and 2.5% and 97.5% quantiles of the cost distribution per time step."}
 ### Calculate summary statistic for given cost type over time steps:
 cost_summary = function(dat, ov, cost, type) {
   
@@ -407,9 +425,9 @@ It is worth stressing that we are here specifically referrring to model-games as
 
 We illustrated the potential of this approach by presenting data from a small number of trial game play sessions: we showed that subtle variation in farmer land ownership can lead to noticeably different resource population trajectories and manager (player) decision-making patterns.
 While the data shown here should be taken as illustrative only, it highlights the potential to easily run a range of *in silico* experiments with direct relevance to real-world questions.
-For example, observation uncertainty and its consequences on decision-making is a perennial topic in conservation management (**REF**).
+For example, observation uncertainty and its consequences on decision-making is a perennial topic in conservation management [@nuno2013].
 While real-world experiments on this would be extremely challenging and costly, GMSE provides a suitable modelling framework in which observation uncertainty can be manipulated, with A&F providing the platform to run controlled experiments with real-world stakeholders.
-This approach could extend to many if not all of the **XXX** parameters currently available in GMSE, ranging from variability in demography or behaviour of the natural resource, to user (farmer) behaviour or variability, and wider environmental change or stochasticity.
+This approach could extend to many if not all of the 74 parameters currently controllable by users in GMSE, ranging from variability in demography or behaviour of the natural resource, to user (farmer) behaviour or variability, and wider environmental change or stochasticity.
 The game interface and player interaction would remain the same, with only the underlying architecture and database back end requiring minor tweaks to accommodate the extra parameter variation.
 
 In addition to use as an experimental tool, this approach also has great potential for use as a way to source large amounts of decision-making data which may then be used to re-parameterise the underlying models, to better reflect real-world decision making.
@@ -423,13 +441,12 @@ Algorithms implemented in existing modelling approaches (without reference to em
 
 There are clearly a number of limitations to the model-game approach, particularly in terms of directly using "game-sourced" data to (re)parameterise underlying models.
 One concern was raised by several trial players, and can be summarised as the game or game play lacking "realism", or crucially, lacking aspects or features or real life, or the player's experience of the conservation problem (**INSERT QUOTES?**).
-Essentially, this point relates to external validity (**REF?**) of the game, i.e. to what extent the representations in the game, and/or any conclusions derived from data collected in it, can be extrapolated to real-world settings.
-This may be seen as particularly important if such data collected is subsequently used to adjust model parameterisation; i.e. if the game world is not seen as sufficiently realistic, it may be argued that player behaviour cannot be taken as realistic, and therefore any reparameterisation would be (at best) biased.
+This may be seen as particularly problematic if such data collected is subsequently used to adjust model parameterisation; i.e. if the game world is not seen as sufficiently realistic, it may be argued that player behaviour cannot be taken as realistic (i.e. perceived lack of realism leading to lack of external validity, [@jackson2012a; @levitt2007]), and therefore any reparameterisation would be (at best) biased.
 While a very important point, it is interesting to note that strictly speaking, this point relates to the *underlying* *model* as opposed to the game or the game interface itself.
-That is, concerns about the lack of "features" or assumptions made are as true of any model as they are of the game representation of it, and indeed they are applicable to all models ("*all models are wrong*" **REF**).
-Indeed, this in itself highlights the value of the model-game approach, in that it helps the user (i.e. player) to fully understand the model's structure, assumptions, and consequent limitations: particularly given complex socio-ecological models, it can be challenging to effectively communicate the full scope of features and limitations (**REF**).
+That is, concerns about the lack of "features" or assumptions made are as true of any model as they are of the game representation of it, and indeed they are applicable to all models ("*all models are wrong*", [@box1979]).
+Indeed, this in itself highlights the value of the model-game approach, in that it helps the user (i.e. player) to fully understand the model's structure, assumptions, and consequent limitations: particularly given complex socio-ecological models, it can be challenging to effectively communicate the full scope of features and limitations [@grimm2006; @grimm2020].
 By casting the model as a game, users are put in the center of the modelling process, and any limitations are likely more apparent, more quickly.
-Recognition of this, particularly by those lacking technical modelling expertise is vital when such models are put to applied use: all models are abstractions of reality and their utility ("*some models are useful*", **REF**) depends on careful application and recognition of this.
+Recognition of this, particularly by those lacking technical modelling expertise is vital when such models are put to applied use: all models are abstractions of reality and their utility ("*some models are useful*", [@box1979]) depends on careful application and recognition of this.
 
 ### "Humans are biased"
 
@@ -439,10 +456,10 @@ As a consequence, decision-making may not be representative of a wider populatio
 While this is an important potential issue, we argue that such issues can be avoided by carefully controlling player recruitment, and subsampling of data collected in different sampling regimes, depending on the research question.
 This may be achieved, for example, by using game play session codes, separating game sessions for a specific experiment from "open" play sessions (**REF Izzy's game**).
 
-Similar bias may occur if some players play the game with widely different motivations (**REF?**): e.g. playing to "win", simply maximise a single score, or deliberately attempt to achieve undesirable outcomes.
+Similar bias may occur if some players play the game with widely different motivations [e.g. @levitt2007]: e.g. playing to "win", simply maximise a single score, or deliberately attempt to achieve undesirable outcomes.
 Indeed, it should be stressed that the scores used in the example implementation presented here are to some extent entirely arbitrary, and the choice of scoring system (including algorithms to calculate them) may inherently bias the decision-making data collected, depending on player motivations.
 There are a number of ways in which this issue can be addressed.
-First, in fully implementing this model-game approach, it will be vital to collect player data through pre- or post-game questionnaires, including on e.g. professional background, social- and ecological atttitudes, which can be used to control for any potential motivational biases in decision-making data (**REF?**).
+First, in fully implementing this model-game approach, it will be vital to collect player data through pre- or post-game questionnaires, including on e.g. professional background, social- and ecological atttitudes [as in e.g. @rakotonarivo2021; @rakotonarivo2021a], which can be used to control for any potential motivational biases in decision-making data.
 It should be noted that the current example implementation of A&F allows for anonymous play, and that collection of player personal data would require both further ethical approval as well as additional infrastructure (i.e. unique player names through codes or accounts).
 Second, it should be stressed that in setting up A&F, we were careful not to steer players to play to maximise any specific objective (**INCLUDE PHRASE ON GAME GOAL IN INTRO SCREENS**).
 Careful framing of the game (either in open play or in more limited experimental settings) in terms of game objectives, and ensuring that this matches the objective of the particular application, is vital to avoid goal bias.
@@ -468,7 +485,6 @@ Special thanks to five of the trial players for providing specific feedback on w
 [^2]: A&F currently focuses only on hunting animals, scaring animals or tending crops as available actions to farmers; this may be expanded in the future to other actions available in GMSE.
 
 [^3]: It can be affected *indirectly* by setting the cost for the two actions prohibitively high, so that tending crops becomes more likely to be most beneficial to maximising yield (the farmer's goal).
-    See **XXX**.
 
 [^4]: Strictly speaking, unique player *names*.
     It is possible for the same player to play under multiple different player names.

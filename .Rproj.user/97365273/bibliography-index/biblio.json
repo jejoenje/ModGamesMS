@@ -1939,6 +1939,200 @@
             "title": "A standard protocol for describing individual-based and agent-based models",
             "type": "article-journal",
             "volume": "198"
+        },
+        {
+            "DOI": "10.1057/ejdr.2011.47",
+            "URL": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=DOISource&SrcApp=WOS&KeyAID=10.1057%2Fejdr.2011.47&DestApp=DOI&SrcAppSID=D6PtnvhQHrqLmfDEsci&SrcJTitle=EUROPEAN+JOURNAL+OF+DEVELOPMENT+RESEARCH&DestDOIRegistrantName=Springer+Science+and+Business+Media+LLC",
+            "author": [
+                {
+                    "family": "Jackson",
+                    "given": "Cecile"
+                }
+            ],
+            "container-title": "European Journal of Development Research",
+            "id": "jackson2012",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012,
+                        2
+                    ]
+                ]
+            },
+            "language": "en-US",
+            "note": "Place: Basingstoke Publisher: Palgrave Macmillan Ltd WOS:000300186300010",
+            "page": "71-88",
+            "title": "Internal and external validity in experimental games: A social reality check",
+            "title-short": "Internal and external validity in experimental games",
+            "type": "article-journal",
+            "volume": "24"
+        },
+        {
+            "DOI": "10.1257/jep.21.2.153",
+            "URL": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=DOISource&SrcApp=WOS&KeyAID=10.1257%2Fjep.21.2.153&DestApp=DOI&SrcAppSID=D6PtnvhQHrqLmfDEsci&SrcJTitle=JOURNAL+OF+ECONOMIC+PERSPECTIVES&DestDOIRegistrantName=American+Economic+Association",
+            "author": [
+                {
+                    "family": "Levitt",
+                    "given": "Steven D."
+                },
+                {
+                    "family": "List",
+                    "given": "John A."
+                }
+            ],
+            "container-title": "Journal of Economic Perspectives",
+            "id": "levitt2007",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2007
+                    ]
+                ]
+            },
+            "language": "en-US",
+            "note": "Place: Nashville Publisher: Amer Economic Assoc WOS:000246989400008",
+            "page": "153-174",
+            "title": "What do laboratory experiments measuring social preferences reveal about the real world?",
+            "type": "article-journal",
+            "volume": "21"
+        },
+        {
+            "DOI": "10.1057/ejdr.2011.47",
+            "URL": "https://doi.org/10.1057/ejdr.2011.47",
+            "author": [
+                {
+                    "family": "Jackson",
+                    "given": "Cecile"
+                }
+            ],
+            "container-title": "The European Journal of Development Research",
+            "id": "jackson2012a",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012,
+                        2,
+                        1
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "71-88",
+            "title": "Internal and External Validity in Experimental Games: A Social Reality Check",
+            "title-short": "Internal and External Validity in Experimental Games",
+            "type": "article-journal",
+            "volume": "24"
+        },
+        {
+            "DOI": "10.1016/B978-0-12-438150-6.50018-2",
+            "URL": "https://www.sciencedirect.com/science/article/pii/B9780124381506500182",
+            "author": [
+                {
+                    "family": "Box",
+                    "given": "G. E. P."
+                }
+            ],
+            "editor": [
+                {
+                    "family": "Launer",
+                    "given": "ROBERT L."
+                },
+                {
+                    "family": "Wilkinson",
+                    "given": "GRAHAM N."
+                }
+            ],
+            "id": "box1979",
+            "issued": {
+                "date-parts": [
+                    [
+                        1979,
+                        1,
+                        1
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "DOI: 10.1016/B978-0-12-438150-6.50018-2",
+            "page": "201-236",
+            "publisher": "Academic Press",
+            "title": "Robustness in the Strategy of Scientific Model Building",
+            "type": "chapter"
+        },
+        {
+            "DOI": "10.1111/1365-2664.12051",
+            "URL": "http://onlinelibrary.wiley.com/doi/10.1111/1365-2664.12051/abstract",
+            "author": [
+                {
+                    "family": "Nuno",
+                    "given": "Ana"
+                },
+                {
+                    "family": "Bunnefeld",
+                    "given": "Nils"
+                },
+                {
+                    "family": "Milner-Gulland",
+                    "given": "E. J."
+                }
+            ],
+            "container-title": "Journal of Applied Ecology",
+            "id": "nuno2013",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "488498",
+            "title": "Matching observations and reality: using simulation models to improve monitoring under uncertainty in the Serengeti",
+            "title-short": "Matching observations and reality",
+            "type": "article-journal",
+            "volume": "50"
+        },
+        {
+            "DOI": "10.1016/j.ecolmodel.2020.109396",
+            "URL": "https://www.sciencedirect.com/science/article/pii/S0304380020304609",
+            "author": [
+                {
+                    "family": "Nilsson",
+                    "given": "L."
+                },
+                {
+                    "family": "Bunnefeld",
+                    "given": "N."
+                },
+                {
+                    "family": "Minderman",
+                    "given": "J."
+                },
+                {
+                    "family": "Duthie",
+                    "given": "A. B"
+                }
+            ],
+            "container-title": "Ecological Modelling",
+            "id": "nilsson2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021,
+                        1,
+                        15
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "109396",
+            "title": "Effects of stakeholder empowerment on crane population and agricultural production",
+            "type": "article-journal",
+            "volume": "440"
         }
     ],
     "project_biblios": []
