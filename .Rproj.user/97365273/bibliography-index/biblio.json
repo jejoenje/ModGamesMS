@@ -2133,6 +2133,96 @@
             "title": "Effects of stakeholder empowerment on crane population and agricultural production",
             "type": "article-journal",
             "volume": "440"
+        },
+        {
+            "URL": "http://public.eblib.com/choice/publicfullrecord.aspx?p=4866274",
+            "author": [
+                {
+                    "family": "Bunnefeld",
+                    "given": "Nils"
+                },
+                {
+                    "family": "Nicholson",
+                    "given": "Emily"
+                },
+                {
+                    "family": "Milner-Gulland",
+                    "given": "E. J"
+                }
+            ],
+            "id": "bunnefeld2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "language": "en-US",
+            "note": "OCLC: 994768874",
+            "publisher": "Cambridge University Press",
+            "publisher-place": "Cambridge",
+            "title": "Decision-making in conservation and natural resource management.",
+            "type": "book"
+        },
+        {
+            "DOI": "10.18174/sesmo.2020a16340",
+            "URL": "https://sesmo.org/article/view/16340",
+            "author": [
+                {
+                    "family": "Schwarz",
+                    "given": "Nina"
+                },
+                {
+                    "family": "Dressler",
+                    "given": "Gunnar"
+                },
+                {
+                    "family": "Frank",
+                    "given": "Karin"
+                },
+                {
+                    "family": "Jager",
+                    "given": "Wander"
+                },
+                {
+                    "family": "Janssen",
+                    "given": "Marco"
+                },
+                {
+                    "family": "Müller",
+                    "given": "Birgit"
+                },
+                {
+                    "family": "Schlüter",
+                    "given": "Maja"
+                },
+                {
+                    "family": "Wijermans",
+                    "given": "Nanda"
+                },
+                {
+                    "family": "Groeneveld",
+                    "given": "Jürgen"
+                }
+            ],
+            "container-title": "Socio-Environmental Systems Modelling",
+            "id": "schwarz2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020,
+                        12,
+                        8
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "16340-16340",
+            "title": "Formalising theories of human decision-making for agent-based modelling of social-ecological systems: practical lessons learned and ways forward",
+            "title-short": "Formalising theories of human decision-making for agent-based modelling of social-ecological systems",
+            "type": "article-journal",
+            "volume": "2"
         }
     ],
     "project_biblios": []
