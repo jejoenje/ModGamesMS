@@ -41,7 +41,7 @@ Given this long history, it is striking that the parallels between videogames in
 All models are abstract representations of environments, actors and relationships, with inputs (parameters) and outputs (predictions or inferences).
 Similarly, all games present a player with an environment in a given state (parameters), including one or more actors, which can take actions (inputs) to affect the environment for a given effect (outputs).
 It is worth stressing that every game has an underlying model that defines the state of the environment, relationships between objects in this environment, and inputs and outputs available to the player.
-However, while games are by definition designed with player (user) interaction in mind, models rarely have user-facing or even user-friendly interfaces, and running or adapting them to specific circumstances usually relies on technical expertise.
+However, while games are by definition designed with player interaction in mind, models rarely have user-facing or even user-friendly interfaces, and running or adapting them to specific circumstances usually relies on technical expertise.
 Casting models as games provides an opportunity to effectively improve the communication and understandability of even relatively complex models.
 Inputs and outputs may be presented in a visual way and tweaked depending on the type of audience, and both potential applications and limitations of the model can be demonstrated effectively.
 
@@ -63,41 +63,48 @@ Finally, using test player feedback as a basis, we discuss both the limitations 
 
 [A&F is available to play online](https://ochil-ds.co.uk/animalnfarm/).
 
-Overall, it consists of two main components; (1) the underlying model(s) describing the wild grazing animal ("resource") population dynamics, the observation of this population, and farmer ("user" or stakeholder) actions, all implemented using the GMSE framework as described below; and (2) the game interface for the underlying model, which allows the player to set management actions (specifically, costs for user actions) that would otherwise be determined by the management model in the default GMSE set up.
+Overall, A&F consists of two main components; (1) the underlying model(s) describing the wild grazing animal ("resource") population dynamics, the observation of this population, and farmer actions, all implemented using the GMSE framework as described below; and (2) the game interface for the underlying model, which allows the player to set management actions (specifically, costs for farner actions) that would otherwise be determined by the management model in the default GMSE set up.
 
 ## Underlying model: GMSE
 
-We used the Generalised Management Strategy Evaluation (GMSE) modelling framework to model the socio-ecological system underlying A&F.
+We used the Generalised Management Strategy Evaluation (GMSE) framework to model the socio-ecological system underlying A&F.
 The GMSE R package (**REF**) was designed as a flexible solution for parameterising systems that model the management, observation, exploitation and population dynamics of a natural resource (e.g. a population of hunted wildlife).
 In this section, we summarise the basic functionality of GMSE as relevant to the present manuscript; for a full description see @duthie2018 and @nilsson2021 (the latter containing an appendix with the full ODD model description).
 
 ### Basic introduction of GMSE principles and structures
 
-GMSE consists of four submodels (Figure 1a): (1) the **resource model**, an individual-based model for an animal population situated on a landscape modelled as 100x100 square cells; (2) the **observation model** which represents the process of observations (including a degree of uncertainty) of the animal population, feeding into (3) the **manager model** which uses the observation of the animal population to make management decisions, involving costs set for agents in (4) the **user model**, representing a number of agents (farmers) that each own a part of the landscape.
-In each time step, both manager and user agents are allocated a (fixed) budget.
-The users (farmers) may allocate their budget to taking one of several potential actions (here: hunting animals, scaring animals off their land, or tending crops - they may only take these actions on their own land).
-Note that "scaring", i.e. deterring animals from causing damage to crops, for example through the use of acoustic deterrents, is common in the management and control of grazing animals on croplands (e.g. geese, **REF**).
+GMSE is an agent-based modelling framework consisting of four sequential submodels (Figure 1a) with three types of agents:
+
+1.  The **resource model**, consisting of $N$ individual animal-agents (hereafter referred to as "animals") moving on a landscape of $X$ x $Y$ cells
+2.  The **observation model** which represents the process of observations (including a degree of uncertainty) of the animal population
+3.  The **manager model** consists of a *single* agent (hereafter referred to as the "manager") which uses the observation of the animal population to make management decisions, affecting the permissiveness of actions for agents in the user model (below).
+4.  The **user model**, consisting of $K$ individual agents, which in the current context represent land-owning farmers. Thus, we refer to these agents as "farmers" in the remainder of this manuscript, but note that we use the term "user model" to refer to the general submodel containing these agents to maintain consistency with the term used in the GMSE documentation [@duthie2018]. Each farmer owns a given proportion $p_K$ of the landscape (this may or may not be an equal distribution, see below).
+
+In each GMSE time step, both the manager and all farmers are allocated a (fixed) budget.
+
+Farmers may allocate their budget to taking one of several potential actions (here: hunting animals, scaring animals off their land, or tending crops - they may only take these actions on their own land).
+Both of the former actions are common in the management and control of grazing animals on croplands (e.g. grazing migratory wildfowl, @nilsson2016; @nilsson2021), with scaring for example including the use of acoustic deterrents.
 
 ```{r, echo = FALSE, out.width="600px", fig.cap = "Figure 1. The basic structure of (a) the GMSE modelling framework and its default order of operations with the genetic algorithm (GA) modelling the decision-making process of both users and manager, and (b) the adaptation of the GMSE framework to accomodate the model-game approach presented here. The grey boxes represent the various GMSE submodels, with the arrows representing the process links between them. The yellow boxes and circles are the adapted components in the model-game adaptation, with player interaction replacing the manager model in GMSE, and the underlying GA for the manager - the GA is still used to make user decisions. Grey circles indicate the order of operations in each."}
 knitr::include_graphics("GMSE_AnF_structure.jpg")
 ```
 
 The goal for the manager is to maintain the animal population to a desired level (the management target, normally set externally as a model parameter).
-It does so by controlling the cost for user (farmer) actions in the following time step: e.g. higher costs for hunting is likely to decrease the number of animals hunted, limiting negative effects on the population and thus making population increases more likely, decreasing scaring cost may increase the number of users choosing scaring.
-Users (farmers) aim to maximise agricultural yield from their land; yield equals 1 per cell owned per time step, but yield is decreased by the presence of animals on a cell (e.g. through grazing) and may be increased by tending crops (one of the possible three actions).
-Through this, users have an incentive to control the number of animals of their land, either through allocating budget to hunting or through scaring.
-The former permanently reduces the number of animals present, the latter has a certain probability of moving an animal away from the user's land, for the duration of the time step.
-Users can only take actions on land that they own.
+It does so by controlling the cost for farmer actions in the following time step: e.g. higher costs for hunting is likely to decrease the number of animals hunted, limiting negative effects on the population and thus making population increases more likely, decreasing scaring cost may increase the number of farmers choosing scaring.
+Farmers aim to maximise agricultural yield from their land; yield equals 1 per cell owned per time step, but yield is decreased by the presence of animals on a cell (e.g. through grazing) and may be increased by tending crops (one of the possible three actions).
+Through this, farmers have an incentive to control the number of animals of their land, either through allocating budget to hunting or through scaring.
+The former permanently reduces the number of animals present, the latter has a certain probability of moving an animal away from the farmer's land, for the duration of the time step.
+Farmers can only take actions on land that they own.
 
-Costs for actions (by the manager) or actions taken (by the users) are chosen using a genetic algorithm (GA), a heuristic optimisation algorithm which mimics the choice of decision as evolution by natural selection; a large number of possible decisions are iteratively compared by assessing their outcome, with the decision that maximises a given utility function (yield for users, and minimising distance to population target for the manager) identified as the "fittest".
+By default, costs for actions (by the manager) or actions taken (by the farmers) are chosen using a genetic algorithm (GA), a heuristic optimisation algorithm which mimics the choice of decision as evolution by natural selection; a large number of possible decisions are iteratively compared by assessing their outcome, with the decision that maximises a given utility function (yield for farmers, and minimising distance to population target for the manager) identified as the "fittest".
 The GA is run separately for each agent (manager and all users) in each time step.
 
 In the default resource (animal) model in GMSE, the animal population is modelled as a form of logistic growth, with a small amount of added random mortality per time step and death caused by hunting; for more detail see below and in @duthie2018.
 In each time step, each animal moves a given distance in a random direction, and feeds from the cell it is present in.
 In the current model, neither movement nor population growth rate is affected by agricultural yield.
 
-It is worthwhile stressing that in the current GMSE implementation, using the GA, both agent types (users and the manager) essentially have only a single goal they each aim for.
-Users (farmers) aim to maximise their yield, whereas the manager aims to minimise deviation from a given population target - neither can balance multiple competing objectives.
+It is worthwhile stressing that in the current GMSE implementation, using the GA, both agent types (farmers and the manager) essentially have only a single goal they each aim for.
+Farmers aim to maximise their yield, whereas the manager aims to minimise deviation from a given population target - neither can balance multiple competing objectives.
 This is unlikely to be reflective of real conservation scenarios, where it is common for conservation managers to at least recognise other aims if not take these explicitly into account when setting policy , and other stakeholders in the system (e.g. farmers) commonly having some interest in conservation objectives (**REF?**).
 Human decision-making in such scenarios in inevitably about balancing these different objectives, but parameterising algorithms that mimic such processes without reference to long-term data is very challenging (**REF?**).
 Addressing this issue was a key motivation for the development of the model-game approach presented here.
@@ -106,10 +113,10 @@ Addressing this issue was a key motivation for the development of the model-game
 
 ### Structure as relating to GMSE
 
-In the default implementation of GMSE `r packageVersion("GMSE")`, a single time $t$ step consists of a series of calls to the resource model, observation model, management model and user model, in that specific order; in other words, a time step ends after user actions have been chosen (by the GA) and implemented (Figure 1b).
+In the default implementation of GMSE `r packageVersion("GMSE")`, a single time $t$ step consists of a series of calls to the resource model, observation model, management model and user model, in that specific order; in other words, a time step ends after farmer actions have been chosen (by the GA) and implemented (Figure 1b).
 To allow players to assess the environment and interactively choose management actions, A&F uses a modified version of GMSE.
 
-A&F uses a development version of GMSE (v. `r packageVersion("GMSE")`, implemented in `r sessionInfo()$R.version$version.string`, code available [here](https://github.com/ConFooBio/gmse/tree/man_control) in which the management model is replaced by user (player) inputs, and the order of operations is altered to accommodate this.
+A&F uses a development version of GMSE (v. `r packageVersion("GMSE")`, implemented in `r sessionInfo()$R.version$version.string`, code available [here](https://github.com/ConFooBio/gmse/tree/man_control) in which the management model is replaced by player (player) inputs, and the order of operations is altered to accommodate this.
 To initialise each game session, four time steps are run using the default GMSE implementation; i.e. in these time steps the management decisions are chosen by the default GA, and the resource, observation and user models are run using the parameters as defined for the given the scenario (see 4.2 below).
 These time steps are followed by a "partial" time step where only the resource and observation models are run, skipping the management and user models.
 As a result, at the end of these initial time steps ([`init_man_control()`](%5B%60https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L368%60%5D(https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L368))), the simulated system has five population and observation time steps and is ready for the next choice of management action at $t = 5$, pending the first player input.
@@ -122,20 +129,20 @@ Thus, we only give brief details here, for full details and descriptions of all 
 The **animal population** model uses the logistic growth form with $N_o = 1000$, $\lambda = 0.3$ and $K=5000$, meaning that in the absence of any management the population is likely to increase from the initial population size (1000) to carrying capacity (5000).
 The **observation model** uses the default GMSE model (density-based sampling of a subset of the environment); only *observed* numbers of animals are available to the manager to base decisions on (and thus population trajectory plots in the game interface reflect observations only, which are subject to an unknown level of uncertainty).
 Both the **management model** (in the initialisation steps) and **user model** use the GA algorithms with default parameter settings.
-User (farmer) budgets are set to 1500 units per time step, manager budgets to 1000 units (both for the initial 5 time steps and the subsequent game play).
-The users (farmers) aim to maximise yield from their land, their annual budget is reset each year and is unaffected by yield.
+Farmer budgets are set to 1500 units per time step, manager budgets to 1000 units (both for the initial 5 time steps and the subsequent game play).
+The farmers aim to maximise yield from their land, their annual budget is reset each year and is unaffected by yield.
 Yield is positively affected by tending crops, and may be negatively affected by the presence of grazing wild animals - thus hunting or scaring may offset any potentially negative effects on yield.
 Note that the choice of models and parameter values here serve as an example only; it is expected that future implementations and development of A&F will focus on specific research questions / case studies, and will adjust models and parameter settings accordingly (see Discussion).
 
-Each following A&F time step then consists of (1) user input, taking the place of the default management model, in which the player can assess the environment using outputs provided (see below) and choose management actions (costs for user actions), and, (2) and once the player confirms their choice, a modified GMSE time step including sequential calls to the default user, resource and observation models ([`gmse_apply_UROM()`](https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L146)) (Figure 1b).
+Each following A&F time step then consists of (1) player input, taking the place of the default management model, in which the player can assess the environment using outputs provided (see below) and choose management actions (costs for farmer actions), and, (2) and once the player confirms their choice, a modified GMSE time step including sequential calls to the default user, resource and observation models ([`gmse_apply_UROM()`](https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L146)) (Figure 1b).
 
-### User interface
+### Player interface
 
-The user interface for A&F is a web application is coded in R, using [`Shiny`](https://CRAN.R-project.org/package=shiny) (`r packageVersion("shiny")`), and packages [`shinyjs`](https://CRAN.R-project.org/package=shinyjs) (`r packageVersion("shinyjs")`), [`shinyBS`](https://CRAN.R-project.org/package=shinyBS) (`r packageVersion("shinyBS")`), and [`waiter`](https://CRAN.R-project.org/package=waiter) (`r packageVersion("waiter")`).
+The player interface for A&F is a web application is coded in R, using [`Shiny`](https://CRAN.R-project.org/package=shiny) (`r packageVersion("shiny")`), and packages [`shinyjs`](https://CRAN.R-project.org/package=shinyjs) (`r packageVersion("shinyjs")`), [`shinyBS`](https://CRAN.R-project.org/package=shinyBS) (`r packageVersion("shinyBS")`), and [`waiter`](https://CRAN.R-project.org/package=waiter) (`r packageVersion("waiter")`).
 
 On starting a new game session, the player is presented with a series of introductory screens explaining the background, flow and objective of the game <!--# Maybe add a note on generic idea to maximise score? -->, after which they are asked to enter a player name, which is stored and used to show player scores as the end of a session, compared to previous sessions by other players.
 
-```{r, echo = FALSE, out.width="600px", fig.cap = "Figure 2. The Animal & Farm main game interface, showing (a) animal (resource) population trajectory and yield per farmer, (b) the farming landscape with animal positions as red dots and farm ownwership indicated by the grey shades, (c) actions taken by farmers in the previous game round, and (d) user inputs inluding a budget report and costs set for actions."}
+```{r, echo = FALSE, out.width="600px", fig.cap = "Figure 2. The Animal & Farm main game interface, showing (a) animal (resource) population trajectory and yield per farmer, (b) the farming landscape with animal positions as red dots and farm ownwership indicated by the grey shades, (c) actions taken by farmers in the previous game round, and (d) player inputs inluding a budget report and costs set for actions."}
 knitr::include_graphics("anf_interface.jpg")
 ```
 
@@ -209,8 +216,8 @@ End times are recorded for each session where the player either reaches $t=25$, 
 ## "Sandbox" for *in silico* experiments
 
 The combination between the underlying modelling framework, game interface and the database back-end, provides a platform to collect data on player interaction with the models in a range of simulated environments.
-This might include *in silico* tests of the effect of specific variability in the environment on simulation animal population extinction, or collecting "big data" on player decision-making given a set of (more or less) variable parameters in terms of population, observation or user (farmer) models.
-For example, a user of the platform may be interested in testing how human decision-making varies depending on the extent of observed variation in either the ecological (e.g. more or less uncertainty in animal population trajectories) or social (e.g. higher or lower variability in land ownership or sizes of farmer budgets) parts of the modelled system.
+This might include *in silico* tests of the effect of specific variability in the environment on simulation animal population extinction, or collecting "big data" on player decision-making given a set of (more or less) variable parameters in terms of animal population, observation or user models.
+For example, a researcher using the platform may be interested in testing how human decision-making varies depending on the extent of observed variation in either the ecological (e.g. more or less uncertainty in animal population trajectories) or social (e.g. higher or lower variability in land ownership or sizes of farmer budgets) parts of the modelled system.
 Data from such experiments may then be combined with debriefing interviews with players to further investigate what may drive such decision-making [e.g. @rakotonarivo2021].
 Alternatively, by collating large amounts of decision-making data under varying parameter settings as well as the outcome of each game session (e.g. animal population extinction and/or trajectories), it may be possible to develop algorithms that can make decisions that are most likely to lead to a desired outcome (e.g. minimising extinction probability while maintaining agricultural yield, or maximising one or the other score).
 While the genetic algorithm for manager decision-making currently implemented in GMSE is effective, it does not currently balance multiple objectives, nor does it necessarily accurately reflect variability in real-life decision-making processes.
@@ -414,7 +421,7 @@ We illustrated the potential of this approach by presenting data from a small nu
 While the data shown here should be taken as illustrative only, it highlights the potential to easily run a range of *in silico* experiments with direct relevance to real-world questions.
 For example, observation uncertainty and its consequences on decision-making is a perennial topic in conservation management [@nuno2013].
 While real-world experiments on this would be extremely challenging and costly, GMSE provides a suitable modelling framework in which observation uncertainty can be manipulated, with A&F providing the platform to run controlled experiments with real-world stakeholders.
-This approach could extend to many if not all of the 74 parameters currently controllable by users in GMSE, ranging from variability in demography or behaviour of the natural resource, to user (farmer) behaviour or variability, and wider environmental change or stochasticity.
+This approach could extend to many if not all of the 74 parameters currently controllable by users of GMSE, ranging from variability in demography or behaviour of the natural resource, to farmer behaviour or variability, and wider environmental change or stochasticity.
 The game interface and player interaction would remain the same, with only the underlying architecture and database back end requiring minor tweaks to accommodate the extra parameter variation.
 
 In addition to use as an experimental tool, this approach also has great potential for use as a way to source large amounts of decision-making data which may then be used to re-parameterise the underlying models, to better reflect real-world decision making.
@@ -428,12 +435,7 @@ Algorithms implemented in existing modelling approaches (without reference to em
 
 There are clearly a number of limitations to the model-game approach, particularly in terms of directly using "game-sourced" data to (re)parameterise underlying models.
 One concern was raised by several trial players, and can be summarised as the game or game play lacking "realism", or crucially, lacking aspects or features or real life, or the player's experience of the conservation problem (**INSERT QUOTES?**).
-This may be seen as particularly problematic if such data collected is subsequently used to adjust model parameterisation; i.e. if the game world is not seen as sufficiently realistic, it may be argued that player behaviour cannot be taken as realistic (i.e. perceived lack of realism leading to lack of external validity, [@jackson2012a; @levitt2007]), and therefore any reparameterisation would be (at best) biased.
-While a very important point, it is interesting to note that strictly speaking, this point relates to the *underlying* *model* as opposed to the game or the game interface itself.
-That is, concerns about the lack of "features" or assumptions made are as true of any model as they are of the game representation of it, and indeed they are applicable to all models ("*all models are wrong*", [@box1979]).
-Indeed, this in itself highlights the value of the model-game approach, in that it helps the user (i.e. player) to fully understand the model's structure, assumptions, and consequent limitations: particularly given complex socio-ecological models, it can be challenging to effectively communicate the full scope of features and limitations [@grimm2006; @grimm2020].
-By casting the model as a game, users are put in the center of the modelling process, and any limitations are likely more apparent, more quickly.
-Recognition of this, particularly by those lacking technical modelling expertise is vital when such models are put to applied use: all models are abstractions of reality and their utility ("*some models are useful*", [@box1979]) depends on careful application and recognition of this.
+This may be seen as particularly problematic if such data collected is subsequently used to adjust model parameterisation; i.e. if the game world is not seen as sufficiently realistic, it may be argued that player behaviour cannot be taken as realistic (i.e. perceived lack of realism leading to lack of external validity, [@jackson2012a; @levitt2007]), and therefore any reparameterisation would be (at best) biased. While a very important point, it is interesting to note that strictly speaking, this point relates to the *underlying* *model* as opposed to the game or the game interface itself. That is, concerns about the lack of "features" or assumptions made are as true of any model as they are of the game representation of it, and indeed they are applicable to all models ("*all models are wrong*", [@box1979]). Indeed, this in itself highlights the value of the model-game approach, in that it helps the player to fully understand the model's structure, assumptions, and consequent limitations: particularly given complex socio-ecological models, it can be challenging to effectively communicate the full scope of features and limitations [@grimm2006; @grimm2020]. By casting the model as a game, players are put in the center of the modelling process, and any limitations are likely more apparent, more quickly. Recognition of this, particularly by those lacking technical modelling expertise is vital when such models are put to applied use: all models are abstractions of reality and their utility ("*some models are useful*", [@box1979]) depends on careful application and recognition of this.
 
 ### "Humans are biased"
 
