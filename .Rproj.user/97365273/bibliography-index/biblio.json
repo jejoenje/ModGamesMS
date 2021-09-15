@@ -2260,6 +2260,291 @@
             "title": "Large grazing birds and agriculturepredicting field use of common cranes and implications for crop damage prevention",
             "type": "article-journal",
             "volume": "219"
+        },
+        {
+            "DOI": "10.1111/2041-210X.12000",
+            "URL": "http://doi.wiley.com/10.1111/2041-210X.12000",
+            "author": [
+                {
+                    "family": "Hamblin",
+                    "given": "Steven"
+                }
+            ],
+            "container-title": "Methods in Ecology and Evolution",
+            "editor": [
+                {
+                    "family": "Hansen",
+                    "given": "Thomas"
+                }
+            ],
+            "id": "hamblin2013",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013,
+                        2
+                    ]
+                ]
+            },
+            "language": "en",
+            "page": "184-194",
+            "title": "On the practical usage of genetic algorithms in ecology and evolution",
+            "type": "article-journal",
+            "volume": "4"
+        },
+        {
+            "DOI": "https://doi.org/10.1111/cobi.13372",
+            "URL": "http://conbio.onlinelibrary.wiley.com/doi/abs/10.1111/cobi.13372",
+            "author": [
+                {
+                    "family": "Baynham-Herd",
+                    "given": "Zachary"
+                },
+                {
+                    "family": "Redpath",
+                    "given": "Steve"
+                },
+                {
+                    "family": "Bunnefeld",
+                    "given": "Nils"
+                },
+                {
+                    "family": "Keane",
+                    "given": "Aidan"
+                }
+            ],
+            "container-title": "Conservation Biology",
+            "id": "baynhamherd2020",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1111/cobi.13372",
+            "page": "232-243",
+            "title": "Predicting intervention priorities for wildlife conflicts",
+            "type": "article-journal",
+            "volume": "34"
+        },
+        {
+            "DOI": "10.1098/rstb.2018.0053",
+            "URL": "https://royalsocietypublishing.org/doi/10.1098/rstb.2018.0053",
+            "author": [
+                {
+                    "family": "Dobson",
+                    "given": "Andrew D. M."
+                },
+                {
+                    "family": "Lange",
+                    "given": "Emiel",
+                    "non-dropping-particle": "de"
+                },
+                {
+                    "family": "Keane",
+                    "given": "Aidan"
+                },
+                {
+                    "family": "Ibbett",
+                    "given": "Harriet"
+                },
+                {
+                    "family": "Milner-Gulland",
+                    "given": "E. J."
+                }
+            ],
+            "container-title": "Philosophical Transactions of the Royal Society B: Biological Sciences",
+            "id": "dobson2019",
+            "issue": "1781",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        9,
+                        16
+                    ]
+                ]
+            },
+            "page": "20180053",
+            "title": "Integrating models of human behaviour between the individual and population levels to inform conservation interventions",
+            "type": "article-journal",
+            "volume": "374"
+        },
+        {
+            "DOI": "10.1007/s11625-021-00989-w",
+            "URL": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=DynamicDOIArticle&SrcApp=WOS&KeyAID=10.1007%2Fs11625-021-00989-w&DestApp=DOI&SrcAppSID=C5vy4ip7FYWSnkZj9Zg&SrcJTitle=SUSTAINABILITY+SCIENCE&DestDOIRegistrantName=Springer-Verlag",
+            "author": [
+                {
+                    "family": "Constantino",
+                    "given": "S. M."
+                },
+                {
+                    "family": "Schluter",
+                    "given": "M."
+                },
+                {
+                    "family": "Weber",
+                    "given": "E. U."
+                },
+                {
+                    "family": "Wijermans",
+                    "given": "N."
+                }
+            ],
+            "container-title": "Sustainability Science",
+            "id": "constantino2021",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021,
+                        9
+                    ]
+                ]
+            },
+            "language": "en-US",
+            "note": "Place: Tokyo Publisher: Springer Japan Kk WOS:000669307400001",
+            "page": "1651-1671",
+            "title": "Cognition and behavior in context: A framework and theories to explain natural resource use decisions in social-ecological systems",
+            "title-short": "Cognition and behavior in context",
+            "type": "article-journal",
+            "volume": "16"
+        },
+        {
+            "DOI": "https://doi.org/10.1111/brv.12326",
+            "URL": "http://onlinelibrary.wiley.com/doi/abs/10.1111/brv.12326",
+            "author": [
+                {
+                    "family": "Redpath",
+                    "given": "Steve M."
+                },
+                {
+                    "family": "Linnell",
+                    "given": "John D. C."
+                },
+                {
+                    "family": "Festa-Bianchet",
+                    "given": "Marco"
+                },
+                {
+                    "family": "Boitani",
+                    "given": "Luigi"
+                },
+                {
+                    "family": "Bunnefeld",
+                    "given": "Nils"
+                },
+                {
+                    "family": "Dickman",
+                    "given": "Amy"
+                },
+                {
+                    "family": "Gutiérrez",
+                    "given": "R. J."
+                },
+                {
+                    "family": "Irvine",
+                    "given": "R. J."
+                },
+                {
+                    "family": "Johansson",
+                    "given": "Maria"
+                },
+                {
+                    "family": "Majić",
+                    "given": "Aleksandra"
+                },
+                {
+                    "family": "McMahon",
+                    "given": "Barry J."
+                },
+                {
+                    "family": "Pooley",
+                    "given": "Simon"
+                },
+                {
+                    "family": "Sandström",
+                    "given": "Camilla"
+                },
+                {
+                    "family": "Sjölander-Lindqvist",
+                    "given": "Annelie"
+                },
+                {
+                    "family": "Skogen",
+                    "given": "Ketil"
+                },
+                {
+                    "family": "Swenson",
+                    "given": "Jon E."
+                },
+                {
+                    "family": "Trouwborst",
+                    "given": "Arie"
+                },
+                {
+                    "family": "Young",
+                    "given": "Juliette"
+                },
+                {
+                    "family": "Milner-Gulland",
+                    "given": "E. J."
+                }
+            ],
+            "container-title": "Biological Reviews",
+            "id": "redpath2017",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1111/brv.12326",
+            "page": "2157-2163",
+            "title": "Don’t forget to look down  collaborative approaches to predator conservation",
+            "type": "article-journal",
+            "volume": "92"
+        },
+        {
+            "DOI": "10.1002/pan3.10242",
+            "URL": "http://besjournals.onlinelibrary.wiley.com/doi/10.1002/pan3.10242",
+            "author": [
+                {
+                    "family": "Crowley",
+                    "given": "Edward J."
+                },
+                {
+                    "family": "Silk",
+                    "given": "Matthew J."
+                },
+                {
+                    "family": "Crowley",
+                    "given": "Sarah L."
+                }
+            ],
+            "container-title": "People and Nature",
+            "id": "crowley2021",
+            "issue": "n/a",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021,
+                        7,
+                        8
+                    ]
+                ]
+            },
+            "note": "Publisher: John Wiley & Sons, Ltd",
+            "title": "The educational value of virtual ecologies in red dead redemption 2",
+            "type": "article-journal",
+            "volume": "n/a"
         }
     ],
     "project_biblios": []

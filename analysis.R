@@ -94,9 +94,13 @@ end_date = format(max(run$startTime),"%d %B %Y"); end_date
 mean_duration = round(as.numeric(mean(difftime(run$endTime, run$startTime, units = "mins"))),1)
 min_duration = round(as.numeric(min(difftime(run$endTime, run$startTime, units = "mins"))),1)
 max_duration = round(as.numeric(max(difftime(run$endTime, run$startTime, units = "mins"))),1)
+median_duration = round(as.numeric(median(difftime(run$endTime, run$startTime, units = "mins"))),1)
 
 ### Number of sessions played:
 n_sessions = nrow(run); n_sessions
+
+### Number of "decisions" (costs set):
+n_decisions = nrow(gdata_run[gdata_run$t>5,])
 
 ### Number of unique player-names in this sample:
 n_players = nlevels(factor(run$player)); n_players

@@ -1,0 +1,63 @@
+---
+title: "Supplementary Material 1: Animal & Farm technical details and database structure"
+output:
+  word_document:
+    reference_docx: "template.docx"
+  html_document:
+    css: main_ms.css
+bibliography: references.bib
+link-citations: true
+number-sections: true
+---
+
+# Animal & Farm technical detail
+
+## Structure as relating to GMSE
+
+A&F uses a development version of GMSE implemented in `r sessionInfo()$R.version$version.string`, the code for which is freely available: <https://github.com/ConFooBio/gmse/tree/man_control>.
+In this version, the management model is replaced by player inputs, and the order of operations is altered to accommodate this.
+
+To initialise each game session, four time steps are run using the default GMSE implementation; i.e. in these time steps the management decisions are chosen by the default GA, and the resource, observation and user models are run using the parameters as defined for the given the scenario (see 4.2 below).
+These time steps are followed by a "partial" time step where only the resource and observation models are run, skipping the management and user models.
+As a result, at the end of these initial time steps ([`init_man_control()`](%5B%60https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L368%60%5D(https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L368))), the simulated system has five population and observation time steps and is ready for the next choice of management action at $t = 5$, pending the first player input.
+This is done both to set up all the required GMSE data structures using existing code, as well as to provide the player with a short time series on which to base management decisions going forward.
+
+## Score calculation
+
+The scores are arbitrarily defined to reflect performance in terms of the animal population ("animal score", $A_t$) on the one hand, and overall agricultural yield ("yield score", $Y_t$) on the other.
+Both scores can be interpreted as the mean % of the initial (i.e. at time $t=5$) true size of the animal population $N_t$ and landscape yield $y_t$, with $y_t$ calculated as the mean yield over all landscape cells at time $t$ <!--# probably need to include a reference to cells/cell values on landscape here -->.
+
+$A_t = \left( \sum\frac{N_t}{N_{t=5}\cdot t}\right)\cdot 100$ and $S_{t}=\left(\frac{\sum_{t=5}^T{y_t}}{t}\right)\cdot 100$
+
+where $t\geq5$ and $T$ the total number of time steps for the game session.
+
+Both scores are intitialised as $A_t = S_t = 100$ when the game is first initialised, to ensure score development over a session can be interpreted as a change from that baseline.
+
+## Database backend
+
+In summary, six main tables are used to store data (see **XXX** for a full description).
+Tables are linked by the unique session ID present in each table.
+
+-   `run`
+
+    Holding player name, start- and end times for the session and a flag for whether or not the animal population reached extinction or not (single record per session).
+
+-   `run_par`
+
+    Holding all game parameters for the GMSE simulation for a session.
+    As per section **XXX**, in the example application presented here, the majority of these will be constants, with only `ownership_var` and `remove_pr` varying per session.
+
+-   `scores`
+
+    Holding the number of time steps achieved per session and the animal and yield score.
+
+-   `gdata`
+
+    A record per time step for each session, recording the true and observed population state, the number of actions of each type taken, and the costs set by the manager (player), as well as the total yield in the environment.
+
+-   `yield`
+
+    The yield achieved by each farmer in each time step, per session.
+
+Records in tables `run`, `run_par` and `scores` are only updated at the start and end of each session, whereas `gdata` and `yield` are the "live" tables that are appended to at each time step during a game session.
+End times are recorded for each session where the player either reaches $t=25$, manually resets the game during a session, or as the animal population reaches extinction; i.e. when this field remains blank (`NULL`), it means that a session was not terminated "normally", i.e. by the browser being closed manually or timing out due to inactivity.
