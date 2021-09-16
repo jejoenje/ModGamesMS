@@ -1,0 +1,5 @@
+Field,Type,Null,Description
+id,int,NO,Unique game session ID. Acts as key to other tables.
+t,int,NO,Time step
+user,int,NO,Farmer identifier
+pyield,float,NO,Mean landscape cell yield for given farmer in given time step.

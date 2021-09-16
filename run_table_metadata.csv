@@ -1,0 +1,7 @@
+Field,Type,Null,Description
+id,INT,NO,Unique game session ID. Acts as primary key to other tables.
+session,VARCHAR(32),NO,Internal session string as genrated by the Shiny server.
+player,VARCHAR(64),YES,Player name as input.
+startTime,VARCHAR(23),NO,Date-time stamp for when the session was started.
+endTime,VARCHAR(23),YES,"Date-time stamp for when the session was manually ended, the animal population reached extinction, or the maximum number of time steps was reached. If this value is blank, it means the session was not ended by any of these means (e.g. browser closed or crashed)."
+extinct,TINYINT(1),NO,A flag indicating whether the animal population reached extinction during the session.

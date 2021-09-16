@@ -1,5 +1,5 @@
 ---
-title: "Models as games: a novel approach for 'gamesourcing' parameter data and communicating complex socio-ecological models"
+title: "Models as games: a novel approach for 'gamesourcing' parameter data and communicating complex models"
 output:
   word_document:
     reference_docx: "template.docx"
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Summary
 
 1.  Models have become indispensable tools in conservation science in the face of increasingly rapid loss of biodiversity through anthropogenic habitat loss and natural resource exploitation. In addition to their ecological components, accurately representing human decision-making processes in such models is vital to maximise their utility. This can be problematic, as such socio-ecological models become increasingly complex, and thus both challenging to communicate and parameterise.
-2.  Games have a long history of being used as science communication tools, but are less widely used as data collection tools, particularly in videogame form. This is surprising given many parallels between models and videogames. We propose a novel approach to (1) aid communication of complex socio-ecological models, and (2) "gamesource" human decision-making data, by explicitly casting an existing modelling framework as an interactive videogame.
+2.  Games have a long history of being used as science communication tools, but are less widely used as data collection tools, particularly in videogame form. We propose a novel approach to (1) aid communication of complex socio-ecological models, and (2) "gamesource" human decision-making data, by explicitly casting an existing modelling framework as an interactive videogame.
 3.  We present players with a natural resource management game as a front-end to the socio-ecological modelling framework GMSE. Players' actions replace a model algorithm making management decisions about a population of wild animals, which graze on crops and can thus lower agricultural yield. A number of (non-player) farmers respond through modelled algorithms to the player's management, taking actions that may affect their yield as well as the animal population. Players are asked to set their own management goal (e.g. maintain the animal population at a certain level or improve yield) and make decisions accordingly. Trial players were also asked to provide any feedback on both gameplay and purpose.
 4.  We demonstrate the utility of this approach by collecting and analysing game play data from a sample of trial plays, in which we systematically vary two model parameters, and allowing trial players to interact with the model through the game interface. As an illustration, we show how variations in land ownership and the number of farmers in the system affects decision-making patterns as well as population trajectories (extinction probabilities).
 5.  We discuss the potential and limitations of this model-game approach in the light of trial player feedback received. In particular, we highlight how a common concern about the game framework (perceived lack of "realism" or relevance to a specific context) are actually criticisms of the underlying model, as opposed to the game itself. This further highlights both the parallels between games and models, as well as the utility of model-games to aid in communicating complex models. We conclude that videogames may be an effective tool for conservation and natural resource management, and that although they provide a promising means to collect data on human decision-making, it is vital to carefully consider both external validity and potential biases when doing so.
@@ -44,7 +44,7 @@ In terms of socio-ecological systems, while data to parameterise the ecological 
 Not only may this lead to limited predictive power, a perceived lack of empirical basis may negatively affect their acceptance by stakeholders [cf. model "quality" as in @kolkman2016].
 To maximise the adoption of complex socio-ecological models as management tools, both appropriate representation of human decision-making and effective communication are therefore key.
 
-Games have a long history of use in research [@sandbrook2015; @chabris2017; @redpath2018], including as tools to aid the communication of complex ideas and processes to non-specialists [@garcia2016; @tan2018], with recent work starting to leverage online and video games [@oultram2013; @pérez2014; @fjaellingsdal2019].
+Games have a long history of use in research [@sandbrook2015; @chabris2017; @redpath2018], including as tools to aid the communication of complex ideas and processes to non-specialists [@garcia2016; @tan2018], with recent work starting to leverage online and video games [@oultram2013; @pérez2014; @fjaellingsdal2019; @crowley2021].
 Given this long history, it is striking that the parallels between videogames in particular and models are not recognised more widely.
 All models are abstract representations of environments, actors and relationships, with inputs (parameters) and outputs (predictions or inferences).
 Similarly, all games present a player with an environment in a given state (parameters), including one or more actors, which can take actions (inputs) to affect the environment for a given effect (outputs).
@@ -86,7 +86,7 @@ GMSE is an agent-based modelling framework consisting of four sequential submode
 1.  The **resource model**, consisting of $N$ individual animal-agents (hereafter referred to as "animals") moving on a landscape of $X$ x $Y$ cells
 2.  The **observation model** which represents the process of observations (including a degree of uncertainty) of the animal population
 3.  The **manager model** consists of a *single* agent (hereafter referred to as the "manager") which uses the observation of the animal population to make management decisions, affecting the permissiveness of actions for agents in the user model (below).
-4.  The **user model**, consisting of $K$ individual agents, which in the current context represent land-owning farmers. Thus, we refer to these agents as "farmers" in the remainder of this manuscript, but note that we use the term "user model" to refer to the general submodel containing these agents to maintain consistency with the term used in the GMSE documentation [@duthie2018]. Each farmer owns a given proportion $p_K$ of the landscape (this may or may not be an equal distribution, see below).
+4.  The **user model**, consisting of $F$ individual agents, which in the current context represent land-owning farmers. Thus, we refer to these agents as "farmers" in the remainder of this manuscript, but note that we use the term "user model" to refer to the general submodel containing these agents to maintain consistency with the term used in the GMSE documentation [@duthie2018]. Each farmer owns a given proportion of the landscape (this may or may not be an equal distribution, see below).
 
 In each GMSE time step, both the manager and all farmers are allocated a (fixed) budget.
 In GMSE terms, "budget" should be interpreted as a budget of general "resource"; conceptually this may be interpreted as a financial budget, time, materials, or a combination thereof.
@@ -102,7 +102,8 @@ The manager does so by controlling the cost for farmer actions in the following 
 For example, a higher cost for hunting will decrease the number of animals hunted by farmers leading to population growth, and a lower cost for scaring will increase the number of farmers choosing scaring as an action.
 
 Farmers aim to maximise agricultural yield from their land.
-By default, yield equals 1 per landscape cell owned per time step, but this may be decreased by the presence of animals in a cell, e.g. through grazing, and increased through tending crops (the rates of increase/decrease through grazing and tending crops are controllable in GMSE, see @duthie2018 for further detail, but kept as constant rates in the current A&F implementation).
+By default, yield equals 1 per landscape cell owned per time step, but this may be decreased by the presence of animals in a cell, e.g. through grazing, and increased through tending crops.
+The rates of increase or decrease in yield through grazing and tending crops respectively are controllable in GMSE but kept as constant rates in the current A&F implementation, see @duthie2018 and parameter references for `res_consume` and `tend_crop_yld` in the `gmse()` function here: <https://cran.r-project.org/web/packages/GMSE/GMSE.pdf>.
 Thus, although their objective does not directly relate to the animals, farmers have an incentive to control the number of animals on their land to minimise potential negative effects on their yield.
 They can do this by allocating budget to hunting or scaring animals.
 The former permanently reduces the number of animals present, the latter has a certain probability of moving an animal away from the farmer's land, for the duration of the time step.
@@ -134,7 +135,7 @@ In this version, the management model is replaced by player inputs, and the orde
 Further details are given in S1.
 
 The current GMSE parameter values used by A&F largely reflect default parameter values in GMSE.
-This is a purely pragmatic choice: because we are not modelling a specific system here, and aim only to illustrate the use of the A&F platform in general terms, the specific parameter values given below and in **Table XXX** should simply be interpreted as examples.
+This is a purely pragmatic choice: because we are not modelling a specific system here, and aim only to illustrate the use of the A&F platform in general terms, the specific parameter values given below and in Table S2should simply be interpreted as examples.
 It is important to stress that all these parameters are expected to be modified as appropriate for specific GMSE and A&F applications.
 
 The example parameterisation used here simulates a landscape of 100x100 cells, divided into farms owned by 4-12 farmers (the precise number and land distribution is randomly varied per session, see 4.2 below).
@@ -144,7 +145,7 @@ We only give brief details on GMSE itself here, for full details and description
 The **animal population** model uses the logistic growth form with $N_o = 1000$, $\lambda = 0.3$ and $K=5000$, meaning that in the absence of any management the population will increase from the initial population size (1000) to carrying capacity (5000).
 The **observation model** uses the default GMSE model (density-based sampling of a subset of the environment); the manager can only base decisions on the *observed* number of animals (and thus population trajectory plots in the game interface reflect observations only, which are subject to an unknown level of uncertainty).
 Both the **management model** (in the initialisation steps) and **user model** use the genetic algorithm with default parameter settings.
-Farmer budgets are set to 1500 units per time step, manager budgets to 1000 units (both for the initial 5 time steps and the subsequent game play).
+Farmer budgets are set to 1500 units per time step, manager budgets to 1000 units (both for the initial 5 time steps and the subsequent game play; see 3.1.1 above for notes on the conceptualisation of "budget").
 Farmers aim to maximise yield from their land; their annual budget is reset each year and is unaffected by yield.
 Yield is positively affected by tending crops, and may be negatively affected by the presence of grazing wild animals - thus hunting or scaring may offset any potentially negative effects on yield.
 Note that the choice of models and parameter values here serve as an example only; it is expected that future implementations and development of A&F will focus on specific research questions or case studies and will adjust models and parameter settings accordingly (see Discussion).
@@ -189,8 +190,9 @@ The scoreboard is a top 10 "leaderboard" of scores over all sessions played by a
 ### Data collection & database
 
 Game play data (e.g. session variables, player inputs, environment state variables) are stored in a MySQL relational database.
-Database structure is summarised in S1.
-A full list of parameter values stored and their description is given in **Table SX**. This represents only a subset of all GMSE parameters and may be easily extended in the future by adding additional fields to the relevant database table and ensuring the database interface functions append the extra parameters.
+Database structure is outlined in S1.
+A full list of parameter values stored and their description is given in Table S2.
+This represents only a subset of all GMSE parameters and may be easily extended in the future by adding additional fields to the relevant database table and ensuring the database interface functions append the extra parameters.
 For any GMSE parameters that are not stored currently, the default GMSE parameter values are used.
 
 # Example application
@@ -216,37 +218,18 @@ Contacts were also asked to share the link with any potentially interested conta
 An accompanying covering letter explained this aim, the background to the work, and a request to respond with any feedback.
 It should be stressed that the data collected here should not be interpreted as comprehensive research on a specific question, and is intended as illustrative of the approach only.
 
-For this proof of concept, we chose to focus on a scenario that systematically varies two parameters, farmer land ownership distribution $o_v$ and the number of farmers ($K$).
+For this proof of concept, we chose to focus on a scenario that systematically varies two parameters, farmer land ownership distribution $o_v$ and the number of farmers ($F$).
 While inequity in land ownership is commonplace and of interest to conservation strategies [e.g. @rakotonarivo2021], the current manager decision-making algorithm implemented in GMSE cannot explicitly take the extent of such variation in account.
 Thus, collecting empirical data on how decisions and resultant population trajectories may be affected by variable land distribution is important.
 
-Each new game session is initialised with a random draw of one of three possible values of $o_v$, representing low, moderate and high variability in land ownership (resulting landscape patterns illustrated in Figure 3) and one of nine possible values of $K$, i.e. 4-12 farmers.
+Each new game session is initialised with a random draw of one of three possible values of $o_v$, representing low, moderate and high variability in land ownership (resulting landscape patterns illustrated in Figure 3) and one of nine possible values of $F$, i.e. 4-12 farmers.
 In addition to this variability, each session also has a small amount of random population mortality ($0.05 \leq r_d \leq 0.2$), sampled from a uniform distribution.
 Although the landscape ownership distribution is clearly shown to the player throughout the game (Figure 2), the player is not told explicitly that ownership will vary before a session starts, or what the extent of this variability will be.
 This was done to ensure that a player would not selectively abort sessions.
 Other than this scenario-based parameter variation, game play progresses as described above, with the player able to make management decisions (setting costs for farmer actions) over 20 time steps following the initial five.
 
 ```{r, echo = FALSE, fig.width=10, fig.height=4, fig.cap="Figure 3. Examples of landscape ownership distributions, (a) low variability, $o_v$ = 0 (equal distribution), (b) medium variability, $o_v$ = 0.25, and (c) high variability, $o_v$ = 0.5, here shown for 6 farmer-landowners."}
-### Land distribution examples:
-m1 = gmse(time_max = 1, land_ownership = T, stakeholders = 6, ownership_var = 0, plotting = FALSE)
-m2 = gmse(time_max = 1, land_ownership = T, stakeholders = 6, ownership_var = 0.25, plotting = FALSE)
-m3 = gmse(time_max = 1, land_ownership = T, stakeholders = 6, ownership_var = 0.5, plotting = FALSE)
-
-par(mfrow = c(1,3))
-par(mar = c(2,2,2,2))
-par(oma = c(0,0,2,0))
-par(xpd = TRUE)
-
-l1 = m1$land[[1]][,,3]
-l2 = m2$land[[1]][,,3]
-l3 = m3$land[[1]][,,3]
-
-image(l1, xaxt = "n", yaxt = "n")
-mtext("(a)",side = 3, cex=1.5, line = 2)
-image(l2, xaxt = "n", yaxt = "n")
-mtext("(b)",side = 3, cex=1.5, line = 2)
-image(l3, xaxt = "n", yaxt = "n")
-mtext("(c)",side = 3, cex=1.5, line = 2)
+knitr::include_graphics("fig3.jpg")
 
 ```
 
@@ -268,7 +251,7 @@ Note that the results presented here are intended as illustrative of the model-g
 
 Between `r start_date` and `r end_date`, we collated data on `r n_sessions` play sessions by `r n_players` unique players[^5]; this equated to a total of `r n_decisions` decisions (costs set).
 Sessions lasted `r mean_duration` minutes on average (median `r median_duration` minutes, range `r min_duration` - `r max_duration`; the latter maximum duration recorded was an outlier, likely caused by a game session not having been finished and the browser window left open).
-As per the scenario set up, these sessions were roughly equally distributed between land ownership variability $o_v$ (0, 0.25 or 0.5, N = `r n_ov0` [`r round(p_ov0*100,1)`%], `r n_ov025` [`r round(p_ov025*100,1)`%], and `r n_ov050` [`r round(p_ov050*100,1)`%], respectively) and number of stakeholders $K$ (4-12).
+As per the scenario set up, these sessions were roughly equally distributed between land ownership variability $o_v$ (0, 0.25 or 0.5, N = `r n_ov0` [`r round(p_ov0*100,1)`%], `r n_ov025` [`r round(p_ov025*100,1)`%], and `r n_ov050` [`r round(p_ov050*100,1)`%], respectively) and number of farmers $F$ (4-12).
 
 The animal population reached extinction in `r sum(run$extinct==1)` out of the `r n_sessions` sessions (`r round((sum(run$extinct==1)/nrow(run))*100,1)`%).
 Extinction probability appeared to be higher at both higher levels of land ownership variability ($o_v=0.25$ and $o_v=0.5$), particularly so at intermediate ($o_v=0.25$) levels (Figure 4a).
@@ -491,8 +474,7 @@ Special thanks to seven of the trial players for providing specific feedback on 
 [^1]: We here use the term "model" to refer to any predictive quantitative model, although our focus is on predictive simulation models used for decision support.
     However, the arguments presented here equally apply to statistical models, particularly when used for prediction of trends.
 
-[^2]: Note that there are of course limitations to this, and that data on decisions made would only be relevant to the context of the game (i.e. internally valid in the game context).
-    Wider external validity depends on a number of factors; we discuss limitations in more detail below.
+[^2]: Note that there are limitations to this, and that data on decisions made would only be relevant to the context of the game; we discuss limitations in more detail below.
 
 [^3]: A&F currently focuses only on hunting animals, scaring animals or tending crops as available actions to farmers; this may be expanded in the future to other actions available in GMSE.
 

@@ -1,0 +1,26 @@
+Field,Type,Null,Description
+id,INT,NO,Unique game session ID. Acts as primary key to other tables.
+K,INT,YES,Number of initial time steps (before player input starts)
+land_ownership,TINYINT(1),YES,See Table S2
+stakeholders,INT,YES,See Table S2
+manager_budget,INT,YES,See Table S2
+manage_target,INT,YES,See Table S2
+observe_type,INT,YES,See Table S2
+res_move_obs,INT,YES,See Table S2
+res_death_k,INT,YES,See Table S2
+lambda,FLOAT,YES,See Table S2
+res_death_type,INT,YES,See Table S2
+remove_pr,FLOAT,YES,See Table S2
+user_budget,INT,YES,See Table S2
+culling,TINYINT(1),YES,See Table S2
+scaring,TINYINT(1),YES,See Table S2
+tend_crops,TINYINT(1),YES,See Table S2
+land_dim_1,INT,YES,See Table S2
+land_dim_2,INT,YES,See Table S2
+resource_ini,INT,YES,See Table S2
+tend_crop_yld,FLOAT,YES,See Table S2
+max_years,INT,YES,Maximum number of time steps for player
+public_land,FLOAT,YES,See Table S2
+ownership_var,FLOAT,YES,See Table S2
+usr_budget_rng,INT,YES,Farmer budget range. Not used in example implementation.
+score_display,CHAR(5),YES,Identifier indicating which score display was used; internal and testing use only.

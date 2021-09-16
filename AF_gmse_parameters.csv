@@ -1,0 +1,21 @@
+GMSE parameter name,Symbol used in text,Value or range,Brief description
+land_ownership,,TRUE,Whether farmers own land and their actions are restricted to land that they own.
+stakeholders,F,4 – 12,Number of farmers in a simulation
+manager_budget,,1000,The total budget for the manager when setting policy (costs)
+manage_target,,2000,Target resource abundance that the manager attempts to keep the population at.
+observe_type,,0,The type of observation sampling of resources being done by managers in the observation model. Observation type 0 is density-based sampling; in which managers sample all resources within a fixed subset (defined by parameters agent_view and times_observe) of the landscape.
+res_move_obs,,TRUE,Whether or not resources are to move between observations; this affects observation uncertainty.
+res_death_K,K,5000,Carrying capacity on resources in the population. 
+lambda,λ,0.3,Baseline population growth rate of resources.
+res_death_type,,3,"The type of resource removal (death) that occurs in a simulation. Value 3 indicates both density dependent (e.g. through carrying capacity) and random (density independent, i.e. through remove_pr) mortality."
+remove_pr,r_d,0.05 – 0.2,Density-independent and user-independent probability of a resource being removed.
+user_budget,,1500,Total budget of each farmer for performing actions. 
+culling,,TRUE,Whether scaring actions are allowable for farmers.
+scaring,,TRUE,Whether culling (hunting) actions are allowable for farmers.
+tend_crops,,TRUE,Whether tending crop actions are allowable for farmers.
+tend_crop_yld,,0.3,The efficacy of “tend_crop” actions; i.e. the per landscape cell proportional increase in crop yield when stakeholders take one action to increase yield on their landscape. 
+land_dim_1,X,100,The X dimension size of the simulated landscape
+land_dim_2,Y,100,The Y dimension size of the simulated landscape
+RESOURCE_ini,N0,1000,The initial number of animals at t = 0.
+public_land,,0,"Whether part of the landscape is reserved as “public land”, i.e. not owned by any farmer. Not currently used in A&F simulations."
+ownership_var,o_v,"0, 0.25, 0.5","The extent of variation in land ownership among farmers. A value of 0 is equal distribution (no variation), 0.25 and 0.5 are medium and high variability respectively."

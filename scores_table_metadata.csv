@@ -1,0 +1,7 @@
+Field,Type,Null,Description
+id,int,NO,Unique game session ID. Acts as primary key to other tables.
+steps,int,YES,Number of game time steps achieved
+mean_res,int,YES,Animal score for session
+mean_yield,int,YES,Yield score for session
+total,int,YES,Total (combined) score for session (not used)
+score_version,int,YES,Indicator for score version calculation. Internal and testing use only.

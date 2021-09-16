@@ -10,6 +10,11 @@ link-citations: true
 number-sections: true
 ---
 
+```{r setup, include=FALSE}
+library(flextable)
+library(officer)
+```
+
 # Animal & Farm technical details
 
 ## Structure as relating to GMSE
@@ -30,35 +35,93 @@ Both scores can be interpreted as the mean % of the initial (i.e. at time $t=5$)
 $A_t  = \frac{1}{N}\sum_{t=6}^Nn_t\left( \frac{1}{n_6} \right) \cdot 100$ and $S_t = \frac{1}{N}\sum_{t=6}^Ny_t$
 
 where $t\geq5$, and $n_t$ is the true size of the animal population at time step $t$, $N$ the total number of animal counts over all time steps in the session, and $y_t$ the mean landscape cell yield over the entire landscape.
-These calculations are done by the app function [`addScores()](https://github.com/jejoenje/GMSEGAME/blob/master/app/dbase_functions.R#L218-L243)` .
+These calculations are done by the app function [`addScores()`]([`https://github.com/jejoenje/GMSEGAME/blob/master/app/dbase_functions.R#L218-L243`](https://github.com/jejoenje/GMSEGAME/blob/master/app/dbase_functions.R#L218-L243)).
 
 Both scores are intitialised as $A_t = S_t = 100$ when the game is first started, to ensure score development over a session can be interpreted as a change from that baseline.
 
 ## Database backend
 
-In summary, six main tables are used to store data (see **XXX** for a full description).
+In summary, six main tables are used to store data.
 Tables are linked by the unique session ID present in each table.
 
--   `run`
+-   `run` (Table S1a)
 
     Holding player name, start- and end times for the session and a flag for whether or not the animal population reached extinction or not (single record per session).
 
--   `run_par`
+-   `run_par` (Table S1b)
 
-    Holding all game parameters for the GMSE simulation for a session.
-    As per section **XXX**, in the example application presented here, the majority of these will be constants, with only `ownership_var` and `remove_pr` varying per session.
+    Holding game parameters for the GMSE simulation for a session, i.e. all values listed in Table S2.
+    In the example application presented in the main text, the majority of the parameters in this table will be constants, with only `ownership_var` and `remove_pr` varying per session.
+    Note that any GMSE parameters not stored in this table or listed in Table S2 are kept as the default in GMSE, which can be found in the `GMSE` package reference manual (<https://cran.r-project.org/web/packages/GMSE/GMSE.pdf>) listed under the function `gmse()`.
 
--   `scores`
+-   `scores` (Table S1c)
 
     Holding the number of time steps achieved per session and the animal and yield score.
 
--   `gdata`
+-   `gdata` (Table S1d)
 
     A record per time step for each session, recording the true and observed population state, the number of actions of each type taken, and the costs set by the manager (player), as well as the total yield in the environment.
 
--   `yield`
+-   `yield` (Table S1e)
 
     The yield achieved by each farmer in each time step, per session.
 
 Records in tables `run`, `run_par` and `scores` are only updated at the start and end of each session, whereas `gdata` and `yield` are the "live" tables that are appended to at each time step during a game session.
 End times are recorded for each session where the player either reaches $t=25$, manually resets the game during a session, or as the animal population reaches extinction; i.e. when this field remains blank (`NULL`), it means that a session was not terminated "normally", i.e. by the browser being closed manually or timing out due to inactivity.
+
+\newpage
+
+```{r echo = FALSE}
+s1a_dat = read.csv("run_table_metadata.csv")
+tabS1a = flextable(s1a_dat)
+tabS1a = set_caption(tabS1a, caption = "Table S1(a). Description of database table `run`. Unique line per game session ID. 'Type' is the MySQL variable type and NULL indicates whether the value is allowed to be empty.")
+tabS1a <- autofit(tabS1a)
+tabS1a <- set_table_properties(tabS1a, layout = "autofit")
+tabS1a
+```
+
+\newpage
+
+```{r echo = FALSE}
+s1b_dat = read.csv("run_par_table_metadata.csv")
+tabS1b = flextable(s1b_dat)
+tabS1b = set_caption(tabS1b, caption = "Table S1(b). Description of database table `run_par`. Unique line per game session ID, storing GMSE parameter values for session. 'Type' is the MySQL variable type and NULL indicates whether the value is allowed to be empty.")
+tabS1b <- autofit(tabS1b)
+tabS1b <- set_table_properties(tabS1b, layout = "autofit")
+tabS1b
+```
+
+\newpage
+
+```{r echo = FALSE}
+s1c_dat = read.csv("scores_table_metadata.csv")
+tabS1c = flextable(s1c_dat)
+tabS1c = set_caption(tabS1c, caption = "Table S1(c). Description of database table `scores`. Unique line per game session ID, storing session score data. 'Type' is the MySQL variable type and NULL indicates whether the value is allowed to be empty.")
+tabS1c <- autofit(tabS1c)
+tabS1c <- set_table_properties(tabS1c, layout = "autofit")
+tabS1c
+```
+
+\newpage
+
+```{r echo = FALSE}
+s1d_dat = read.csv("gdata_table_metadata.csv")
+tabS1d = flextable(s1d_dat)
+tabS1d = set_caption(tabS1d, caption = "Table S1(d). Description of database table `gdata`. Unique line per game session and time step; stores observations (of animal population), farmer actions, and player actions per time step. 'Type' is the MySQL variable type and NULL indicates whether the value is allowed to be empty.")
+tabS1d <- autofit(tabS1d)
+tabS1d <- set_table_properties(tabS1d, layout = "autofit")
+tabS1d
+```
+
+\newpage
+
+```{r echo = FALSE}
+s1e_dat = read.csv("yield_table_metadata.csv")
+tabS1e = flextable(s1e_dat)
+tabS1e = set_caption(tabS1e, caption = "Table S1(e). Description of database table `yield`. Unique line per farmer within time step, within session. 'Type' is the MySQL variable type and NULL indicates whether the value is allowed to be empty.")
+tabS1e <- autofit(tabS1e)
+tabS1e <- set_table_properties(tabS1e, layout = "autofit")
+tabS1e
+```
+
+
