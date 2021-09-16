@@ -10,28 +10,29 @@ link-citations: true
 number-sections: true
 ---
 
-# Animal & Farm technical detail
+# Animal & Farm technical details
 
 ## Structure as relating to GMSE
 
 A&F uses a development version of GMSE implemented in `r sessionInfo()$R.version$version.string`, the code for which is freely available: <https://github.com/ConFooBio/gmse/tree/man_control>.
 In this version, the management model is replaced by player inputs, and the order of operations is altered to accommodate this.
 
-To initialise each game session, four time steps are run using the default GMSE implementation; i.e. in these time steps the management decisions are chosen by the default GA, and the resource, observation and user models are run using the parameters as defined for the given the scenario (see 4.2 below).
+To initialise each game session, four time steps are run using the default GMSE implementation; i.e. in these time steps the management decisions are chosen by the default GA, and the resource, observation and user models are run using the parameters as defined for the given scenario (see 4.2 below).
 These time steps are followed by a "partial" time step where only the resource and observation models are run, skipping the management and user models.
 As a result, at the end of these initial time steps ([`init_man_control()`](%5B%60https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L368%60%5D(https://github.com/ConFooBio/gmse/blob/0e8aab2fb325421915a7c3615820812e45f42a74/R/gmse_apply_control.R#L368))), the simulated system has five population and observation time steps and is ready for the next choice of management action at $t = 5$, pending the first player input.
 This is done both to set up all the required GMSE data structures using existing code, as well as to provide the player with a short time series on which to base management decisions going forward.
 
 ## Score calculation
 
-The scores are arbitrarily defined to reflect performance in terms of the animal population ("animal score", $A_t$) on the one hand, and overall agricultural yield ("yield score", $Y_t$) on the other.
-Both scores can be interpreted as the mean % of the initial (i.e. at time $t=5$) true size of the animal population $N_t$ and landscape yield $y_t$, with $y_t$ calculated as the mean yield over all landscape cells at time $t$ <!--# probably need to include a reference to cells/cell values on landscape here -->.
+The scores are arbitrarily defined to reflect performance in terms of the animal population ("animal score", $A_t$) on the one hand, and overall agricultural yield ("yield score", $S_t$) on the other.
+Both scores can be interpreted as the mean % of the initial (i.e. at time $t=5$) animal population size and landscape yield, respectively:
 
-$A_t = \left( \sum\frac{N_t}{N_{t=5}\cdot t}\right)\cdot 100$ and $S_{t}=\left(\frac{\sum_{t=5}^T{y_t}}{t}\right)\cdot 100$
+$A_t  = \frac{1}{N}\sum_{t=6}^Nn_t\left( \frac{1}{n_6} \right) \cdot 100$ and $S_t = \frac{1}{N}\sum_{t=6}^Ny_t$
 
-where $t\geq5$ and $T$ the total number of time steps for the game session.
+where $t\geq5$, and $n_t$ is the true size of the animal population at time step $t$, $N$ the total number of animal counts over all time steps in the session, and $y_t$ the mean landscape cell yield over the entire landscape.
+These calculations are done by the app function [`addScores()](https://github.com/jejoenje/GMSEGAME/blob/master/app/dbase_functions.R#L218-L243)` .
 
-Both scores are intitialised as $A_t = S_t = 100$ when the game is first initialised, to ensure score development over a session can be interpreted as a change from that baseline.
+Both scores are intitialised as $A_t = S_t = 100$ when the game is first started, to ensure score development over a session can be interpreted as a change from that baseline.
 
 ## Database backend
 

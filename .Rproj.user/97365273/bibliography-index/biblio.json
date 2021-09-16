@@ -2545,6 +2545,68 @@
             "title": "The educational value of virtual ecologies in red dead redemption 2",
             "type": "article-journal",
             "volume": "n/a"
+        },
+        {
+            "DOI": "10.7821/naer.3.1.11-19",
+            "URL": "https://naerjournal.ua.es/article/view/v3n1-2",
+            "author": [
+                {
+                    "family": "Pérez",
+                    "given": "María-Esther Del-Moral"
+                },
+                {
+                    "family": "Guzmán-Duque",
+                    "given": "Alba-Patricia"
+                }
+            ],
+            "container-title": "Journal of New Approaches in Educational Research",
+            "id": "pérez2014",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014,
+                        1,
+                        15
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Number: 1",
+            "page": "11-19",
+            "title": "CityVille: collaborative game play, communication and skill development in social networks",
+            "title-short": "CityVille",
+            "type": "article-journal",
+            "volume": "3"
+        },
+        {
+            "DOI": "10.1136/medhum-2012-010299",
+            "URL": "https://mh.bmj.com/content/39/2/115",
+            "author": [
+                {
+                    "family": "Oultram",
+                    "given": "Stuart"
+                }
+            ],
+            "container-title": "Medical Humanities",
+            "id": "oultram2013",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013,
+                        12,
+                        1
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "Publisher: Institute of Medical Ethics Section: Original article PMID: 23584861",
+            "page": "115-118",
+            "title": "Virtual plagues and real-world pandemics: reflecting on the potential for online computer role-playing games to inform real world epidemic research",
+            "title-short": "Virtual plagues and real-world pandemics",
+            "type": "article-journal",
+            "volume": "39"
         }
     ],
     "project_biblios": []
