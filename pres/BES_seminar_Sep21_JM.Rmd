@@ -1,0 +1,192 @@
+---
+title: "Models as games: ‘gamesourcing’ parameter data and communicating complex models"
+subtitle: ""
+author: "Jeroen Minderman (jeroen.minderman2@stir.ac.uk)"
+date: "<br><br>BES Seminar, September 2021"
+output:
+  xaringan::moon_reader:
+    css: ["default", "metropolis_jm.css", "metropolis_jm-fonts.css", "ninjutsu"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: [top, left]
+      ratio: '16:9'
+    seal: false
+---
+
+class:title-slide
+
+.center[
+## **Models as games**: *‘gamesourcing’ parameter data & communicating complex models*
+]
+
+<br>
+<div class="row">
+  <div class="column"; style="width: 100%; text-align: center; align: center;">
+    <img src = "images/animalNfarm_logo1.jpg" width = "50%">
+  </div>
+  <br>
+  
+  <div class="column"; style="width: 10%; float: left">
+  <br>
+  
+  </div>
+  <div class="column"; style="width: 50%; float: left; align-items:center; justify-content:center;">
+    <img src = "images/affiliation_funder_logos.jpg" width = "50%">
+  </div>
+  <div class="column"; style="width: 30%; float: right; text-align: left">
+    <b><a href="https://jejoenje.github.io/about/">Jeroen Minderman</a></b><br>
+    <a href="mailto:jeroen.minderman2@stir.ac.uk"><i>(jeroen.minderman2@stir.ac.uk)</i></a><br>
+  </div>
+  <div class="column"; style="width: 10%; float: right; text-align: left; padding-left: 20px; padding-right: 20px">
+    <br>
+  </div>
+  
+</div>
+
+---
+
+# Games as models, models as games?
+
+.pull-left[
+```{r, fig.retina = 2, echo=FALSE}
+knitr::include_graphics("images/lens_island_store_steampowered_com_app_1335830_Lens_Island_smaller.jpg")
+```
+.font50[
+[Len's Island](https://store.steampowered.com/app/1335830/Lens_Island/)
+]
+- Game "world"
+- Players & NPC's
+- Player actions
+- Game progress
+]
+.pull-right[
+```{r, fig.retina = 2, echo=FALSE}
+knitr::include_graphics("images/nabe_nielsen.png")
+```
+.font50[
+[*Nabe-Nielsen et al. 2014*](10.1016/j.ecolmodel.2013.09.025)
+]
+- Parameters
+- Agents
+- Inputs
+- Outputs (predictions)
+]
+
+---
+# Modelling resource use in complex systems
+```{r, fig.retina = 2, out.width = "90%", fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/semodelsA.jpg")
+```
+---
+# Modelling resource use in complex systems
+```{r, fig.retina = 2, out.width = "90%", fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/semodelsB.jpg")
+```
+---
+# Modelling resource use in complex systems
+```{r, fig.retina = 2, out.width = "90%", fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/semodelsC.jpg")
+```
+.font150[
+.center[
+Model challenges: .red[*communication*] and .red[**parameterisation**]
+]
+]
+---
+# GMSE: socio-ecological modelling framework
+.center[
+.font130[
+**Agent-based model of .red[animals] and .red[farmers] on a landscape**
+]
+]
+.left-column75[
+```{r, fig.retina = 2, out.width = "75%", fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/GMSE_structure2.jpg")
+```
+]
+.right-column25[
+```{r, fig.retina = 2, out.width = "100%", fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/GMSE_logo.jpg")
+```
+.font75[
+[https://confoobio.github.io/gmse/](https://confoobio.github.io/gmse/)  
+[Duthie et. al. (2018)](http://doi.wiley.com/10.1111/2041-210X.13091)  
+]
+]
+
+---
+# GMSE: socio-ecological modelling framework
+.center[
+.font130[
+**"Decision-making algorithm": .red[Manager] aims to maintain .red[population target]**
+]
+]
+.left-column75[
+```{r, fig.retina = 2, out.width = "75%", fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/GMSE_structure_GA2.jpg")
+```
+]
+.right-column25[
+```{r, fig.retina = 2, fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/optim_animals.jpg")
+```
+]
+---
+# GMSE: socio-ecological modelling framework
+.center[
+.font130[
+**"Decision-making algorithm": .red[Farmers] aim to maximise .red[crop yield]**
+]
+]
+.left-column75[
+```{r, fig.retina = 2, out.width = "75%", fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/GMSE_structure_GA2.jpg")
+```
+]
+.right-column25[
+```{r, fig.retina = 2, fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/optim_yield.jpg")
+```
+]
+---
+# GMSE: socio-ecological modelling framework
+.center[
+.font130[
+**.red[Manager] aims to maintain .red[population target]**  
+**.red[Farmers] aim to maximise .red[crop yield]**
+]
+]
+.pull-left[
+```{r, fig.retina = 2, out.width = "80%", fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/GMSE_structure_GA2.jpg")
+```
+]
+.pull-right[
+```{r, fig.retina = 2, out.width = "70%", fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/trends2.jpg")
+```
+]
+.center[
+.font130[**Need for algorithm that can .red[balance] objectives**]
+]
+---
+# Animal & Farm: game front-end for GMSE
+.font150[**Play here: [https://ochil-ds.co.uk/animalnfarm](https://ochil-ds.co.uk/animalnfarm)**]
+.pull-left[
+```{r, fig.retina = 2, out.width = "100%", fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/GMSE_structure_AnF.jpg")
+```
+]
+.pull-right[
+```{r, fig.retina = 2, out.width = "100%", fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/animalNfarm_logo1.jpg")
+```
+- Player actions replace manager model
+- Player sets costs for farmer actions
+- Free choice to focus on animals, yield, or both
+
+]
+

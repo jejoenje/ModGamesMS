@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Models as games: ‘gamesourcing’ parameter data and communicating complex models</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jeroen Minderman (jeroen.minderman2@stir.ac.uk)" />
+    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+    <link rel="stylesheet" href="metropolis_jm.css" type="text/css" />
+    <link rel="stylesheet" href="metropolis_jm-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+class:title-slide
+
+.center[
+## **Models as games**: *‘gamesourcing’ parameter data &amp; communicating complex models*
+]
+
+&lt;br&gt;
+&lt;div class="row"&gt;
+  &lt;div class="column"; style="width: 100%; text-align: center; align: center;"&gt;
+    &lt;img src = "images/animalNfarm_logo1.jpg" width = "50%"&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+  
+  &lt;div class="column"; style="width: 10%; float: left"&gt;
+  &lt;br&gt;
+  
+  &lt;/div&gt;
+  &lt;div class="column"; style="width: 50%; float: left; align-items:center; justify-content:center;"&gt;
+    &lt;img src = "images/affiliation_funder_logos.jpg" width = "50%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column"; style="width: 30%; float: right; text-align: left"&gt;
+    &lt;b&gt;&lt;a href="https://jejoenje.github.io/about/"&gt;Jeroen Minderman&lt;/a&gt;&lt;/b&gt;&lt;br&gt;
+    &lt;a href="mailto:jeroen.minderman2@stir.ac.uk"&gt;&lt;i&gt;(jeroen.minderman2@stir.ac.uk)&lt;/i&gt;&lt;/a&gt;&lt;br&gt;
+  &lt;/div&gt;
+  &lt;div class="column"; style="width: 10%; float: right; text-align: left; padding-left: 20px; padding-right: 20px"&gt;
+    &lt;br&gt;
+  &lt;/div&gt;
+  
+&lt;/div&gt;
+
+---
+
+# Games as models, models as games?
+
+.pull-left[
+![](images/lens_island_store_steampowered_com_app_1335830_Lens_Island_smaller.jpg)&lt;!-- --&gt;
+.font50[
+[Len's Island](https://store.steampowered.com/app/1335830/Lens_Island/)
+]
+- Game "world"
+- Players &amp; NPC's
+- Player actions
+- Game progress
+]
+.pull-right[
+&lt;img src="images/nabe_nielsen.png" width="431" /&gt;
+.font50[
+[*Nabe-Nielsen et al. 2014*](10.1016/j.ecolmodel.2013.09.025)
+]
+- Parameters
+- Agents
+- Inputs
+- Outputs (predictions)
+]
+
+---
+# Modelling resource use in complex systems
+&lt;img src="images/semodelsA.jpg" width="90%" style="display: block; margin: auto;" /&gt;
+---
+# Modelling resource use in complex systems
+&lt;img src="images/semodelsB.jpg" width="90%" style="display: block; margin: auto;" /&gt;
+---
+# Modelling resource use in complex systems
+&lt;img src="images/semodelsC.jpg" width="90%" style="display: block; margin: auto;" /&gt;
+.font150[
+.center[
+Model challenges: .red[*communication*] and .red[**parameterisation**]
+]
+]
+---
+# GMSE: socio-ecological modelling framework
+.center[
+.font130[
+**Agent-based model of .red[animals] and .red[farmers] on a landscape**
+]
+]
+.left-column75[
+&lt;img src="images/GMSE_structure2.jpg" width="75%" style="display: block; margin: auto;" /&gt;
+]
+.right-column25[
+&lt;img src="images/GMSE_logo.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+.font75[
+[https://confoobio.github.io/gmse/](https://confoobio.github.io/gmse/)  
+[Duthie et. al. (2018)](http://doi.wiley.com/10.1111/2041-210X.13091)  
+]
+]
+
+---
+# GMSE: socio-ecological modelling framework
+.center[
+.font130[
+**"Decision-making algorithm": .red[Manager] aims to maintain .red[population target]**
+]
+]
+.left-column75[
+&lt;img src="images/GMSE_structure_GA2.jpg" width="75%" style="display: block; margin: auto;" /&gt;
+]
+.right-column25[
+&lt;img src="images/optim_animals.jpg" style="display: block; margin: auto;" /&gt;
+]
+---
+# GMSE: socio-ecological modelling framework
+.center[
+.font130[
+**"Decision-making algorithm": .red[Farmers] aim to maximise .red[crop yield]**
+]
+]
+.left-column75[
+&lt;img src="images/GMSE_structure_GA2.jpg" width="75%" style="display: block; margin: auto;" /&gt;
+]
+.right-column25[
+&lt;img src="images/optim_yield.jpg" style="display: block; margin: auto;" /&gt;
+]
+---
+# GMSE: socio-ecological modelling framework
+.center[
+.font130[
+**.red[Manager] aims to maintain .red[population target]**  
+**.red[Farmers] aim to maximise .red[crop yield]**
+]
+]
+.pull-left[
+&lt;img src="images/GMSE_structure_GA2.jpg" width="80%" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+&lt;img src="images/trends2.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+]
+.center[
+.font130[**Need for algorithm that can .red[balance] objectives**]
+]
+---
+# Animal &amp; Farm: game front-end for GMSE
+.font150[**Play here: [https://ochil-ds.co.uk/animalnfarm](https://ochil-ds.co.uk/animalnfarm)**]
+.pull-left[
+&lt;img src="images/GMSE_structure_AnF.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+&lt;img src="images/animalNfarm_logo1.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+- Player actions replace manager model
+- Player sets costs for farmer actions
+- Free choice to focus on animals, yield, or both
+
+]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
