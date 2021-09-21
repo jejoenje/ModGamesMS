@@ -118,29 +118,11 @@ knitr::include_graphics("images/GMSE_logo.jpg")
 ]
 ]
 ]
-
 ---
 # GMSE: socio-ecological modelling framework
 .center[
 .font130[
-**"Decision-making algorithm": .red[Manager] aims to maintain .red[population target]**
-]
-]
-.left-column75[
-```{r, fig.retina = 2, out.width = "75%", fig.align = "center", echo=FALSE}
-knitr::include_graphics("images/GMSE_structure_GA2.jpg")
-```
-]
-.right-column25[
-```{r, fig.retina = 2, fig.align = "center", echo=FALSE}
-knitr::include_graphics("images/optim_animals.jpg")
-```
-]
----
-# GMSE: socio-ecological modelling framework
-.center[
-.font130[
-**"Decision-making algorithm": .red[Farmers] aim to maximise .red[crop yield]**
+**Decision-making algorithm: .red[Farmers] aim to maximise .red[crop yield]**
 ]
 ]
 .left-column75[
@@ -153,6 +135,24 @@ knitr::include_graphics("images/GMSE_structure_GA2.jpg")
 knitr::include_graphics("images/optim_yield.jpg")
 ```
 ]
+---
+# GMSE: socio-ecological modelling framework
+.center[
+.font130[
+**Decision-making algorithm: .red[Manager] aims to maintain .red[population target]**
+]
+]
+.left-column75[
+```{r, fig.retina = 2, out.width = "75%", fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/GMSE_structure_GA2.jpg")
+```
+]
+.right-column25[
+```{r, fig.retina = 2, fig.align = "center", echo=FALSE}
+knitr::include_graphics("images/optim_animals.jpg")
+```
+]
+
 ---
 # GMSE: socio-ecological modelling framework
 .center[
@@ -221,7 +221,7 @@ knitr::include_graphics("images/anf_interface.jpg")
 ]
 .pull-right[
 ## Potential
-- ### "Big data" source for improved decision-making algorithms
+- ### "Big data" source for alternative decision-making algorithm in GMSE
   
 - ### *In silico* experiments
 
