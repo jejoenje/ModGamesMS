@@ -2607,6 +2607,51 @@
             "title-short": "Virtual plagues and real-world pandemics",
             "type": "article-journal",
             "volume": "39"
+        },
+        {
+            "DOI": "10.1186/s12889-017-4189-8",
+            "URL": "https://doi.org/10.1186/s12889-017-4189-8",
+            "author": [
+                {
+                    "family": "Cheung",
+                    "given": "Kei Long"
+                },
+                {
+                    "family": "Klooster",
+                    "given": "Peter M.",
+                    "non-dropping-particle": "ten"
+                },
+                {
+                    "family": "Smit",
+                    "given": "Cees"
+                },
+                {
+                    "family": "Vries",
+                    "given": "Hein",
+                    "non-dropping-particle": "de"
+                },
+                {
+                    "family": "Pieterse",
+                    "given": "Marcel E."
+                }
+            ],
+            "container-title": "BMC Public Health",
+            "id": "cheung2017",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017,
+                        3,
+                        23
+                    ]
+                ]
+            },
+            "page": "276",
+            "title": "The impact of non-response bias due to sampling in public health studies: A comparison of voluntary versus mandatory recruitment in a dutch national survey on adolescent health",
+            "title-short": "The impact of non-response bias due to sampling in public health studies",
+            "type": "article-journal",
+            "volume": "17"
         }
     ],
     "project_biblios": []
