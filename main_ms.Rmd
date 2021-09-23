@@ -1,6 +1,5 @@
 ---
-title: 'Models as games: a novel approach for "gamesourcing" parameter data and
-  communicating complex models'
+title: "Models as games: a novel approach for 'gamesourcing' parameter data and communicating complex models"
 output:
   word_document:
     reference_docx: template.docx
