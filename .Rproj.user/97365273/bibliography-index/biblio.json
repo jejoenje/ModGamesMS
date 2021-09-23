@@ -1740,7 +1740,7 @@
             "note": "Publisher: Frontiers",
             "title": "NeMO-net  gamifying 3D labeling of multi-modal reference datasets to support automated marine habitat mapping",
             "type": "article-journal",
-            "volume": "0"
+            "volume": "8:645408"
         },
         {
             "DOI": "10.1016/j.ecolmodel.2006.04.023",
@@ -2468,20 +2468,18 @@
             ],
             "container-title": "People and Nature",
             "id": "crowley2021",
-            "issue": "n/a",
+            "issue": "",
             "issued": {
                 "date-parts": [
                     [
-                        2021,
-                        7,
-                        8
+                        0
                     ]
                 ]
             },
             "note": "Publisher: John Wiley & Sons, Ltd",
             "title": "The educational value of virtual ecologies in red dead redemption 2",
             "type": "article-journal",
-            "volume": "n/a"
+            "volume": ""
         },
         {
             "DOI": "10.7821/naer.3.1.11-19",
