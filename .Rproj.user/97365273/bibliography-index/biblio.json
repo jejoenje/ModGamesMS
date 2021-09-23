@@ -1,69 +1,6 @@
 {
     "sources": [
         {
-            "DOI": "10.1111/2041-210X.13091",
-            "URL": "http://doi.wiley.com/10.1111/2041-210X.13091",
-            "author": [
-                {
-                    "family": "Duthie",
-                    "given": "A. Bradley"
-                },
-                {
-                    "family": "Cusack",
-                    "given": "Jeremy J."
-                },
-                {
-                    "family": "Jones",
-                    "given": "Isabel L."
-                },
-                {
-                    "family": "Minderman",
-                    "given": "Jeroen"
-                },
-                {
-                    "family": "Nilsen",
-                    "given": "Erlend B."
-                },
-                {
-                    "family": "Pozo",
-                    "given": "Rocío A."
-                },
-                {
-                    "family": "Rakotonarivo",
-                    "given": "O. Sarobidy"
-                },
-                {
-                    "family": "Van Moorter",
-                    "given": "Bram"
-                },
-                {
-                    "family": "Bunnefeld",
-                    "given": "Nils"
-                }
-            ],
-            "container-title": "Methods in Ecology and Evolution",
-            "editor": [
-                {
-                    "family": "Price",
-                    "given": "Samantha"
-                }
-            ],
-            "id": "duthie2018",
-            "issued": {
-                "date-parts": [
-                    [
-                        2018,
-                        10,
-                        16
-                    ]
-                ]
-            },
-            "language": "en",
-            "title": "GMSE: An R package for generalised management strategy evaluation",
-            "title-short": "GMSE",
-            "type": "article-journal"
-        },
-        {
             "DOI": "10.1038/s41467-020-17785-2",
             "URL": "http://www.nature.com/articles/s41467-020-17785-2",
             "author": [
@@ -528,7 +465,7 @@
                 },
                 {
                     "family": "Rakotonarivo",
-                    "given": "O."
+                    "given": "O. Sarobidy"
                 },
                 {
                     "family": "Redpath",
@@ -1138,7 +1075,7 @@
             "author": [
                 {
                     "family": "Rakotonarivo",
-                    "given": "Sarobidy"
+                    "given": "O. Sarobidy"
                 },
                 {
                     "family": "Bell",
@@ -1249,7 +1186,7 @@
             "author": [
                 {
                     "family": "Rakotonarivo",
-                    "given": "Onjamirindra S."
+                    "given": "O. Sarobidy"
                 },
                 {
                     "family": "Jones",
@@ -1554,14 +1491,14 @@
                 },
                 {
                     "family": "Nilsson",
-                    "given": "Lovisa"
+                    "given": "L."
                 },
                 {
                     "family": "Pollard",
                     "given": "Chris R. J."
                 },
                 {
-                    "family": "Rakotonarivo",
+                    "family": "narivo",
                     "given": "O. Sarobidy"
                 },
                 {
@@ -2230,7 +2167,7 @@
             "author": [
                 {
                     "family": "Nilsson",
-                    "given": "Lovisa"
+                    "given": "L."
                 },
                 {
                     "family": "Bunnefeld",
@@ -2652,6 +2589,65 @@
             "title-short": "The impact of non-response bias due to sampling in public health studies",
             "type": "article-journal",
             "volume": "17"
+        },
+        {
+            "DOI": "10.1111/2041-210X.13091",
+            "URL": "http://onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13091",
+            "author": [
+                {
+                    "family": "Duthie",
+                    "given": "A. Bradley"
+                },
+                {
+                    "family": "Cusack",
+                    "given": "Jeremy J."
+                },
+                {
+                    "family": "Jones",
+                    "given": "Isabel L."
+                },
+                {
+                    "family": "Minderman",
+                    "given": "Jeroen"
+                },
+                {
+                    "family": "Nilsen",
+                    "given": "Erlend B."
+                },
+                {
+                    "family": "Pozo",
+                    "given": "Rocío A."
+                },
+                {
+                    "family": "Rakotonarivo",
+                    "given": "O. Sarobidy"
+                },
+                {
+                    "family": "Van Moorter",
+                    "given": "Bram"
+                },
+                {
+                    "family": "Bunnefeld",
+                    "given": "Nils"
+                }
+            ],
+            "container-title": "Methods in Ecology and Evolution",
+            "id": "duthie2018",
+            "issue": "12",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "language": "en",
+            "note": "_eprint: https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/2041-210X.13091",
+            "page": "2396-2401",
+            "title": "GMSE: An r package for generalised management strategy evaluation",
+            "title-short": "GMSE",
+            "type": "article-journal",
+            "volume": "9"
         }
     ],
     "project_biblios": []
